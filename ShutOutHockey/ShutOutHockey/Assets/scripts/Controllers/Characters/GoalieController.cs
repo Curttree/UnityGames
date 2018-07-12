@@ -13,7 +13,7 @@ public class GoalieController : MonoBehaviour {
         switch (target)
         {
             case 1:
-                GetComponent<Rigidbody2D>().MovePosition(new Vector3(0.51f, -1f, 0f));
+                GetComponent<Rigidbody2D>().MovePosition(new Vector3(0.41f, -1f, 0f));
                 GetComponent<SpriteRenderer>().sprite = glove;
                 break;
             case 2:
@@ -21,11 +21,15 @@ public class GoalieController : MonoBehaviour {
                 GetComponent<SpriteRenderer>().sprite = pad;
                 break;
             case 3:
-                GetComponent<Rigidbody2D>().MovePosition(new Vector3(1.51f, -1f, 0f));
+                GetComponent<Rigidbody2D>().MovePosition(new Vector3(1.71f, -1f, 0f));
                 GetComponent<SpriteRenderer>().sprite = butterfly;
                 break;
             case 4:
-                GetComponent<Rigidbody2D>().MovePosition(new Vector3(-0.51f, -1f, 0f));
+                GetComponent<Rigidbody2D>().MovePosition(new Vector3(-1f, -1f, 0f));
+                GetComponent<SpriteRenderer>().sprite = butterfly;
+                break;
+            case 5:
+                GetComponent<Rigidbody2D>().MovePosition(new Vector3(0.51f, -1f, 0f));
                 GetComponent<SpriteRenderer>().sprite = butterfly;
                 break;
             default:

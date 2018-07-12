@@ -6,15 +6,15 @@ using System.Collections;
 public class TargetController : MonoBehaviour
 {
     private SpriteRenderer rend;
-    private float shotFrequency;
+    public float shotFrequency;
     private float timer = 0.0f;
     private float fadeDuration = 0.0f;
-    private float frequencyOffset = 0.075f;
-    private int saveStreak = 0;
+    private float frequencyOffset = 0.05f;
     public GameObject gameController;
     public ScoreController scoreController;
     private GameObject goalie;
     private GameObject goalHorn;
+    private GameObject crowd;
     private OffenceController offenceController;
     private SpriteRenderer goalLightsRenderer;
     public int targetNumber;
@@ -26,10 +26,10 @@ public class TargetController : MonoBehaviour
         goalHorn = GameObject.FindGameObjectWithTag("GoalHorn");
         goalie = GameObject.FindGameObjectWithTag("Player");
         gameController = GameObject.FindGameObjectWithTag("GameController");
+        crowd = GameObject.FindGameObjectWithTag("Crowd");
         scoreController = gameController.GetComponent<ScoreController>();
         offenceController = gameController.GetComponent<OffenceController>();
         goalLightsRenderer = GameObject.FindGameObjectWithTag("GoalLights").GetComponent<SpriteRenderer>();
-        shotFrequency = offenceController.shotFrequency;
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class TargetController : MonoBehaviour
         if (this.GetComponent<TargetTouch>().state == TargetState.Active)
         {
             timer += Time.deltaTime;
-            if (timer >= shotFrequency)
+            if (timer >= offenceController.shotFrequency)
             {
                 timer = 0.0f;
                 Goal();
@@ -52,24 +52,24 @@ public class TargetController : MonoBehaviour
 
     public void PrepShot()
     {
-        if (saveStreak >= 10)
+        if (offenceController.saveStreak % 10 == 0)
         {
-            saveStreak = 0;
             offenceController.shotFrequency *= (1f - frequencyOffset);
         }
         rend.material.color = Color.blue;
         this.GetComponent<TargetTouch>().state = TargetState.Active;
         StartCoroutine(Activate(Color.blue));
         rend.enabled = true;
-        //Debug.Log(rend.gameObject.name + '=' + this.GetComponent<TargetTouch>().state.ToString());
     }
 
     public void Goal()
     {
-        saveStreak = 0;
+        offenceController.saveStreak = 0;
         offenceController.shotFrequency *= (1f + frequencyOffset * (scoreController.SA / 10));
         gameController.GetComponent<ScoreController>().SA++;
         gameController.GetComponent<ScoreController>().goals++;
+
+        crowd.GetComponent<CrowdController>().scale = crowd.GetComponent<CrowdController>().GetExcitement();
         goalHorn.GetComponent<AudioSource>().Play();
         rend.material.color = Color.red;
         rend.enabled = false;
@@ -80,10 +80,16 @@ public class TargetController : MonoBehaviour
 
     public void Save()
     {
-        saveStreak++;
+        offenceController.saveStreak++;
         goalie.GetComponent<GoalieController>().Save(targetNumber);
+        offenceController.AcceleratePuck(this.gameObject);
         gameController.GetComponent<ScoreController>().SA++;
         gameController.GetComponent<ScoreController>().SV++;
+        InactivateTarget();
+    }
+
+    public void InactivateTarget()
+    {
         StartCoroutine(Inactivate(Color.blue));
         this.GetComponent<TargetTouch>().state = TargetState.Held;
     }

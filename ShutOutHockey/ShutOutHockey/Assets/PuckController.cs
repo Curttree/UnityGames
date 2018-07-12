@@ -6,15 +6,18 @@ public class PuckController : MonoBehaviour {
 
     private float puckSpeed;
 
-	public IEnumerator Shot(Transform start,Transform target,float speed)
+    public float acceleration = 0f;
+
+    public GameObject targetObject;
+
+	public IEnumerator Shot(Transform start,Transform targetTransform,float speed)
     {
         puckSpeed = speed;
         //float delay = Vector2.Distance(start.position, target.position) / puckSpeed/(1/Time.deltaTime*10f);
         //Debug.Log(delay);
-        while (Vector2.Distance(transform.position, target.position) >= 0.01f)
+        while (Vector2.Distance(transform.position, targetTransform.position) >= 0.01f)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, puckSpeed);
-            Debug.Log(puckSpeed.ToString());
+            transform.position = Vector3.MoveTowards(transform.position, targetTransform.position, puckSpeed+acceleration);
             yield return new WaitForSeconds(0.02f);
         }
         Destroy(gameObject);

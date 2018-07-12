@@ -43,6 +43,15 @@ public class PauseController : MonoBehaviour {
     private void Pause()
     {
         isPaused = true;
+        foreach (GameObject target in GameObject.FindGameObjectsWithTag("Target"))
+        {
+            target.GetComponent<TargetController>().InactivateTarget();
+        }
+        foreach (GameObject puck in GameObject.FindGameObjectsWithTag("Puck"))
+        {
+            StopCoroutine("Shot");
+            Destroy(puck);
+        }
         pauseBG.SetActive(true);
         pauseMenu.SetActive(true);
         Time.timeScale = 0;

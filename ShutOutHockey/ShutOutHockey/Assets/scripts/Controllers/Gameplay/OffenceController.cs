@@ -10,15 +10,20 @@ public class OffenceController : MonoBehaviour {
     private GameObject[] targets;
     public GameObject whistle;
     public GameObject puck;
+    private GameObject crowd;
     public Transform shotStart;
     public ScoreController scoreController;
     private float timer = 0.0f;
+    public float puckAcceleration = 10f;
+    public float magicSpeed = 25f;
+    public int saveStreak = 0;
 
     // Use this for initialization
     void Start()
     {
         whistle = GameObject.FindGameObjectWithTag("Whistle");
         targets = GameObject.FindGameObjectsWithTag("Target");
+        crowd = GameObject.FindGameObjectWithTag("Crowd");
         shotStart = GameObject.FindGameObjectWithTag("ShotStart").transform;
         scoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
     }
@@ -48,10 +53,14 @@ public class OffenceController : MonoBehaviour {
     {
         int shotLocation = SelectTarget(targets); 
         GameObject target = targets[shotLocation];
-        target.GetComponent<TargetController>().PrepShot();
         float speed = CalculateShotSpeed(target.transform, shotStart);
-        GameObject puckClone = Instantiate(puck, shotStart);
-        StartCoroutine(puckClone.GetComponent<PuckController>().Shot(shotStart,target.transform,1f));
+
+        target.GetComponent<TargetController>().PrepShot();
+        crowd.GetComponent<CrowdController>().scale = crowd.GetComponent<CrowdController>().GetExcitement();
+
+        GameObject puckClone = Instantiate(puck, shotStart.position,shotStart.rotation);
+        puckClone.GetComponent<PuckController>().targetObject = target;
+        StartCoroutine(puckClone.GetComponent<PuckController>().Shot(shotStart,target.transform,speed));
     }
 
     int SelectTarget(GameObject[] possibleTargets)
@@ -70,8 +79,17 @@ public class OffenceController : MonoBehaviour {
 
     float CalculateShotSpeed(Transform target,Transform puck)
     {
-        float speed=0f;
-        speed = Vector2.Distance(target.position, puck.position) / shotFrequency;
-        return speed; 
+        return (Vector3.Distance(puck.position, target.position) / (shotFrequency*magicSpeed));
+    }
+
+    public void AcceleratePuck(GameObject target)
+    {
+        foreach (GameObject puck in GameObject.FindGameObjectsWithTag("Puck"))
+        {
+            if (puck.GetComponent<PuckController>().targetObject = target)
+            {
+                puck.GetComponent<PuckController>().acceleration = puckAcceleration;
+            }
+        }
     }
 }

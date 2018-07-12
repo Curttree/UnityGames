@@ -48,6 +48,7 @@ f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TargetStates
+708ebdbdeb88affea9f8fb502c585af4 Assembly-CSharp.dll:.PuckController
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -120,7 +121,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.BGScroll
 988535efd6d814fd4bfdb386efd91e9d Assembly-CSharp.dll:.GameController
 1d8ce384d7cd5a0ba54365eb5e8dbf46 Assembly-CSharp.dll:.ScoreController
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CrowdController
+a842119dc79a6fc63a8c4a009c7f53d7 Assembly-CSharp.dll:.CrowdController
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -138,7 +139,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 96d0fbde9fd209878a0a291f82c9bcdd UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
-9c339de527c95e6754a6b77ddf878c51 Assembly-CSharp.dll:.TargetController
+ccee60bcfec71a98fab9472a70444035 Assembly-CSharp.dll:.TargetController
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
@@ -151,6 +152,5 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 d987728b46686fbf1bda7ef812b4baff Assembly-CSharp.dll:.TargetTouch
 a615a05ff337fb945e30641e837c47f1 Assembly-CSharp.dll:.PauseController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:ObjectProvider.ObjectProvider
-e70019c74cfde461428417fc1630c484 Assembly-CSharp.dll:.OffenceController
+7a3b370417b93e81d53479cd56cce08e Assembly-CSharp.dll:.OffenceController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.StartButtonHandler
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PuckController

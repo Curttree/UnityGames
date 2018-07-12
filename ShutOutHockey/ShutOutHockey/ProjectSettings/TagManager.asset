@@ -15,6 +15,7 @@ TagManager:
   - GoalLights
   - Puck
   - ShotStart
+  - Crowd
   layers:
   - Default
   - TransparentFX
