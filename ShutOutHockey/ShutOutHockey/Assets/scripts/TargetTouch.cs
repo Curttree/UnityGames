@@ -9,6 +9,7 @@ public class TargetTouch : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        state = TargetState.Inactive;
         rend = GetComponent<Renderer>();
         targetController = GetComponent<TargetController>();
         goalie = GameObject.FindGameObjectWithTag("Player");

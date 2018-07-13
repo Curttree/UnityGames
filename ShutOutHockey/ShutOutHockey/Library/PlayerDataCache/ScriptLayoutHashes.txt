@@ -119,8 +119,8 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 172eb71ec9adee6708eba83591371d3b Assembly-CSharp.dll:.GoalieController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.BGScroll
-988535efd6d814fd4bfdb386efd91e9d Assembly-CSharp.dll:.GameController
-1d8ce384d7cd5a0ba54365eb5e8dbf46 Assembly-CSharp.dll:.ScoreController
+7a31493b3d195ef343a49885f604d257 Assembly-CSharp.dll:.GameController
+f3709f5c53e98baaa3823ea4ad0a1df6 Assembly-CSharp.dll:.ScoreController
 a842119dc79a6fc63a8c4a009c7f53d7 Assembly-CSharp.dll:.CrowdController
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -152,6 +152,6 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 d987728b46686fbf1bda7ef812b4baff Assembly-CSharp.dll:.TargetTouch
 1f69bcde6ecad5371e8558f482eaa091 Assembly-CSharp.dll:.PauseController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:ObjectProvider.ObjectProvider
-7a3b370417b93e81d53479cd56cce08e Assembly-CSharp.dll:.OffenceController
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.StartButtonHandler
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.FadeIn
+4ad90c3a8f702574a16ba0bd8ef093ba Assembly-CSharp.dll:.OffenceController
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.StartButtonHandler

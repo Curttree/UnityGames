@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour
 {
-    public bool countDown = false;
+    public int gameLength = 120;
     public int SV = 0;
     public int SA = 0;
     public int goals = 0;
@@ -24,11 +23,13 @@ public class ScoreController : MonoBehaviour
         timeUI = GameObject.FindGameObjectWithTag("Timer");
         pauseController = GetComponent<PauseController>();
         StartCoroutine(Scoreboard());
+
+        timeUI.GetComponent<Text>().text = TimeSpan.FromSeconds(gameLength).ToString(@"m\:ss");
     }
 
     private void Update()
     {
-        if (TimeSpan.FromSeconds(Time.timeSinceLevelLoad) > gameStart+TimeSpan.FromSeconds(121))
+        if (TimeSpan.FromSeconds(Time.timeSinceLevelLoad) > gameStart+TimeSpan.FromSeconds(gameLength+1))
         {
             pauseController.LockGame();
         }
@@ -37,7 +38,7 @@ public class ScoreController : MonoBehaviour
     IEnumerator Timer()
     {
         TimeSpan gameTime;
-        TimeSpan limit = TimeSpan.FromSeconds(120);
+        TimeSpan limit = TimeSpan.FromSeconds(gameLength);
         TimeSpan remainingTime = limit;
         while (remainingTime > TimeSpan.FromSeconds(0))
         {
@@ -54,7 +55,6 @@ public class ScoreController : MonoBehaviour
         {
             if (SA > 0)
                 svPecent = (float)SV / SA;
-            //Debug.Log($"SV: {SV}, SA: {SA}, SV%:{svPecent}");
             svPercentUI.GetComponent<Text>().text = $"Save% = {svPecent.ToString("0.000")}    SV = {SV.ToString()}     SA = {SA.ToString()}";
             scoreUI.GetComponent<Text>().text = goals.ToString();
             yield return new WaitForSeconds(0.5f);
