@@ -16,6 +16,8 @@ TagManager:
   - Puck
   - ShotStart
   - Crowd
+  - FadeIn
+  - ResumeButton
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - OverlayEffect
   - 
   - 
   - 

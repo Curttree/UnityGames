@@ -9,7 +9,6 @@ public class CrowdController : MonoBehaviour {
     private bool goingDown;
     public float scale = 0f;
     private GameObject gameController;
-    private int saveStreak;
 
 
 	// Use this for initialization
@@ -40,8 +39,6 @@ public class CrowdController : MonoBehaviour {
         float saveStreak = gameController.GetComponent<OffenceController>().saveStreak;
         float excitement = 5 * maxScale - (saveStreak / 10f * maxScale);
         float returnVal = (excitement < maxScale) ? maxScale : excitement;
-        Debug.Log(returnVal);
         return returnVal;
-            
     }
 }

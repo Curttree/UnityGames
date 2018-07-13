@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour {
     {
         if (pause != null)
         {
+            pause.isPaused = false;
             pause.OnClick();
         }
     }
@@ -26,6 +27,7 @@ public class GameController : MonoBehaviour {
     {
         if (pause != null)
         {
+            pause.isPaused = false;
             pause.OnClick();
         }
     }
@@ -34,5 +36,11 @@ public class GameController : MonoBehaviour {
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("menu");
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("gameplay");
     }
 }

@@ -18,6 +18,7 @@ public class TargetTouch : MonoBehaviour {
     {
         if (state == TargetState.Active)
         {
+
             targetController.Save();
         }
     }

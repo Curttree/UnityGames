@@ -8,12 +8,16 @@ public class PauseController : MonoBehaviour {
     public GameObject whistle;
     public GameObject pauseBG;
     public GameObject pauseMenu;
+    public GameObject resumeButton;
+    public GameObject timeOver;
 
     private void Start()
     {
         whistle = GameObject.FindGameObjectWithTag("Whistle");
         pauseBG = GameObject.FindGameObjectWithTag("PauseBG");
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        resumeButton = GameObject.FindGameObjectWithTag("ResumeButton");
+        timeOver = GameObject.Find("TimeOver");
         pauseBG.SetActive(false);
         pauseMenu.SetActive(false);
     }
@@ -50,10 +54,20 @@ public class PauseController : MonoBehaviour {
         foreach (GameObject puck in GameObject.FindGameObjectsWithTag("Puck"))
         {
             StopCoroutine("Shot");
-            Destroy(puck);
+            puck.GetComponent<PuckController>().activePuck = false;
         }
         pauseBG.SetActive(true);
         pauseMenu.SetActive(true);
+        if (timeRemaining)
+        {
+            timeOver.SetActive(false);
+            resumeButton.SetActive(true);
+        }
+        else
+        {
+            timeOver.SetActive(true);
+            resumeButton.SetActive(false);
+        }
         Time.timeScale = 0;
     }
 

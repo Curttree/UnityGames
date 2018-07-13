@@ -304,6 +304,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BGScroll.cs" />
+    <Compile Include="Assets\FadeIn.cs" />
     <Compile Include="Assets\PuckController.cs" />
     <Compile Include="Assets\scripts\Controllers\Characters\CrowdController.cs" />
     <Compile Include="Assets\scripts\Controllers\Characters\GoalieController.cs" />
