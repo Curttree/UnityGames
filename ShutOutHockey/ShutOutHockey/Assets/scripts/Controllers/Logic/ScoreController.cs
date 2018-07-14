@@ -13,15 +13,19 @@ public class ScoreController : MonoBehaviour
     private GameObject svPercentUI;
     private GameObject scoreUI;
     private GameObject timeUI;
+    private GameObject streakUI;
     private TimeSpan gameStart;
     private PauseController pauseController;
+    private OffenceController offenceController;
     // Use this for initialization
     void Start()
     {
         svPercentUI = GameObject.FindGameObjectWithTag("SVPercent");
         scoreUI = GameObject.FindGameObjectWithTag("Score");
         timeUI = GameObject.FindGameObjectWithTag("Timer");
+        streakUI = GameObject.Find("Streak");
         pauseController = GetComponent<PauseController>();
+        offenceController= GetComponent<OffenceController>();
         StartCoroutine(Scoreboard());
 
         timeUI.GetComponent<Text>().text = TimeSpan.FromSeconds(gameLength).ToString(@"m\:ss");
@@ -33,6 +37,11 @@ public class ScoreController : MonoBehaviour
         {
             pauseController.LockGame();
         }
+        if (svPercentUI.transform.position.x <= 150)
+        {
+            svPercentUI.transform.position = new Vector3(1050,svPercentUI.transform.position.y);
+        }
+        svPercentUI.transform.Translate(new Vector3(-0.4f, 0, 0));
     }
 
     IEnumerator Timer()
@@ -55,7 +64,9 @@ public class ScoreController : MonoBehaviour
         {
             if (SA > 0)
                 svPecent = (float)SV / SA;
-            svPercentUI.GetComponent<Text>().text = $"Save% = {svPecent.ToString("0.000")}    SV = {SV.ToString()}     SA = {SA.ToString()}";
+            svPercentUI.GetComponent<Text>().text = $"Save% : {svPecent.ToString("0.000")}    SV : {SV.ToString()}     SA : {SA.ToString()}";
+            
+            streakUI.GetComponent<Text>().text = $"Streak : {offenceController.saveStreak}";
             scoreUI.GetComponent<Text>().text = goals.ToString();
             yield return new WaitForSeconds(0.5f);
         }
