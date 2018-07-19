@@ -2432,7 +2432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1218887132
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3164,6 +3164,7 @@ GameObject:
   - component: {fileID: 1592840909}
   - component: {fileID: 1592840912}
   - component: {fileID: 1592840911}
+  - component: {fileID: 1592840913}
   m_Layer: 0
   m_Name: Goalie
   m_TagString: Player
@@ -3263,6 +3264,24 @@ MonoBehaviour:
   butterfly: {fileID: 21300000, guid: 2f2040b5ac9db0147a4d3add0d8632e9, type: 3}
   glove: {fileID: 21300000, guid: 29bf4be06e371674fb2c3c3790be532c, type: 3}
   pad: {fileID: 21300000, guid: 0e3eb697f19a88847b28ce568224864c, type: 3}
+  anim: {fileID: 1592840913}
+--- !u!95 &1592840913
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1592840908}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 55fd678091cc57346b3f6101de4e7855, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1630728073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3469,7 +3488,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: b3deeb997e0c6414f874412f65f0c8bb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
