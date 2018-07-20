@@ -37,11 +37,6 @@ public class ScoreController : MonoBehaviour
         {
             pauseController.LockGame();
         }
-        if (svPercentUI.transform.position.x <= 150)
-        {
-            svPercentUI.transform.position = new Vector3(1400,svPercentUI.transform.position.y);
-        }
-        svPercentUI.transform.Translate(new Vector3(-0.4f, 0, 0));
     }
 
     IEnumerator Timer()

@@ -317,10 +317,13 @@
     <Compile Include="Assets\scripts\Enum\TargetStates.cs" />
     <Compile Include="Assets\scripts\GUI\BGScroll.cs" />
     <Compile Include="Assets\scripts\GUI\FadeIn.cs" />
+    <Compile Include="Assets\scripts\GUI\Flash.cs" />
     <Compile Include="Assets\scripts\GUI\StartButtonHandler.cs" />
     <Compile Include="Assets\scripts\Interfaces\IPuckController.cs" />
     <Compile Include="Assets\scripts\Providers\ObjectProvider.cs" />
+    <Compile Include="Assets\scripts\Strobe.cs" />
     <Compile Include="Assets\scripts\TargetTouch.cs" />
+    <Compile Include="Assets\scripts\TextScroll.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PIDI Game Development Framework\PIDI - 2D Reflections\Shared\Layered Background (Public Domain)\license.txt" />

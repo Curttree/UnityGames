@@ -8,10 +8,12 @@ public class GoalieController : MonoBehaviour {
     public Sprite glove;
     public Sprite pad;
     public Animator anim;
+    public GameObject demoTargets;
 
     public void Start()
     {
         anim = GetComponent<Animator>();
+        anim.SetBool("Intro", true);
     }
     public void Save(int target)
     {
@@ -46,4 +48,10 @@ public class GoalieController : MonoBehaviour {
             
 
     }
+
+    public void IntroEnded()
+    {
+        anim.SetBool("Intro", false);
+        Destroy(demoTargets);
+}
 }
