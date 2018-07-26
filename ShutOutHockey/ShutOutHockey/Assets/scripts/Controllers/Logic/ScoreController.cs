@@ -72,4 +72,22 @@ public class ScoreController : MonoBehaviour
         gameStart = TimeSpan.FromSeconds(Time.timeSinceLevelLoad);
         StartCoroutine(Timer());
     }
+
+    public void UpdatePrefs()
+    {
+        int SAPref = 0;
+        int SVPref = 0;
+
+        if (PlayerPrefs.HasKey("SA"))
+        {
+            SAPref = PlayerPrefs.GetInt("SA");
+        }
+        if (PlayerPrefs.HasKey("SV"))
+        {
+            SVPref = PlayerPrefs.GetInt("SV");
+        }
+
+        PlayerPrefs.SetInt("SA", SAPref + SA);
+        PlayerPrefs.SetInt("SV", SVPref + SV);
+    }
 }

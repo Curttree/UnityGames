@@ -912,7 +912,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1773610605777902, guid: 92cc9d38f9f8a4347a91c33691fa1392, type: 2}
       propertyPath: m_Name
-      value: SvPercent
+      value: SvPercentGlobal
       objectReference: {fileID: 0}
     - target: {fileID: 114656146869130886, guid: 92cc9d38f9f8a4347a91c33691fa1392,
         type: 2}
@@ -1263,6 +1263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pause: {fileID: 0}
   offenceController: {fileID: 0}
+  scoreController: {fileID: 0}
 --- !u!4 &1949318645
 Transform:
   m_ObjectHideFlags: 0
