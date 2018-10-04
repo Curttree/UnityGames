@@ -34,8 +34,8 @@ Material:
     - _AlphaBackground: 0
     - _GameCam: 0
     - _InvertProjection: 0
-    - _ReflectionFade: 0.952
-    - _ReflectivityFactor: 1.055
+    - _ReflectionFade: 0.9
+    - _ReflectivityFactor: 1.5
     - _SurfaceDistortion: 0.05
     - _SurfaceLevel: 1.33
     - _TransparencyFactor: 0.344

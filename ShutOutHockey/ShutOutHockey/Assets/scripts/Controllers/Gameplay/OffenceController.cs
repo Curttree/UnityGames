@@ -14,7 +14,7 @@ public class OffenceController : MonoBehaviour {
     public Transform shotStart;
     public ScoreController scoreController;
     private float timer = 0.0f;
-    public float puckAcceleration = 10f;
+    public float puckAcceleration = 1.25f;
     public float magicSpeed = 25f;
     public int saveStreak = 0;
     public AudioSource slapShot;
@@ -83,7 +83,7 @@ public class OffenceController : MonoBehaviour {
 
     float CalculateShotSpeed(Transform target,Transform puck)
     {
-        return (Vector3.Distance(puck.position, target.position) / (shotFrequency*magicSpeed));
+        return (Vector3.Distance(puck.position, target.position) / (shotFrequency*magicSpeed>0? shotFrequency * magicSpeed : 1));
     }
 
     public void AcceleratePuck(GameObject target)

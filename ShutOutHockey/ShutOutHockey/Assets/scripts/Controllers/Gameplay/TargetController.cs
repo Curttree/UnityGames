@@ -9,7 +9,8 @@ public class TargetController : MonoBehaviour
     public float shotFrequency;
     private float timer = 0.0f;
     private float fadeDuration = 0.0f;
-    private float frequencyOffset = 0.05f;
+    private float frequencyOffset = 0.005f;
+    private float magicNumber = 25f;
     public GameObject gameController;
     public ScoreController scoreController;
     private GameObject goalie;
@@ -52,10 +53,13 @@ public class TargetController : MonoBehaviour
 
     public void PrepShot()
     {
-        if (offenceController.saveStreak % 10 == 0)
-        {
-            offenceController.shotFrequency *= (1f - frequencyOffset);
-        }
+        //if (offenceController.saveStreak % 10 == 0)
+        //{
+        //    offenceController.shotFrequency *= (1f - frequencyOffset);
+        //}
+        //offenceController.shotFrequency = 1/(Mathf.Log10((scoreController.SA+1)-(1-Mathf.Pow(25,scoreController.goals))/4f)+0.5f);
+        //offenceController.shotFrequency
+        Debug.Log(offenceController.shotFrequency.ToString());
         rend.material.color = Color.blue;
         this.GetComponent<TargetTouch>().state = TargetState.Active;
         StartCoroutine(Activate(Color.blue));
@@ -65,7 +69,7 @@ public class TargetController : MonoBehaviour
     public void Goal()
     {
         offenceController.saveStreak = 0;
-        offenceController.shotFrequency *= (1f + frequencyOffset * (scoreController.SA / 10));
+        //offenceController.shotFrequency *= (1f + frequencyOffset * (scoreController.SA / 10));
         gameController.GetComponent<ScoreController>().SA++;
         gameController.GetComponent<ScoreController>().goals++;
 
