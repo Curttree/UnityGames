@@ -8,9 +8,6 @@ public class TargetController : MonoBehaviour
     private SpriteRenderer rend;
     public float shotFrequency;
     private float timer = 0.0f;
-    private float fadeDuration = 0.0f;
-    private float frequencyOffset = 0.005f;
-    private float magicNumber = 25f;
     public GameObject gameController;
     public ScoreController scoreController;
     private GameObject goalie;
@@ -41,7 +38,7 @@ public class TargetController : MonoBehaviour
         if (this.GetComponent<TargetTouch>().state == TargetState.Active)
         {
             timer += Time.deltaTime;
-            if (timer >= offenceController.shotFrequency*difficulty)
+            if (timer >= offenceController.shotFrequency/difficulty)
             {
                 timer = 0.0f;
                 Goal();

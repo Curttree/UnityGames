@@ -35,7 +35,7 @@ public class ScoreController : MonoBehaviour
 
     private void Update()
     {
-        if (TimeSpan.FromSeconds(Time.timeSinceLevelLoad) > gameStart+TimeSpan.FromSeconds(gameLength+1))
+        if (TimeSpan.FromSeconds(Time.timeSinceLevelLoad) > gameStart+TimeSpan.FromSeconds(gameLength+1) && !pauseController.isPaused)
         {
             pauseController.LockGame();
         }

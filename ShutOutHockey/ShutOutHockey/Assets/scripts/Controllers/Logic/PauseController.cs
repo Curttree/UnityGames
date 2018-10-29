@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PauseController : MonoBehaviour {
     public bool isPaused=false;
@@ -32,9 +30,9 @@ public class PauseController : MonoBehaviour {
 
     public void OnClick()
     {
-        whistle.GetComponent<AudioSource>().Play();
         if (timeRemaining)
         {
+            whistle.GetComponent<AudioSource>().Play();
             if (isPaused)
             {
                 UnPause();

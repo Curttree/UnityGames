@@ -15,7 +15,7 @@ public class OffenceController : MonoBehaviour {
     public ScoreController scoreController;
     private float timer = 0.0f;
     public float puckAcceleration = 1.25f;
-    public float magicSpeed = 25f;
+    public float magicSpeed;
     public float gameDifficulty = 1f;
     public int saveStreak = 0;
     public AudioSource slapShot;
@@ -36,7 +36,7 @@ public class OffenceController : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         timer += Time.deltaTime;
-        if (timer >= shotFrequency/gameDifficulty && !gameStart)
+        if (timer >= shotFrequency/gameDifficulty*1.2f && !gameStart)
         {
             timer = 0.0f;
             ShootPuck();
@@ -58,9 +58,8 @@ public class OffenceController : MonoBehaviour {
     {
         int shotLocation = SelectTarget(targets); 
         GameObject target = targets[shotLocation];
-        float speed = CalculateShotSpeed(target.transform, shotStart);
-
         PlaySlapShotSound(target.GetComponent<TargetController>().targetNumber);
+        float speed = CalculateShotSpeed(target.transform, shotStart.transform);
         target.GetComponent<TargetController>().PrepShot();
         crowd.GetComponent<CrowdController>().scale = crowd.GetComponent<CrowdController>().GetExcitement();
 
