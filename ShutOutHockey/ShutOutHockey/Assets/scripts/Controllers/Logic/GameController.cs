@@ -17,8 +17,8 @@ public class GameController : MonoBehaviour {
         scoreController = GameObject.FindGameObjectWithTag("GameController")?.GetComponent<ScoreController>();
         pause = GameObject.FindGameObjectWithTag("GameController")?.GetComponent<PauseController>();
         UpdateSVPercent();
-        if (Application.platform == RuntimePlatform.Android)
-            Screen.SetResolution(960, 640, true);
+        //if (Application.platform == RuntimePlatform.Android)
+        Screen.SetResolution(960, 640, true);
 	}
 
     void OnApplicationFocus(bool hasFocus)
@@ -59,8 +59,7 @@ public class GameController : MonoBehaviour {
         if (svpercent != null)
         {
             float percent = (float)PlayerPrefs.GetInt("SV") / (PlayerPrefs.GetInt("SA") > 0 ? PlayerPrefs.GetInt("SA") : 1);
-            Debug.Log($"SV:{PlayerPrefs.GetInt("SV")}/SA:{PlayerPrefs.GetInt("SA")}={percent}");
-            svpercent.GetComponent<Text>().text = $"SV% : {percent.ToString("0.000")} "; 
+            svpercent.GetComponent<Text>().text = $"SV%|{percent.ToString("0.000")}"; 
         }
     }
 }

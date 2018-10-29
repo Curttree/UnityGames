@@ -16,6 +16,7 @@ public class OffenceController : MonoBehaviour {
     private float timer = 0.0f;
     public float puckAcceleration = 1.25f;
     public float magicSpeed = 25f;
+    public float gameDifficulty = 1f;
     public int saveStreak = 0;
     public AudioSource slapShot;
     public AudioSource slapShot2;
@@ -28,13 +29,14 @@ public class OffenceController : MonoBehaviour {
         crowd = GameObject.FindGameObjectWithTag("Crowd");
         shotStart = GameObject.FindGameObjectWithTag("ShotStart").transform;
         scoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
+        gameDifficulty = GetDifficulty();
         timer = 0.0f;
     }
 
     // Update is called once per frame
     void Update () {
         timer += Time.deltaTime;
-        if (timer >= shotFrequency && !gameStart)
+        if (timer >= shotFrequency/gameDifficulty && !gameStart)
         {
             timer = 0.0f;
             ShootPuck();
@@ -83,19 +85,20 @@ public class OffenceController : MonoBehaviour {
 
     float CalculateShotSpeed(Transform target,Transform puck)
     {
-        return (Vector3.Distance(puck.position, target.position) / (shotFrequency*magicSpeed>0? shotFrequency * magicSpeed : 1));
+        return (Vector3.Distance(puck.position, target.position) / (shotFrequency*magicSpeed>0? shotFrequency * magicSpeed : 1)) * gameDifficulty;
     }
 
-    public void AcceleratePuck(GameObject target)
+    public void AcceleratePuck(GameObject target, float acceleration)
     {
         foreach (GameObject puck in GameObject.FindGameObjectsWithTag("Puck"))
         {
             if (puck.GetComponent<PuckController>().targetObject = target)
             {
-                puck.GetComponent<PuckController>().acceleration = puckAcceleration;
+                puck.GetComponent<PuckController>().acceleration = acceleration;
             }
         }
     }
+
 
     public void PlaySlapShotSound(int targetNumber)
     {
@@ -107,5 +110,11 @@ public class OffenceController : MonoBehaviour {
         {
             slapShot2.Play();
         }
+    }
+
+    private float GetDifficulty()
+    {
+        float difficulty = PlayerPrefs.HasKey("Difficulty") ? PlayerPrefs.GetFloat("Difficulty") : 1f;
+        return difficulty;
     }
 }

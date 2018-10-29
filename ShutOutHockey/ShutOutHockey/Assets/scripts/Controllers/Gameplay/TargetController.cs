@@ -19,6 +19,7 @@ public class TargetController : MonoBehaviour
     private OffenceController offenceController;
     private SpriteRenderer goalLightsRenderer;
     public int targetNumber;
+    private float difficulty;
 
     // Use this for initialization
     void Start()
@@ -30,6 +31,7 @@ public class TargetController : MonoBehaviour
         crowd = GameObject.FindGameObjectWithTag("Crowd");
         scoreController = gameController.GetComponent<ScoreController>();
         offenceController = gameController.GetComponent<OffenceController>();
+        difficulty = offenceController.gameDifficulty;
         goalLightsRenderer = GameObject.FindGameObjectWithTag("GoalLights").GetComponent<SpriteRenderer>();
     }
 
@@ -39,7 +41,7 @@ public class TargetController : MonoBehaviour
         if (this.GetComponent<TargetTouch>().state == TargetState.Active)
         {
             timer += Time.deltaTime;
-            if (timer >= offenceController.shotFrequency)
+            if (timer >= offenceController.shotFrequency*difficulty)
             {
                 timer = 0.0f;
                 Goal();
@@ -59,7 +61,7 @@ public class TargetController : MonoBehaviour
         //}
         //offenceController.shotFrequency = 1/(Mathf.Log10((scoreController.SA+1)-(1-Mathf.Pow(25,scoreController.goals))/4f)+0.5f);
         //offenceController.shotFrequency
-        Debug.Log(offenceController.shotFrequency.ToString());
+        //Debug.Log(offenceController.shotFrequency.ToString());
         rend.material.color = Color.blue;
         this.GetComponent<TargetTouch>().state = TargetState.Active;
         StartCoroutine(Activate(Color.blue));
@@ -86,7 +88,7 @@ public class TargetController : MonoBehaviour
     {
         offenceController.saveStreak++;
         goalie.GetComponent<GoalieController>().Save(targetNumber);
-        offenceController.AcceleratePuck(this.gameObject);
+        offenceController.AcceleratePuck(this.gameObject, offenceController.puckAcceleration);
         gameController.GetComponent<ScoreController>().SA++;
         gameController.GetComponent<ScoreController>().SV++;
         InactivateTarget();

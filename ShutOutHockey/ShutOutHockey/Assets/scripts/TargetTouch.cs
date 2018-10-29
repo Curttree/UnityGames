@@ -5,14 +5,16 @@ public class TargetTouch : MonoBehaviour {
     private Renderer rend;
     public TargetState state=TargetState.Inactive;
     private TargetController targetController;
-    private GameObject goalie;
+    private OffenceController offenceController;
+    private GoalieController goalie;
 
 	// Use this for initialization
 	void Start () {
         state = TargetState.Inactive;
         rend = GetComponent<Renderer>();
         targetController = GetComponent<TargetController>();
-        goalie = GameObject.FindGameObjectWithTag("Player");
+        offenceController = GameObject.FindGameObjectWithTag("GameController").GetComponent<OffenceController>();
+        goalie = GameObject.FindGameObjectWithTag("Player").GetComponent<GoalieController>();
     }
 	
     public void OnMouseDown()
@@ -33,7 +35,8 @@ public class TargetTouch : MonoBehaviour {
     {
         if (state == TargetState.Held)
         {
-            goalie.GetComponent<GoalieController>().Save(0);
+            goalie.Save(0);
+            offenceController.AcceleratePuck(this.gameObject, offenceController.puckAcceleration * 10f);
             state = TargetState.Inactive;
         }
         if (state == TargetState.Inactive)

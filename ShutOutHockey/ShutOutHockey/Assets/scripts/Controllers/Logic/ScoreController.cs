@@ -9,6 +9,8 @@ public class ScoreController : MonoBehaviour
     public int SV = 0;
     public int SA = 0;
     public int goals = 0;
+    public float difficultyIncrease = 0.05f;
+    public float difficultyDecrease = -0.01f;
     private float svPecent = 0.000f;
     private GameObject svPercentUI;
     private GameObject scoreUI;
@@ -59,9 +61,9 @@ public class ScoreController : MonoBehaviour
         {
             if (SA > 0)
                 svPecent = (float)SV / SA;
-            svPercentUI.GetComponent<Text>().text = $"Save% : {svPecent.ToString("0.000")}    SV : {SV.ToString()}     SA : {SA.ToString()}";
+            svPercentUI.GetComponent<Text>().text = $"Save%|{svPecent.ToString("0.000")}    SV|{SV.ToString()}     SA|{SA.ToString()}";
             
-            streakUI.GetComponent<Text>().text = $"Streak : {offenceController.saveStreak}";
+            streakUI.GetComponent<Text>().text = $"Streak|{offenceController.saveStreak}";
             scoreUI.GetComponent<Text>().text = goals.ToString();
             yield return new WaitForSeconds(0.5f);
         }
@@ -77,6 +79,7 @@ public class ScoreController : MonoBehaviour
     {
         int SAPref = 0;
         int SVPref = 0;
+        float currentDifficulty = 1f;
 
         if (PlayerPrefs.HasKey("SA"))
         {
@@ -87,6 +90,13 @@ public class ScoreController : MonoBehaviour
             SVPref = PlayerPrefs.GetInt("SV");
         }
 
+        if (PlayerPrefs.HasKey("Difficulty"))
+        {
+            currentDifficulty = PlayerPrefs.GetFloat("Difficulty");
+        }
+
+        float difficultyChange = goals == 0 ? difficultyIncrease : difficultyDecrease * goals;
+        PlayerPrefs.SetFloat("Difficulty", currentDifficulty + difficultyChange);
         PlayerPrefs.SetInt("SA", SAPref + SA);
         PlayerPrefs.SetInt("SV", SVPref + SV);
     }

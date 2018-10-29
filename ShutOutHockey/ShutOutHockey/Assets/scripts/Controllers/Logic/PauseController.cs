@@ -22,6 +22,14 @@ public class PauseController : MonoBehaviour {
         pauseMenu.SetActive(false);
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
+    }
+
     public void OnClick()
     {
         whistle.GetComponent<AudioSource>().Play();
