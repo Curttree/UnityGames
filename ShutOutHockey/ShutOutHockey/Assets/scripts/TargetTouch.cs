@@ -36,7 +36,7 @@ public class TargetTouch : MonoBehaviour {
         if (state == TargetState.Held)
         {
             goalie.Save(0);
-            offenceController.AcceleratePuck(this.gameObject, offenceController.puckAcceleration * 10f);
+            //offenceController.AcceleratePuck(this.gameObject, offenceController.puckAcceleration * 3f);
             state = TargetState.Inactive;
         }
         if (state == TargetState.Inactive)

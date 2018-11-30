@@ -12,7 +12,8 @@ public class ScoreController : MonoBehaviour
     public float difficultyIncrease = 0.05f;
     public float difficultyDecrease = -0.01f;
     private float svPecent = 0.000f;
-    private GameObject svPercentUI;
+    public GameObject svPercentUI;
+    public GameObject svPercentUI2;
     private GameObject scoreUI;
     private GameObject timeUI;
     private GameObject streakUI;
@@ -22,7 +23,6 @@ public class ScoreController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        svPercentUI = GameObject.FindGameObjectWithTag("SVPercent");
         scoreUI = GameObject.FindGameObjectWithTag("Score");
         timeUI = GameObject.FindGameObjectWithTag("Timer");
         streakUI = GameObject.Find("Streak");
@@ -62,7 +62,7 @@ public class ScoreController : MonoBehaviour
             if (SA > 0)
                 svPecent = (float)SV / SA;
             svPercentUI.GetComponent<Text>().text = $"Save%|{svPecent.ToString("0.000")}    SV|{SV.ToString()}     SA|{SA.ToString()}";
-            
+            svPercentUI2.GetComponent<Text>().text = $"Save%|{svPecent.ToString("0.000")}    SV|{SV.ToString()}     SA|{SA.ToString()}";
             streakUI.GetComponent<Text>().text = $"Streak|{offenceController.saveStreak}";
             scoreUI.GetComponent<Text>().text = goals.ToString();
             yield return new WaitForSeconds(0.5f);

@@ -15,6 +15,8 @@ public class TargetController : MonoBehaviour
     private GameObject crowd;
     private OffenceController offenceController;
     private SpriteRenderer goalLightsRenderer;
+    private MusicController musicController;
+
     public int targetNumber;
     private float difficulty;
 
@@ -25,6 +27,7 @@ public class TargetController : MonoBehaviour
         goalHorn = GameObject.FindGameObjectWithTag("GoalHorn");
         goalie = GameObject.FindGameObjectWithTag("Player");
         gameController = GameObject.FindGameObjectWithTag("GameController");
+        musicController = gameController.GetComponent<MusicController>();
         crowd = GameObject.FindGameObjectWithTag("Crowd");
         scoreController = gameController.GetComponent<ScoreController>();
         offenceController = gameController.GetComponent<OffenceController>();
@@ -38,7 +41,7 @@ public class TargetController : MonoBehaviour
         if (this.GetComponent<TargetTouch>().state == TargetState.Active)
         {
             timer += Time.deltaTime;
-            if (timer >= offenceController.shotFrequency/difficulty)
+            if (timer >= offenceController.timeToNet)
             {
                 timer = 0.0f;
                 Goal();
@@ -73,7 +76,7 @@ public class TargetController : MonoBehaviour
         gameController.GetComponent<ScoreController>().goals++;
 
         crowd.GetComponent<CrowdController>().scale = crowd.GetComponent<CrowdController>().GetExcitement();
-        goalHorn.GetComponent<AudioSource>().Play();
+        musicController.PlaySource(goalHorn.GetComponent<AudioSource>(),AudioCategory.SoundEffect);
         rend.material.color = Color.red;
         rend.enabled = false;
         offenceController.gameStart = true;

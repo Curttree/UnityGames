@@ -3,8 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
-
-    bool isPaused = false;
+    
     public PauseController pause;
     public OffenceController offenceController;
     public ScoreController scoreController;

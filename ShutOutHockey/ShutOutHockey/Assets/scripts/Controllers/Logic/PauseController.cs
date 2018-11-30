@@ -8,6 +8,7 @@ public class PauseController : MonoBehaviour {
     public GameObject pauseMenu;
     public GameObject resumeButton;
     public GameObject timeOver;
+    private MusicController musicController;
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class PauseController : MonoBehaviour {
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         resumeButton = GameObject.FindGameObjectWithTag("ResumeButton");
         timeOver = GameObject.Find("TimeOver");
+        musicController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MusicController>();
         pauseBG.SetActive(false);
         pauseMenu.SetActive(false);
     }
@@ -32,7 +34,7 @@ public class PauseController : MonoBehaviour {
     {
         if (timeRemaining)
         {
-            whistle.GetComponent<AudioSource>().Play();
+            musicController.PlaySource(whistle.GetComponent<AudioSource>(),AudioCategory.SoundEffect);
             if (isPaused)
             {
                 UnPause();
@@ -80,7 +82,7 @@ public class PauseController : MonoBehaviour {
     public void LockGame()
     {
         timeRemaining = false;
-        whistle.GetComponent<AudioSource>().Play();
+        musicController.PlaySource(whistle.GetComponent<AudioSource>(),AudioCategory.SoundEffect);
         Pause();
     }
 }

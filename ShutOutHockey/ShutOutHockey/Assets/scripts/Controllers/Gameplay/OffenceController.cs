@@ -7,12 +7,14 @@ public class OffenceController : MonoBehaviour {
     public bool gameStart = true;
     public bool timerStarted = false;
     public float shotFrequency = 0.5f;
+    public float timeToNet = 1f;
     private GameObject[] targets;
     public GameObject whistle;
     public GameObject puck;
     private GameObject crowd;
     public Transform shotStart;
     public ScoreController scoreController;
+    private MusicController musicController;
     private float timer = 0.0f;
     public float puckAcceleration = 1.25f;
     public float magicSpeed;
@@ -20,6 +22,7 @@ public class OffenceController : MonoBehaviour {
     public int saveStreak = 0;
     public AudioSource slapShot;
     public AudioSource slapShot2;
+    public AudioSource organ;
 
     // Use this for initialization
     void Start()
@@ -29,13 +32,19 @@ public class OffenceController : MonoBehaviour {
         crowd = GameObject.FindGameObjectWithTag("Crowd");
         shotStart = GameObject.FindGameObjectWithTag("ShotStart").transform;
         scoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
+        musicController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MusicController>();
         gameDifficulty = GetDifficulty();
+        if (PlayerPrefs.HasKey("BGMusic") & PlayerPrefs.GetInt("BGMusic") != 0)
+        {
+            musicController.PlaySource(organ, AudioCategory.BGMusic);
+        }
         timer = 0.0f;
     }
 
     // Update is called once per frame
     void Update () {
         timer += Time.deltaTime;
+        //ToDo: Pass in if paused and only trigger if not paused.
         if (timer >= shotFrequency/gameDifficulty*1.2f && !gameStart)
         {
             timer = 0.0f;
@@ -50,7 +59,7 @@ public class OffenceController : MonoBehaviour {
                 scoreController.StartTimer();
             }
             gameStart = false;
-            whistle.GetComponent<AudioSource>().Play();
+            musicController.PlaySource(whistle.GetComponent<AudioSource>(), AudioCategory.SoundEffect);
         }
 	}
 
@@ -64,8 +73,7 @@ public class OffenceController : MonoBehaviour {
         crowd.GetComponent<CrowdController>().scale = crowd.GetComponent<CrowdController>().GetExcitement();
 
         GameObject puckClone = Instantiate(puck, shotStart.position,shotStart.rotation);
-        puckClone.GetComponent<PuckController>().targetObject = target;
-        StartCoroutine(puckClone.GetComponent<PuckController>().Shot(shotStart,target.transform,speed));
+        puckClone.GetComponent<PuckController>().Shot(shotStart,target.transform,1f/(timeToNet*1.5f));
     }
 
     int SelectTarget(GameObject[] possibleTargets)
@@ -84,15 +92,23 @@ public class OffenceController : MonoBehaviour {
 
     float CalculateShotSpeed(Transform target,Transform puck)
     {
-        return (Vector3.Distance(puck.position, target.position) / (shotFrequency*magicSpeed>0? shotFrequency * magicSpeed : 1)) * gameDifficulty;
+        
+        float dynamicBonus = Mathf.Log((saveStreak > 0 ? saveStreak:1f),100f) / 10f ;
+        timeToNet = ((shotFrequency > 0 ? shotFrequency : (1 / gameDifficulty)) / gameDifficulty) - dynamicBonus;
+        float calcSpeed = Vector3.Distance(puck.position, target.position) / timeToNet;
+        print($"CalcSpeed {calcSpeed.ToString()}, TimeToNet {timeToNet}, gameDifficulty {gameDifficulty}");
+        float retVal = calcSpeed * gameDifficulty;
+        //print(retVal.ToString());
+        return retVal;
     }
 
     public void AcceleratePuck(GameObject target, float acceleration)
     {
         foreach (GameObject puck in GameObject.FindGameObjectsWithTag("Puck"))
         {
-            if (puck.GetComponent<PuckController>().targetObject = target)
+            if (puck.GetComponent<PuckController>().target = target.transform)
             {
+                print($"accelerating puck heading towards {target.GetComponent<TargetController>().targetNumber.ToString()}");
                 puck.GetComponent<PuckController>().acceleration = acceleration;
             }
         }
@@ -103,11 +119,17 @@ public class OffenceController : MonoBehaviour {
     {
         if (targetNumber > 2)
         {
-            slapShot.Play();
+            if (slapShot.isActiveAndEnabled)
+            {
+                musicController.PlaySource(slapShot,AudioCategory.SoundEffect);
+            }
         }
         else
         {
-            slapShot2.Play();
+            if (slapShot2.isActiveAndEnabled)
+            {
+                musicController.PlaySource(slapShot2,AudioCategory.SoundEffect);
+            } 
         }
     }
 

@@ -2,9 +2,17 @@
 
 public class Menu : MonoBehaviour {
 
+    public AudioSource bgSource;
+
     private void Start()
     {
-        Screen.SetResolution(960, 640, true);
+        if (PlayerPrefs.HasKey("BGMusic"))
+        {
+            if (PlayerPrefs.GetInt("BGMusic") == 0)
+            {
+                bgSource.Pause();
+            }
+        }
     }
     // Update is called once per frame
     void Update () {
