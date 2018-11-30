@@ -102,7 +102,7 @@ public class TargetController : MonoBehaviour
 
     IEnumerator Activate(Color targetColor)
     {
-        for (float f = 0f; f <= 1; f += 0.15f)
+        for (float f = 0f; f <= 1; f += 0.05f)
         {
             Color c = targetColor;
             c.a = f;

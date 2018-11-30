@@ -15,6 +15,7 @@ public class OffenceController : MonoBehaviour {
     public Transform shotStart;
     public ScoreController scoreController;
     private MusicController musicController;
+    private PauseController pauseController;
     private float timer = 0.0f;
     public float puckAcceleration = 1.25f;
     public float magicSpeed;
@@ -33,6 +34,7 @@ public class OffenceController : MonoBehaviour {
         shotStart = GameObject.FindGameObjectWithTag("ShotStart").transform;
         scoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
         musicController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MusicController>();
+        pauseController = GameObject.FindGameObjectWithTag("GameController").GetComponent<PauseController>();
         gameDifficulty = GetDifficulty();
         if (PlayerPrefs.HasKey("BGMusic") & PlayerPrefs.GetInt("BGMusic") != 0)
         {
@@ -44,8 +46,7 @@ public class OffenceController : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         timer += Time.deltaTime;
-        //ToDo: Pass in if paused and only trigger if not paused.
-        if (timer >= shotFrequency/gameDifficulty*1.2f && !gameStart)
+        if (timer >= shotFrequency/gameDifficulty*1.2f && !gameStart && !pauseController.isPaused)
         {
             timer = 0.0f;
             ShootPuck();
@@ -93,12 +94,12 @@ public class OffenceController : MonoBehaviour {
     float CalculateShotSpeed(Transform target,Transform puck)
     {
         
-        float dynamicBonus = Mathf.Log((saveStreak > 0 ? saveStreak:1f),100f) / 10f ;
+        float dynamicBonus = Mathf.Log((saveStreak > 0 ? saveStreak:1f),100f) / 5f ;
         timeToNet = ((shotFrequency > 0 ? shotFrequency : (1 / gameDifficulty)) / gameDifficulty) - dynamicBonus;
+        timeToNet *= Time.deltaTime * 100f;
         float calcSpeed = Vector3.Distance(puck.position, target.position) / timeToNet;
-        print($"CalcSpeed {calcSpeed.ToString()}, TimeToNet {timeToNet}, gameDifficulty {gameDifficulty}");
+        //print($"CalcSpeed {calcSpeed.ToString()}, TimeToNet {timeToNet}, gameDifficulty {gameDifficulty}");
         float retVal = calcSpeed * gameDifficulty;
-        //print(retVal.ToString());
         return retVal;
     }
 
@@ -108,7 +109,7 @@ public class OffenceController : MonoBehaviour {
         {
             if (puck.GetComponent<PuckController>().target = target.transform)
             {
-                print($"accelerating puck heading towards {target.GetComponent<TargetController>().targetNumber.ToString()}");
+                //print($"accelerating puck heading towards {target.GetComponent<TargetController>().targetNumber.ToString()}");
                 puck.GetComponent<PuckController>().acceleration = acceleration;
             }
         }

@@ -64,6 +64,7 @@ public class TextScroll : MonoBehaviour {
     void Start()
     {
         svPercentUI = GameObject.FindGameObjectsWithTag("SVPercent");
+        startPos = Screen.width;
     }
 
     // Update is called once per frame
