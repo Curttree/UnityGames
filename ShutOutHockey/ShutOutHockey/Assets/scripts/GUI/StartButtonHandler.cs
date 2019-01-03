@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class StartButtonHandler : MonoBehaviour {
 
     private GameObject fade;
+    public AudioSource bgMusic;
 	// Use this for initialization
 	void Start () {
         fade = GameObject.FindGameObjectWithTag("FadeIn");
@@ -29,6 +30,7 @@ public class StartButtonHandler : MonoBehaviour {
         float alpha = fade.GetComponent<CanvasRenderer>().GetAlpha();
         while (alpha < 1f)
         {
+            bgMusic.volume -= 0.025f;
             fade.GetComponent<CanvasRenderer>().SetAlpha(alpha + 0.025f);
             alpha = fade.GetComponent<CanvasRenderer>().GetAlpha();
             yield return new WaitForSeconds(0.01f);

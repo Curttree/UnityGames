@@ -8,6 +8,7 @@ public class Settings : MonoBehaviour {
     public Toggle backgroundmusicToggle;
     public AudioSource bgSource;
     public GameObject settingsMenu;
+    public GameObject creditsMenu;
 
     public void OnLoad()
     {
@@ -70,5 +71,15 @@ public class Settings : MonoBehaviour {
     bool GetBGMusic()
     {
         return backgroundmusicToggle.isOn;
+    }
+
+    public void ShowCredits()
+    {
+        creditsMenu.SetActive(true);
+    }
+
+    public void HideCredits()
+    {
+        creditsMenu.SetActive(false);
     }
 }

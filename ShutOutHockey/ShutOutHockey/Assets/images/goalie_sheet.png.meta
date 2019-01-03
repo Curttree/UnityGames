@@ -6,6 +6,21 @@ TextureImporter:
     21300002: goalie_sheet_1
     21300004: goalie_sheet_2
     21300006: goalie_sheet_3
+    21300008: goalie_sheet_4
+    21300010: goalie_sheet_5
+    21300012: goalie_sheet_6
+    21300014: goalie_sheet_7
+    21300016: goalie_sheet_8
+    21300018: goalie_sheet_9
+    21300020: goalie_sheet_10
+    21300022: goalie_sheet_11
+    21300024: goalie_sheet_12
+    21300026: goalie_sheet_13
+    21300028: goalie_sheet_14
+    21300030: goalie_sheet_15
+    21300032: goalie_sheet_16
+    21300034: goalie_sheet_17
+    21300036: goalie_sheet_18
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -102,18 +117,18 @@ TextureImporter:
       name: goalie_sheet_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 26
+        x: 0
+        y: 1957
         width: 471
-        height: 413
+        height: 414
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88802023b1303064a80ba6385aaa31f0
+      spriteID: 179b141c41b820542a19bc98c436bd04
       vertices: []
       indices: 
       edges: []
@@ -122,18 +137,18 @@ TextureImporter:
       name: goalie_sheet_1
       rect:
         serializedVersion: 2
-        x: 476
-        y: 26
-        width: 467
-        height: 413
+        x: 465
+        y: 2236
+        width: 4
+        height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9803363ce83394f4fa284ae147423e2b
+      spriteID: 4d34139d5b8a03142a219e7cf335a672
       vertices: []
       indices: 
       edges: []
@@ -142,18 +157,18 @@ TextureImporter:
       name: goalie_sheet_2
       rect:
         serializedVersion: 2
-        x: 944
-        y: 26
+        x: 473
+        y: 1957
         width: 468
-        height: 413
+        height: 414
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9c1113d95969c34ba4fb7eebcea069b
+      spriteID: d418b0753ae62f94da127334a25f2e58
       vertices: []
       indices: 
       edges: []
@@ -162,18 +177,318 @@ TextureImporter:
       name: goalie_sheet_3
       rect:
         serializedVersion: 2
-        x: 1429
-        y: 26
-        width: 468
-        height: 413
+        x: 940
+        y: 1957
+        width: 472
+        height: 414
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 607ff5c396343b04c8d307f02abd2f26
+      spriteID: 0364fe2b6e610f34292bd57db0e80163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goalie_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1427
+        y: 1957
+        width: 461
+        height: 414
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e6a29aef5066e74eb04b9ae2774a7e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goalie_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1472
+        width: 370
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4646b606545c2849b01ca36d9a017af
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goalie_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 1472
+        width: 370
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7640e9317eb276540baaa610115a7c46
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goalie_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 1472
+        width: 365
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d386cb5aa0136da4dbd3dd7bf1cd31e1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goalie_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 1472
+        width: 363
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 532f83e3b8d6b854d856eeb4206d2578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goalie_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 537
+        width: 485
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf055e0ac0b4c55469da22c467466570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goalie_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1011
+        width: 502
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc77b3bb33807a2469dc4cc2210aa4ee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goalie_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 1011
+        width: 547
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a51f81af58536a4f94164c6f94fb56b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goalie_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 537
+        width: 479
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 747f7f06112349b4ea065c82e70170bb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goalie_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 537
+        width: 456
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af9247477dc9054d8858b5cafb4c7f1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goalie_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 1011
+        width: 547
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 398d59e8e4c66d14787bf31f07127cbc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goalie_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 1593
+        y: 537
+        width: 456
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c02289b96ea108f4b95358eaa54ff4b9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goalie_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 1677
+        y: 1011
+        width: 547
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af44e36530d663b459f9441c73e4caa0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goalie_sheet_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 42
+        width: 456
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6369bd41c6a7a7248995385282087d12
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goalie_sheet_18
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 42
+        width: 457
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f34f505a6db48f47bdc97f6b2882f62
       vertices: []
       indices: 
       edges: []

@@ -123,6 +123,8 @@ public class OffenceController : MonoBehaviour {
         foreach (GameObject target in GameObject.FindGameObjectsWithTag("Target"))
         {
             target.GetComponent<TargetController>().InactivateTarget();
+            target.GetComponent<TargetTouch>().state = TargetState.Inactive;
+            target.GetComponent<Renderer>().enabled = false;
         }
     }
 
