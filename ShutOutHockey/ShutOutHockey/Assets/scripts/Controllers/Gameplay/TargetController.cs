@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using static TargetStates;
-using ObjectProvider;
 using System.Collections;
 
 public class TargetController : MonoBehaviour
@@ -16,9 +15,10 @@ public class TargetController : MonoBehaviour
     private OffenceController offenceController;
     private SpriteRenderer goalLightsRenderer;
     private MusicController musicController;
+    public Color activeColor;
+    public Transform reflectionTarget;
 
     public int targetNumber;
-    private float difficulty;
 
     // Use this for initialization
     void Start()
@@ -31,7 +31,6 @@ public class TargetController : MonoBehaviour
         crowd = GameObject.FindGameObjectWithTag("Crowd");
         scoreController = gameController.GetComponent<ScoreController>();
         offenceController = gameController.GetComponent<OffenceController>();
-        difficulty = offenceController.gameDifficulty;
         goalLightsRenderer = GameObject.FindGameObjectWithTag("GoalLights").GetComponent<SpriteRenderer>();
     }
 
@@ -55,23 +54,15 @@ public class TargetController : MonoBehaviour
 
     public void PrepShot()
     {
-        //if (offenceController.saveStreak % 10 == 0)
-        //{
-        //    offenceController.shotFrequency *= (1f - frequencyOffset);
-        //}
-        //offenceController.shotFrequency = 1/(Mathf.Log10((scoreController.SA+1)-(1-Mathf.Pow(25,scoreController.goals))/4f)+0.5f);
-        //offenceController.shotFrequency
-        //Debug.Log(offenceController.shotFrequency.ToString());
-        rend.material.color = Color.blue;
+        rend.material.color = activeColor;
         this.GetComponent<TargetTouch>().state = TargetState.Active;
-        StartCoroutine(Activate(Color.blue));
+        StartCoroutine(Activate(activeColor));
         rend.enabled = true;
     }
 
     public void Goal()
     {
         offenceController.saveStreak = 0;
-        //offenceController.shotFrequency *= (1f + frequencyOffset * (scoreController.SA / 10));
         gameController.GetComponent<ScoreController>().SA++;
         gameController.GetComponent<ScoreController>().goals++;
 
@@ -81,6 +72,7 @@ public class TargetController : MonoBehaviour
         rend.enabled = false;
         offenceController.gameStart = true;
         this.StartCoroutine(GoalLight());
+        offenceController.InactivateAllTargets();
         this.GetComponent<TargetTouch>().state = TargetState.Inactive;
     }
 
@@ -96,7 +88,7 @@ public class TargetController : MonoBehaviour
 
     public void InactivateTarget()
     {
-        StartCoroutine(Inactivate(Color.blue));
+        StartCoroutine(Inactivate(activeColor));
         this.GetComponent<TargetTouch>().state = TargetState.Held;
     }
 

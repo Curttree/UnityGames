@@ -29,7 +29,7 @@ Material:
     m_Floats:
     - _InvertProjection: 0
     - _SurfaceDistortion: 0.05
-    - _SurfaceLevel: 0
+    - _SurfaceLevel: 0.09
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.403, g: 0.403, b: 0.403, a: 0.184}
     - _DistortionSpeed: {r: 0, g: 0, b: 0, a: 0}

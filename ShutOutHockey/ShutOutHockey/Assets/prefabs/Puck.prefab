@@ -52,6 +52,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419f6352cd3fa704881f8d7c75a07438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acceleration: 0
+  activePuck: 1
+  target: {fileID: 0}
+  start: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!212 &212299323668507244
 SpriteRenderer:
   m_ObjectHideFlags: 1

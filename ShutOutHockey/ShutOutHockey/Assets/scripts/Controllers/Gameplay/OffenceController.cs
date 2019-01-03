@@ -21,6 +21,7 @@ public class OffenceController : MonoBehaviour {
     public float magicSpeed;
     public float gameDifficulty = 1f;
     public int saveStreak = 0;
+    public float defaultDifficulty = 1.25f;
     public AudioSource slapShot;
     public AudioSource slapShot2;
     public AudioSource organ;
@@ -69,7 +70,7 @@ public class OffenceController : MonoBehaviour {
         int shotLocation = SelectTarget(targets); 
         GameObject target = targets[shotLocation];
         PlaySlapShotSound(target.GetComponent<TargetController>().targetNumber);
-        float speed = CalculateShotSpeed(target.transform, shotStart.transform);
+        CalculateShotSpeed(target.transform, shotStart.transform);
         target.GetComponent<TargetController>().PrepShot();
         crowd.GetComponent<CrowdController>().scale = crowd.GetComponent<CrowdController>().GetExcitement();
 
@@ -81,7 +82,7 @@ public class OffenceController : MonoBehaviour {
     {
         int shotLocation = Random.Range(0, targets.Length);
         TargetState targetState = targets[shotLocation].GetComponent<TargetTouch>().state;
-        if (targetState == TargetState.Held)
+        if (targetState == TargetState.Held || targetState == TargetState.Active)
         {
             List<GameObject> list = new List<GameObject>(possibleTargets);
             list.Remove(targets[shotLocation]);
@@ -93,12 +94,10 @@ public class OffenceController : MonoBehaviour {
 
     float CalculateShotSpeed(Transform target,Transform puck)
     {
-        
         float dynamicBonus = Mathf.Log((saveStreak > 0 ? saveStreak:1f),100f) / 5f ;
         timeToNet = ((shotFrequency > 0 ? shotFrequency : (1 / gameDifficulty)) / gameDifficulty) - dynamicBonus;
         timeToNet *= Time.deltaTime * 100f;
         float calcSpeed = Vector3.Distance(puck.position, target.position) / timeToNet;
-        //print($"CalcSpeed {calcSpeed.ToString()}, TimeToNet {timeToNet}, gameDifficulty {gameDifficulty}");
         float retVal = calcSpeed * gameDifficulty;
         return retVal;
     }
@@ -112,6 +111,18 @@ public class OffenceController : MonoBehaviour {
                 //print($"accelerating puck heading towards {target.GetComponent<TargetController>().targetNumber.ToString()}");
                 puck.GetComponent<PuckController>().acceleration = acceleration;
             }
+        }
+    }
+
+    public void InactivateAllTargets()
+    {
+        foreach (GameObject puck in GameObject.FindGameObjectsWithTag("Puck"))
+        {
+            Destroy(puck);
+        }
+        foreach (GameObject target in GameObject.FindGameObjectsWithTag("Target"))
+        {
+            target.GetComponent<TargetController>().InactivateTarget();
         }
     }
 
@@ -136,7 +147,7 @@ public class OffenceController : MonoBehaviour {
 
     private float GetDifficulty()
     {
-        float difficulty = PlayerPrefs.HasKey("Difficulty") ? PlayerPrefs.GetFloat("Difficulty") : 1f;
+        float difficulty = PlayerPrefs.HasKey("Difficulty") ? PlayerPrefs.GetFloat("Difficulty") : defaultDifficulty;
         return difficulty;
     }
 }

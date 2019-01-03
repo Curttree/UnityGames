@@ -4,8 +4,8 @@ using static TargetStates;
 public class TargetTouch : MonoBehaviour {
     private Renderer rend;
     public TargetState state=TargetState.Inactive;
+    public GameObject effect;
     private TargetController targetController;
-    private OffenceController offenceController;
     private GoalieController goalie;
 
 	// Use this for initialization
@@ -13,7 +13,6 @@ public class TargetTouch : MonoBehaviour {
         state = TargetState.Inactive;
         rend = GetComponent<Renderer>();
         targetController = GetComponent<TargetController>();
-        offenceController = GameObject.FindGameObjectWithTag("GameController").GetComponent<OffenceController>();
         goalie = GameObject.FindGameObjectWithTag("Player").GetComponent<GoalieController>();
     }
 	
@@ -21,7 +20,10 @@ public class TargetTouch : MonoBehaviour {
     {
         if (state == TargetState.Active)
         {
-
+            if (effect != null)
+            {
+                Instantiate(effect, gameObject.transform);
+            }
             targetController.Save();
         }
     }
@@ -36,13 +38,11 @@ public class TargetTouch : MonoBehaviour {
         if (state == TargetState.Held)
         {
             goalie.Save(0);
-            //offenceController.AcceleratePuck(this.gameObject, offenceController.puckAcceleration * 3f);
             state = TargetState.Inactive;
         }
         if (state == TargetState.Inactive)
             {
                 rend.enabled = false;
-                //rend.material.SetColor("_Color", Color.blue);
             }
     }
 }

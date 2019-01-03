@@ -11,6 +11,7 @@ public class ScoreController : MonoBehaviour
     public int goals = 0;
     public float difficultyIncrease = 0.05f;
     public float difficultyDecrease = -0.01f;
+    public float minDifficulty = 0.5f;
     private float svPecent = 0.000f;
     public GameObject svPercentUI;
     public GameObject svPercentUI2;
@@ -37,6 +38,10 @@ public class ScoreController : MonoBehaviour
     {
         if (TimeSpan.FromSeconds(Time.timeSinceLevelLoad) > gameStart+TimeSpan.FromSeconds(gameLength+1) && !pauseController.isPaused)
         {
+            if (goals == 0)
+            {
+                pauseController.timeOver.GetComponent<Text>().text = "SHUT OUT";
+            }
             pauseController.LockGame();
         }
     }
@@ -96,7 +101,7 @@ public class ScoreController : MonoBehaviour
         }
 
         float difficultyChange = goals == 0 ? difficultyIncrease : difficultyDecrease * goals;
-        PlayerPrefs.SetFloat("Difficulty", currentDifficulty + difficultyChange);
+        PlayerPrefs.SetFloat("Difficulty", currentDifficulty + difficultyChange > minDifficulty ? currentDifficulty + difficultyChange : minDifficulty);
         PlayerPrefs.SetInt("SA", SAPref + SA);
         PlayerPrefs.SetInt("SV", SVPref + SV);
     }

@@ -13,7 +13,9 @@ public class PuckController : MonoBehaviour {
 
     public Transform start;
 
-	public void Shot(Transform startTransform,Transform targetTransform,float speed)
+    public GameController gameController;
+    
+    public void Shot(Transform startTransform,Transform targetTransform,float speed)
     {
         puckSpeed = speed;
         target = targetTransform;
@@ -32,8 +34,16 @@ public class PuckController : MonoBehaviour {
         }
         else
         {
-            //print($"hit the net with speed {puckSpeed+acceleration}");
-            Destroy(gameObject);
+            var save = target.gameObject.GetComponent<TargetTouch>()?.state == TargetStates.TargetState.Held;
+            var newTarget = target.gameObject.GetComponent<TargetController>()?.reflectionTarget;
+            if (newTarget != null && save)
+            {
+                target = newTarget;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
