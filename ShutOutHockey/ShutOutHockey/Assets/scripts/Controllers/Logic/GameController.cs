@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         offenceController = GameObject.FindGameObjectWithTag("GameController")?.GetComponent<OffenceController>();
         scoreController = GameObject.FindGameObjectWithTag("GameController")?.GetComponent<ScoreController>();
         pause = GameObject.FindGameObjectWithTag("GameController")?.GetComponent<PauseController>();
