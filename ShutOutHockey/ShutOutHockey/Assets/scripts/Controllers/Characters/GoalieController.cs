@@ -12,18 +12,6 @@ public class GoalieController : MonoBehaviour {
     public void Save(int target)
     {
         anim.SetInteger("Target", target);
-        switch (target)
-        {
-            case 3:
-                GetComponent<Rigidbody2D>().MovePosition(new Vector3(1.71f, -1f, 0f));
-                break;
-            case 4:
-                GetComponent<Rigidbody2D>().MovePosition(new Vector3(-1f, -1f, 0f));
-                break;
-            default:
-                GetComponent<Rigidbody2D>().MovePosition(new Vector3(0f, -1f, 0f));
-                break;
-        }
     }
 
     public void IntroEnded()
