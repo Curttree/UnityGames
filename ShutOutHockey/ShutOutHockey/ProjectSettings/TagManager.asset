@@ -18,6 +18,7 @@ TagManager:
   - Crowd
   - FadeIn
   - ResumeButton
+  - Ad
   layers:
   - Default
   - TransparentFX

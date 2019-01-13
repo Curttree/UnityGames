@@ -65,7 +65,7 @@ public class TargetController : MonoBehaviour
         offenceController.saveStreak = 0;
         gameController.GetComponent<ScoreController>().SA++;
         gameController.GetComponent<ScoreController>().goals++;
-
+        
         crowd.GetComponent<CrowdController>().scale = crowd.GetComponent<CrowdController>().GetExcitement();
         musicController.PlaySource(goalHorn.GetComponent<AudioSource>(),AudioCategory.SoundEffect);
         rend.material.color = Color.red;

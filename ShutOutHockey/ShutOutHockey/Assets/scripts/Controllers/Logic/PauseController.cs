@@ -9,7 +9,7 @@ public class PauseController : MonoBehaviour {
     public GameObject resumeButton;
     public GameObject timeOver;
     private MusicController musicController;
-
+    private AdManager bannerWrapper;
     private void Start()
     {
         whistle = GameObject.FindGameObjectWithTag("Whistle");
@@ -47,6 +47,11 @@ public class PauseController : MonoBehaviour {
     }
     private void UnPause()
     {
+        if (bannerWrapper == null)
+        {
+            GetAdServer();
+        }
+        bannerWrapper?.bannerView?.Hide();
         isPaused = false;
         pauseBG.SetActive(false);
         pauseMenu.SetActive(false);
@@ -54,6 +59,11 @@ public class PauseController : MonoBehaviour {
     }
     private void Pause()
     {
+        if (bannerWrapper == null)
+        {
+            GetAdServer();
+        }
+        bannerWrapper?.bannerView?.Show();
         isPaused = true;
         foreach (GameObject target in GameObject.FindGameObjectsWithTag("Target"))
         {
@@ -84,5 +94,24 @@ public class PauseController : MonoBehaviour {
         timeRemaining = false;
         musicController.PlaySource(whistle.GetComponent<AudioSource>(),AudioCategory.SoundEffect);
         Pause();
+    }
+
+    private void GetAdServer()
+    {
+        GameObject myGameObject = GameObject.Find("AdManager");
+        if (myGameObject == null)
+        {
+            CreateAdServer();
+        }
+        bannerWrapper = myGameObject.GetComponent<AdManager>();
+    }
+
+    private void CreateAdServer()
+    {
+        // Create a wrapper GameObject to hold the banner.
+        GameObject myGameObject = new GameObject("AdManager");
+        myGameObject.AddComponent<AdManager>();
+        // Mark the GameObject not to be destroyed when new scenes load.
+        DontDestroyOnLoad(myGameObject);
     }
 }

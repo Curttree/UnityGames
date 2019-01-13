@@ -25,6 +25,7 @@ public class OffenceController : MonoBehaviour {
     public AudioSource slapShot;
     public AudioSource slapShot2;
     public AudioSource organ;
+    public AudioSource crowdSound;
 
     // Use this for initialization
     void Start()
@@ -40,6 +41,7 @@ public class OffenceController : MonoBehaviour {
         if (PlayerPrefs.HasKey("BGMusic") & PlayerPrefs.GetInt("BGMusic") != 0)
         {
             musicController.PlaySource(organ, AudioCategory.BGMusic);
+            musicController.PlaySource(crowdSound, AudioCategory.BGMusic);
         }
         timer = 0.0f;
     }
@@ -95,10 +97,11 @@ public class OffenceController : MonoBehaviour {
     float CalculateShotSpeed(Transform target,Transform puck)
     {
         float dynamicBonus = Mathf.Log((saveStreak > 0 ? saveStreak:1f),100f) / 5f ;
-        timeToNet = ((shotFrequency > 0 ? shotFrequency : (1 / gameDifficulty)) / gameDifficulty) - dynamicBonus;
+        timeToNet = (shotFrequency / gameDifficulty) - dynamicBonus;
         timeToNet *= Time.deltaTime * 100f;
         float calcSpeed = Vector3.Distance(puck.position, target.position) / timeToNet;
         float retVal = calcSpeed * gameDifficulty;
+        //print($"STREAK: {saveStreak} SPEED: {retVal.ToString()}");
         return retVal;
     }
 
@@ -122,9 +125,12 @@ public class OffenceController : MonoBehaviour {
         }
         foreach (GameObject target in GameObject.FindGameObjectsWithTag("Target"))
         {
-            target.GetComponent<TargetController>().InactivateTarget();
-            target.GetComponent<TargetTouch>().state = TargetState.Inactive;
-            target.GetComponent<Renderer>().enabled = false;
+            if (target.GetComponent<TargetTouch>().state != TargetState.Held)
+            {
+                target.GetComponent<TargetController>().InactivateTarget();
+                target.GetComponent<TargetTouch>().state = TargetState.Inactive;
+                target.GetComponent<Renderer>().enabled = false;
+            }
         }
     }
 

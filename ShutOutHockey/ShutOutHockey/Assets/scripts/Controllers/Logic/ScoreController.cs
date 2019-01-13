@@ -100,7 +100,11 @@ public class ScoreController : MonoBehaviour
             currentDifficulty = PlayerPrefs.GetFloat("Difficulty");
         }
 
-        float difficultyChange = goals == 0 ? difficultyIncrease : difficultyDecrease * goals;
+        float difficultyChange = 0f;
+        if (TimeSpan.FromSeconds(Time.timeSinceLevelLoad) > gameStart + TimeSpan.FromSeconds(gameLength + 1))
+        {
+            difficultyChange = goals == 0 ? difficultyIncrease : difficultyDecrease * goals;
+        }
         PlayerPrefs.SetFloat("Difficulty", currentDifficulty + difficultyChange > minDifficulty ? currentDifficulty + difficultyChange : minDifficulty);
         PlayerPrefs.SetInt("SA", SAPref + SA);
         PlayerPrefs.SetInt("SV", SVPref + SV);

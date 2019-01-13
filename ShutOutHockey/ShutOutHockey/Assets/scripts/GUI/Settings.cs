@@ -10,8 +10,14 @@ public class Settings : MonoBehaviour {
     public GameObject settingsMenu;
     public GameObject creditsMenu;
 
+    private AdManager bannerWrapper;
     public void OnLoad()
     {
+        if (bannerWrapper == null)
+        {
+            GetAdServer();
+        }
+        bannerWrapper?.bannerView?.Show();
         settingsMenu.SetActive(true);
         if (PlayerPrefs.HasKey("Difficulty"))
         {
@@ -46,6 +52,11 @@ public class Settings : MonoBehaviour {
 
     void CloseMenu()
     {
+        if (bannerWrapper == null)
+        {
+            GetAdServer();
+        }
+        bannerWrapper?.bannerView?.Hide();
         if (backgroundmusicToggle.isOn && !bgSource.isPlaying)
         {
             bgSource.UnPause();
@@ -81,5 +92,24 @@ public class Settings : MonoBehaviour {
     public void HideCredits()
     {
         creditsMenu.SetActive(false);
+    }
+
+    private void GetAdServer()
+    {
+        GameObject myGameObject = GameObject.Find("AdManager");
+        if (myGameObject == null)
+        {
+            CreateAdServer();
+        }
+        bannerWrapper = myGameObject.GetComponent<AdManager>();
+    }
+
+    private void CreateAdServer()
+    {
+        // Create a wrapper GameObject to hold the banner.
+        GameObject myGameObject = new GameObject("AdManager");
+        myGameObject.AddComponent<AdManager>();
+        // Mark the GameObject not to be destroyed when new scenes load.
+        DontDestroyOnLoad(myGameObject);
     }
 }

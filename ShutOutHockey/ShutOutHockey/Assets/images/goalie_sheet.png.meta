@@ -23,6 +23,7 @@ TextureImporter:
     21300036: goalie_sheet_18
     21300038: goalie_sheet_19
     21300040: goalie_sheet_20
+    21300042: goalie_sheet_21
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -531,6 +532,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c12e305b69098484da982646922732bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goalie_sheet_21
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 2398
+        width: 405
+        height: 461
+      alignment: 9
+      pivot: {x: 0.6476543, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5af1d040dae0174598a76f579926123
       vertices: []
       indices: 
       edges: []

@@ -798,7 +798,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: f179741ad8c71754d93e026e91c74a4b, type: 3}
     m_FontSize: 50
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 50
@@ -897,7 +897,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 1057845471}
   m_HandleRect: {fileID: 8957820}
   m_Direction: 0
-  m_MinValue: 0.5
+  m_MinValue: 1
   m_MaxValue: 1.5
   m_WholeNumbers: 0
   m_Value: 1.25
@@ -1097,6 +1097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutoff: -340
   startPos: 1500
+  speed: 1
 --- !u!114 &411014770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1913,7 +1914,12 @@ MonoBehaviour:
 
     http://soundbible.com/1556-Hockey-Puck-Slap.html
 
-    http://soundbible.com/1747-Hockey-Stick-Slap-2.html'
+    http://soundbible.com/1747-Hockey-Stick-Slap-2.html
+
+
+    For more information visit:
+
+    https://www.curttremblay.com/shutout/'
 --- !u!222 &875195814
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2056,7 +2062,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: f179741ad8c71754d93e026e91c74a4b, type: 3}
     m_FontSize: 50
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 50
@@ -2532,7 +2538,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: f179741ad8c71754d93e026e91c74a4b, type: 3}
     m_FontSize: 50
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 50

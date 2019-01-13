@@ -5,6 +5,7 @@ public class TextScroll : MonoBehaviour {
     private GameObject[] svPercentUI;
     public int cutoff = 150;
     public int startPos = 1400;
+    public float speed = 0.4f;
 
     // Use this for initialization
     void Start()
@@ -22,7 +23,7 @@ public class TextScroll : MonoBehaviour {
             {
                 svPercent.transform.position = new Vector3(startPos, svPercent.transform.position.y);
             }
-            svPercent.transform.Translate(new Vector3(-0.4f, 0, 0));
+            svPercent.transform.Translate(new Vector3(-speed, 0, 0));
         }
     }
 }

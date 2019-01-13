@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PuckController : MonoBehaviour {
 
@@ -39,6 +38,7 @@ public class PuckController : MonoBehaviour {
             if (newTarget != null && save)
             {
                 target = newTarget;
+                puckSpeed = 0.5f;
             }
             else
             {
