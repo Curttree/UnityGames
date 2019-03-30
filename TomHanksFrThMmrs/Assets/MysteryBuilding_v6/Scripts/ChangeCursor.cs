@@ -1,0 +1,286 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ChangeCursor : MonoBehaviour {/** Mask for the raycast placement */
+	public LayerMask walkMask;
+	//public LayerMask lookMask;
+	public bool dialog;
+    public bool choicesToBeMade;
+	//IAstarAI[] ais;
+
+	/** Determines if the target position should be updated every frame or only on double-click */
+
+	public Texture2D cursorWalk;
+	public Texture2D cursorDefault;
+	public Texture2D cursorLook;
+	public Texture2D cursorInteract;
+	CursorMode cursorMode = CursorMode.Auto;
+    Vector2 hotSpot = Vector2.zero;
+    string activeGuy;
+    public GameObject diaBox;
+    public Text text;
+    public  bool canWalk = false;
+    public GameObject faceIcon;
+    public Sprite defaultFace;
+    public GameObject namePlate;
+    public List<string> dialogList;
+    public List<ChoiceTree> choices;
+    public GameObject choiceA;
+    public GameObject choiceB;
+    public GameObject choiceC;
+    public GameObject choiceD;
+    public bool inConversation = false;
+
+    private bool activeChoice = false;
+
+
+	public void Start () {
+
+		useGUILayout = false;
+	}
+
+	public void OnGUI () {
+//		if (onlyOnDoubleClick && cam != null && Event.current.type == EventType.MouseDown && Event.current.clickCount == 2) {
+//			UpdateTargetPosition();
+//		}
+	}
+
+	/** Update is called once per frame */
+	void Update () {
+
+        TheHits();
+        TheClicks();
+    }
+
+    public void LookAt() {
+
+    }
+
+    public void WalkTo() {
+    }
+
+    public void TheClicks() {
+       
+        if (Input.GetMouseButtonDown(0))
+            
+        {
+            if (dialog)
+            {
+                if (dialogList.Count <= 1)
+                {
+                    dialogList = new List<string>();
+                    DisableDialog();
+                }
+                else
+                {
+                    dialogList.RemoveAt(0);
+                    text.text = dialogList[0];
+                }
+            }
+            if (choicesToBeMade)
+            {
+                if (text.gameObject.activeSelf)
+                {
+                    text.gameObject.SetActive(false);
+                    if (!string.IsNullOrEmpty(choices[0].choiceA))
+                    {
+                        activeChoice = true;
+                        choiceA.GetComponent<Text>().text = choices[0].choiceA;
+                        choiceA.SetActive(true);
+                    }
+                    if (!string.IsNullOrEmpty(choices[0].choiceB))
+                    {
+                        activeChoice = true;
+                        choiceB.GetComponent<Text>().text = choices[0].choiceB;
+                        choiceB.SetActive(true);
+                    }
+                    if (!string.IsNullOrEmpty(choices[0].choiceC))
+                    {
+                        activeChoice = true;
+                        choiceC.GetComponent<Text>().text = choices[0].choiceC;
+                        choiceC.SetActive(true);
+                    }
+                    if (!string.IsNullOrEmpty(choices[0].choiceD))
+                    {
+                        activeChoice = true;
+                        choiceD.GetComponent<Text>().text = choices[0].choiceD;
+                        choiceD.SetActive(true);
+                    }
+                    if (activeChoice)
+                    {
+                        text.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        MoveNextChoice();
+                    }
+                }
+                else
+                {
+                    MoveNextChoice();
+                }
+            }
+        }
+    }
+    private void MoveNextChoice()
+    {
+        choiceA.gameObject.SetActive(false);
+        choiceB.gameObject.SetActive(false);
+        choiceC.gameObject.SetActive(false);
+        choiceD.gameObject.SetActive(false);
+        text.gameObject.SetActive(true);
+
+        if (choices.Count <= 1)
+        {
+            choices = new List<ChoiceTree>();
+            DisableDialog();
+        }
+        else
+        {
+            choices.RemoveAt(0);
+            text.text = choices[0].prompt;
+        }
+    }
+    public void TheHits()
+    {
+        //If the left mouse button is clicked.
+
+        //Get the mouse position on the screen and send a raycast into the game world from that position.
+        Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, Mathf.Infinity);
+       // Physics2D.Raycast(RayUp.origin, RayUp.direction);
+        Debug.DrawRay(worldPoint, Vector3.zero, Color.cyan);
+        //If something was hit, the RaycastHit2D.collider will not be null.
+
+
+        if (hit.collider != null && !inConversation)
+            {
+    
+                if (!dialog)
+                {
+                 if (hit.transform.gameObject.GetComponent<Inv_Look>()|| hit.transform.gameObject.GetComponent<DialogueTree>())
+                {
+                    canWalk = false;
+                     Cursor.SetCursor(cursorLook, hotSpot, cursorMode);
+                    //Debug.Log("looking");
+
+                }
+
+                else if (hit.transform.gameObject.GetComponent<Inv_Collectable>())
+                {
+                    canWalk = false;
+                    if (!hit.transform.gameObject.GetComponent<Inv_Collectable>().seen)
+                    { Cursor.SetCursor(cursorLook, hotSpot, cursorMode); }
+                    else { Cursor.SetCursor(cursorInteract, hotSpot, cursorMode); }
+
+                }
+                else if ( hit.transform.gameObject.GetComponent<Inv_Needed>())
+                {
+                    canWalk = false;
+                    if (!hit.transform.gameObject.GetComponent<Inv_Needed>().seen)
+                    { Cursor.SetCursor(cursorLook, hotSpot, cursorMode); }
+                    else { Cursor.SetCursor(cursorInteract, hotSpot, cursorMode); }
+                }
+                else if (walkMask == (walkMask | (1 << hit.transform.gameObject.layer)))
+
+
+
+                {
+                    Cursor.SetCursor(cursorWalk, hotSpot, cursorMode);
+                    canWalk = true;
+
+
+
+                }
+
+                else
+                {
+                    canWalk = false;
+                    Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
+                   //Debug.Log("nothing to do");
+                }
+
+
+                    activeGuy = hit.collider.gameObject.name;
+                }
+                else
+                {
+                canWalk = false;
+                Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
+               // DisableDialog();
+                }
+            }
+            else
+            {
+                Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
+            canWalk = false;
+        }
+
+        }
+    
+
+
+
+
+    public void DisableDialog() {
+        diaBox.SetActive(false);
+        dialog = false;
+        choicesToBeMade = false;
+        inConversation = false;
+        activeChoice = false;
+    }
+
+    public void EnableDialog(string str)
+    {
+        text.text = str;
+        faceIcon.GetComponent<Image>().sprite = defaultFace;
+        namePlate.GetComponent<Text>().text = "Tom Hanks";
+        diaBox.SetActive(true);
+        dialog = true;
+     
+    }
+
+    public void EnableDialog(string str, Sprite face, string name)
+    {
+        text.text = str;
+        faceIcon.GetComponent<Image>().sprite = face;
+        namePlate.GetComponent<Text>().text = name;
+        diaBox.SetActive(true);
+        inConversation = true;
+        dialog = true;
+
+    }
+    public void EnableDialog(string[] str, Sprite face, string name)
+    {
+        canWalk = false;
+        faceIcon.GetComponent<Image>().sprite = face;
+        namePlate.GetComponent<Text>().text = name;
+        text.text = str[0];
+        diaBox.SetActive(true);
+        dialog = true;
+        inConversation = true;
+        dialogList = new List<string>(str);
+    }
+    public void EnableDialog(ChoiceTree[] choi, Sprite face, string name)
+    {
+        canWalk = false;
+        faceIcon.GetComponent<Image>().sprite = face;
+        namePlate.GetComponent<Text>().text = name;
+        text.text = choi[0].prompt;
+        diaBox.SetActive(true);
+        choicesToBeMade = true;
+        inConversation = true;
+        choices = new List<ChoiceTree>(choi);
+    }
+
+    public void Interact() {
+        Cursor.SetCursor(cursorInteract, hotSpot, cursorMode);
+    }
+
+    public void UseItemCursor(Texture2D cursor)
+    {
+        Cursor.SetCursor(cursor, hotSpot, cursorMode);
+    }
+}
