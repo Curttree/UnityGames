@@ -32,8 +32,9 @@ public class ChangeCursor : MonoBehaviour {/** Mask for the raycast placement */
     public GameObject choiceC;
     public GameObject choiceD;
     public bool inConversation = false;
+    public bool ignoreClick = false;
 
-    private bool activeChoice = false;
+    public bool activeChoice = false;
 
 
 	public void Start () {
@@ -63,7 +64,7 @@ public class ChangeCursor : MonoBehaviour {/** Mask for the raycast placement */
 
     public void TheClicks() {
        
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !ignoreClick)
             
         {
             if (dialog)
@@ -81,31 +82,36 @@ public class ChangeCursor : MonoBehaviour {/** Mask for the raycast placement */
             }
             if (choicesToBeMade)
             {
+                //Debug.Log($"{choices[0].prompt}");
                 if (text.gameObject.activeSelf)
                 {
                     text.gameObject.SetActive(false);
-                    if (!string.IsNullOrEmpty(choices[0].choiceA))
+                    if (!string.IsNullOrEmpty(choices[0].choiceA?.choice))
                     {
                         activeChoice = true;
-                        choiceA.GetComponent<Text>().text = choices[0].choiceA;
+                        choiceA.GetComponent<Text>().text = choices[0].choiceA?.choice;
+                        choiceA.GetComponent<AnswerSelected>().nextChoice = choices[0].choiceA?.nextOption;
                         choiceA.SetActive(true);
                     }
-                    if (!string.IsNullOrEmpty(choices[0].choiceB))
+                    if (!string.IsNullOrEmpty(choices[0].choiceB?.choice))
                     {
                         activeChoice = true;
-                        choiceB.GetComponent<Text>().text = choices[0].choiceB;
+                        choiceB.GetComponent<Text>().text = choices[0].choiceB?.choice;
+                        choiceB.GetComponent<AnswerSelected>().nextChoice = choices[0].choiceB?.nextOption;
                         choiceB.SetActive(true);
                     }
-                    if (!string.IsNullOrEmpty(choices[0].choiceC))
+                    if (!string.IsNullOrEmpty(choices[0].choiceC?.choice))
                     {
                         activeChoice = true;
-                        choiceC.GetComponent<Text>().text = choices[0].choiceC;
+                        choiceC.GetComponent<Text>().text = choices[0].choiceC?.choice;
+                        choiceC.GetComponent<AnswerSelected>().nextChoice = choices[0].choiceC?.nextOption;
                         choiceC.SetActive(true);
                     }
-                    if (!string.IsNullOrEmpty(choices[0].choiceD))
+                    if (!string.IsNullOrEmpty(choices[0].choiceD?.choice))
                     {
                         activeChoice = true;
-                        choiceD.GetComponent<Text>().text = choices[0].choiceD;
+                        choiceD.GetComponent<Text>().text = choices[0].choiceD?.choice;
+                        choiceD.GetComponent<AnswerSelected>().nextChoice = choices[0].choiceD?.nextOption;
                         choiceD.SetActive(true);
                     }
                     if (activeChoice)
@@ -119,19 +125,20 @@ public class ChangeCursor : MonoBehaviour {/** Mask for the raycast placement */
                 }
                 else
                 {
-                    MoveNextChoice();
+                    //Debug.Log("test");
+                    //MoveNextChoice();
                 }
             }
         }
     }
-    private void MoveNextChoice()
+    public void MoveNextChoice()
     {
         choiceA.gameObject.SetActive(false);
         choiceB.gameObject.SetActive(false);
         choiceC.gameObject.SetActive(false);
         choiceD.gameObject.SetActive(false);
         text.gameObject.SetActive(true);
-
+        Debug.Log(choices.Count);
         if (choices.Count <= 1)
         {
             choices = new List<ChoiceTree>();
@@ -212,13 +219,13 @@ public class ChangeCursor : MonoBehaviour {/** Mask for the raycast placement */
                // DisableDialog();
                 }
             }
-            else
-            {
-                Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
+        else
+        {
+            Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
             canWalk = false;
         }
 
-        }
+    }
     
 
 

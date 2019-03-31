@@ -42,6 +42,12 @@ public class Inv_Needed : MonoBehaviour, IPointerClickHandler
     public string gotItemMessage;
     public Sprite face;
     public string name;
+    public bool setNewWalkable;
+    public int newWalkable;
+
+    [Header("Change Walkable")]
+    public int currentWalkable;
+    public List<GameObject> walkables;
 
 
 
@@ -134,7 +140,21 @@ public class Inv_Needed : MonoBehaviour, IPointerClickHandler
                 else
                 {
                     cam.EnableDialog(haveItemMessage, face, name);
-                    //Unlocked();
+                    if (setNewWalkable)
+                    {
+                        currentWalkable = newWalkable;
+                        for(int walkVal = 0; walkVal< walkables.Count; walkVal++)
+                        {
+                            if (walkVal == currentWalkable)
+                            {
+                                walkables[walkVal].SetActive(true);
+                            }
+                            else
+                            {
+                                walkables[walkVal].SetActive(false);
+                            }
+                        }
+                    }
                 }
             }
             else

@@ -99,7 +99,7 @@ public class SimpleInv : MonoBehaviour
                 Debug.Log("did not find" + item.name);
               
             }
-            Debug.Log(t);
+            //Debug.Log(t);
         }
 
 

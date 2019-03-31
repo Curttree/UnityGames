@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58cd7eb314db6ac4b8f242899154f1bd, type: 3}
-  m_Name: Dog
+  m_Name: CaptainBadge
   m_EditorClassIdentifier: 
-  objectImage: {fileID: 0}
-  message: 
+  objectImage: {fileID: 21300000, guid: 1dbef0bc70997cf48a97e049bc6a2624, type: 3}
+  message: I'm the Captain now.

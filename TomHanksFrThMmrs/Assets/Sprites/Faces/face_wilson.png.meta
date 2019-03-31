@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-guid: f892f8b3250f40b4a943840100d032b2
+guid: 0eca0feb62004af47828116ae4aa7886
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: tv_0
-    21300002: tv_1
-    21300004: tv_2
-    21300006: tv_3
-    21300008: tv_4
-    21300010: tv_5
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -46,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,131 +115,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: tv_0
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 0
-        width: 605
-        height: 745
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 2, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef7e414a1bbedc644a964b440a92a9f4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tv_1
-      rect:
-        serializedVersion: 2
-        x: 615
-        y: 0
-        width: 605
-        height: 745
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c16e81ac71b783e4ea8510f810b4d2f3
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tv_2
-      rect:
-        serializedVersion: 2
-        x: 1225
-        y: 0
-        width: 605
-        height: 745
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 051dbb248e07a3b4eb03dc4ccabced25
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tv_3
-      rect:
-        serializedVersion: 2
-        x: 1835
-        y: 0
-        width: 605
-        height: 745
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8f5c00aa52f818f4088106abf6d54056
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tv_4
-      rect:
-        serializedVersion: 2
-        x: 2445
-        y: 0
-        width: 605
-        height: 745
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 878e789e42eb8d94db93f4c1ec5aaeb6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tv_5
-      rect:
-        serializedVersion: 2
-        x: 3055
-        y: 0
-        width: 605
-        height: 745
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 072c8f2717d698b41963d7c08688c593
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 9b6bd67f640d06f479ae47c9cf96feca
+    spriteID: 
     vertices: []
     indices: 
     edges: []
