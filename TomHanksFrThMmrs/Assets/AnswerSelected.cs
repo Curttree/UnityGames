@@ -5,8 +5,11 @@ using UnityEngine;
 public class AnswerSelected : MonoBehaviour
 {
     public bool correct;
-    public ChoiceTree nextChoice;
+    public ChoiceTree[] nextChoices;
     ChangeCursor cam;
+    public AudioSource audioQueue;
+    public bool playAudio;
+    public GameObject spawn;
 
     void Start()
     {
@@ -26,17 +29,37 @@ public class AnswerSelected : MonoBehaviour
     }
     public void SelectedChoice()
     {
-        if (nextChoice != null)
+        if (nextChoices.Length > 0)
         {
-            Debug.Log("add choice");
-            cam.choices.Add(nextChoice);
-            if (nextChoice.solved)
+            foreach (ChoiceTree ch in nextChoices)
             {
-                nextChoice.GiveObject();
+                cam.choices.Add(ch);
+            }
+            if (nextChoices[0].solved) 
+            {
+                nextChoices[0].gameObject.GetComponent<DialogueTree>().solved = true;
+            }
+            if (nextChoices[0].giveItem)
+            {
+                nextChoices[0].GiveObject();
             }
             cam.activeChoice = false;
             cam.MoveNextChoice();
         }
-
+        if (audioQueue != null)
+        {
+            if (playAudio && !audioQueue.isPlaying)
+            {
+                audioQueue.Play();
+            }
+            else if (!playAudio)
+            {
+                audioQueue.Stop();
+            }
+        }
+        if(spawn != null)
+        {
+            spawn.SetActive(true);
+        }
     }
 }

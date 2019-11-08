@@ -140,6 +140,10 @@ public class Inv_Needed : MonoBehaviour, IPointerClickHandler
                 else
                 {
                     cam.EnableDialog(haveItemMessage, face, name);
+                    if (loadScene)
+                    {
+                        StartCoroutine(LoadScene());
+                    }
                     if (setNewWalkable)
                     {
                         currentWalkable = newWalkable;
@@ -152,6 +156,19 @@ public class Inv_Needed : MonoBehaviour, IPointerClickHandler
                             else
                             {
                                 walkables[walkVal].SetActive(false);
+                            }
+                        }
+                        var progression = Resources.FindObjectsOfTypeAll(typeof(ProgressCheck));
+                        foreach(ProgressCheck prog in progression)
+                        {
+                            Debug.Log(prog.gameObject.name);
+                            if (prog.progress == newWalkable)
+                            {
+                                prog.gameObject.SetActive(true);
+                            }
+                            else
+                            {
+                                prog.gameObject.SetActive(false);
                             }
                         }
                     }
@@ -211,7 +228,7 @@ public class Inv_Needed : MonoBehaviour, IPointerClickHandler
 IEnumerator LoadScene()
 {
    
-    yield return new WaitForSeconds(5);
+    yield return new WaitForSeconds(1f);
         cam.DisableDialog();
         SceneManager.LoadScene(sceneToLoad);
 

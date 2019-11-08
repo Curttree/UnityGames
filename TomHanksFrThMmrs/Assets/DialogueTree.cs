@@ -11,6 +11,9 @@ public class DialogueTree : MonoBehaviour, IPointerClickHandler
     public string lookMessage;
     public Sprite face;
     public string personName;
+    [Header("Solved")]
+    public bool solved;
+    public ChoiceTree[] solvedChoices;
     // Use this for initialization
     void Start()
     {
@@ -19,8 +22,17 @@ public class DialogueTree : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(!cam.inConversation)
-            cam.EnableDialog(choices, face, personName);
+        if (!cam.inConversation)
+        {
+            if (!solved)
+            {
+                cam.EnableDialog(choices, face, personName);
+            }
+            else
+            {
+                cam.EnableDialog(solvedChoices, face, personName);
+            }
+        }
     }
 
     public void OnClick()

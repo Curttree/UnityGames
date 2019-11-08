@@ -8,7 +8,7 @@ public class Inv_Look : MonoBehaviour, IPointerClickHandler
 
     ChangeCursor cam;
     [TextArea(2, 5)]
-    public string lookMessage;
+    public string[] lookMessages;
     public Sprite face;
     public string personName;
 
@@ -21,7 +21,7 @@ public class Inv_Look : MonoBehaviour, IPointerClickHandler
     {
         //Debug.Log("fdds");
         if(!cam.inConversation)
-            cam.EnableDialog(lookMessage,face,personName);
+            cam.EnableDialog(lookMessages,face,personName);
     }
 
     public void OnHover()
@@ -34,7 +34,7 @@ public class Inv_Look : MonoBehaviour, IPointerClickHandler
     {
 
         //Debug.Log("fdds");
-        cam.EnableDialog(lookMessage);
+       // cam.EnableDialog(lookMessage);
     }
 
 }

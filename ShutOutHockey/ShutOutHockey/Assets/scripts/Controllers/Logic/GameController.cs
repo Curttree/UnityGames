@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour {
         pause = GameObject.FindGameObjectWithTag("GameController")?.GetComponent<PauseController>();
         UpdateSVPercent();
         //if (Application.platform == RuntimePlatform.Android)
-        Screen.SetResolution(960, 640, false);
+        Screen.SetResolution(960, 640, true);
         GameObject myGameObject = GetAdServer();
         if (myGameObject != null)
         {
