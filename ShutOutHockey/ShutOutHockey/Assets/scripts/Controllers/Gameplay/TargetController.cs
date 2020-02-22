@@ -17,6 +17,7 @@ public class TargetController : MonoBehaviour
     private MusicController musicController;
     public Color activeColor;
     public Transform reflectionTarget;
+    private Animator targetAnimation;
 
     public int targetNumber;
 
@@ -32,6 +33,7 @@ public class TargetController : MonoBehaviour
         scoreController = gameController.GetComponent<ScoreController>();
         offenceController = gameController.GetComponent<OffenceController>();
         goalLightsRenderer = GameObject.FindGameObjectWithTag("GoalLights").GetComponent<SpriteRenderer>();
+        targetAnimation = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -94,7 +96,8 @@ public class TargetController : MonoBehaviour
 
     IEnumerator Activate(Color targetColor)
     {
-        for (float f = 0f; f <= 1; f += 0.05f)
+        targetAnimation.Play("Target");
+        for (float f = 0f; f <= 1; f += 0.035f)
         {
             Color c = targetColor;
             c.a = f;

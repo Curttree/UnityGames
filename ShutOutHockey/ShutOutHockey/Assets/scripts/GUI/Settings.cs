@@ -52,11 +52,12 @@ public class Settings : MonoBehaviour {
 
     void CloseMenu()
     {
-        if (bannerWrapper == null)
-        {
-            GetAdServer();
-        }
-        bannerWrapper?.bannerView?.Hide();
+        //if (bannerWrapper == null)
+        //{
+        //    GetAdServer();
+        //}
+        //Debug.Log("it happened");
+        //bannerWrapper?.bannerView?.Hide();
         if (backgroundmusicToggle.isOn && !bgSource.isPlaying)
         {
             bgSource.UnPause();

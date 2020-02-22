@@ -1,4 +1,5 @@
 ﻿using GoogleMobileAds.Api;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -22,12 +23,36 @@ public class GameController : MonoBehaviour {
         UpdateSVPercent();
         //if (Application.platform == RuntimePlatform.Android)
         Screen.SetResolution(960, 640, true);
+        StartCoroutine(LateStart(0.1f));
+    }
+
+    IEnumerator LateStart(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
         GameObject myGameObject = GetAdServer();
         if (myGameObject != null)
         {
             bannerWrapper = myGameObject.GetComponent<AdManager>();
-            bannerWrapper.bannerView?.Hide();
+            // Create a temporary reference to the current scene.
+            Scene currentScene = SceneManager.GetActiveScene();
+
+            // Retrieve the name of this scene.
+            string sceneName = currentScene.name;
+
+            if (sceneName == "gameplay")
+            {
+                bannerWrapper.bannerView?.Hide();
+            }
+            else
+            {
+                if (bannerWrapper == null)
+                {
+                    GetAdServer();
+                }
+                bannerWrapper.bannerView?.Show();
+            }
         }
+
     }
 
     void OnApplicationFocus(bool hasFocus)
@@ -54,7 +79,6 @@ public class GameController : MonoBehaviour {
         {
             GetAdServer();
         }
-        bannerWrapper?.bannerView?.Hide();
         Time.timeScale = 1;
         scoreController.UpdatePrefs();
         SceneManager.LoadScene("menu");
@@ -66,7 +90,6 @@ public class GameController : MonoBehaviour {
         {
             GetAdServer();
         }
-        bannerWrapper?.bannerView?.Hide();
         Time.timeScale = 1;
         scoreController.UpdatePrefs();
         SceneManager.LoadScene("gameplay");

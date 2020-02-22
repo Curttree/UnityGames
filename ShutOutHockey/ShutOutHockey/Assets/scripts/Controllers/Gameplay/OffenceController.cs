@@ -18,10 +18,9 @@ public class OffenceController : MonoBehaviour {
     private PauseController pauseController;
     private float timer = 0.0f;
     public float puckAcceleration = 1.25f;
-    public float magicSpeed;
     public float gameDifficulty = 1f;
     public int saveStreak = 0;
-    public float defaultDifficulty = 1.25f;
+    public float defaultDifficulty = 0.75f;
     public AudioSource slapShot;
     public AudioSource slapShot2;
     public AudioSource organ;

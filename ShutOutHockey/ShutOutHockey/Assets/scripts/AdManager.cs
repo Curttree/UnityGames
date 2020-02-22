@@ -28,6 +28,6 @@ public class AdManager : MonoBehaviour
             .Build();
         // Load the banner with the request.
         bannerView.LoadAd(request);
-        bannerView.Hide();
+        //bannerView.Hide();
     }
 }
