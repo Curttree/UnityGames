@@ -5,11 +5,16 @@ using UnityEngine;
 public class AnswerSelected : MonoBehaviour
 {
     public bool correct;
+<<<<<<< HEAD
     public ChoiceTree[] nextChoices;
     ChangeCursor cam;
     public AudioSource audioQueue;
     public bool playAudio;
     public GameObject spawn;
+=======
+    public ChoiceTree nextChoice;
+    ChangeCursor cam;
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
 
     void Start()
     {
@@ -29,6 +34,7 @@ public class AnswerSelected : MonoBehaviour
     }
     public void SelectedChoice()
     {
+<<<<<<< HEAD
         if (nextChoices.Length > 0)
         {
             foreach (ChoiceTree ch in nextChoices)
@@ -42,10 +48,20 @@ public class AnswerSelected : MonoBehaviour
             if (nextChoices[0].giveItem)
             {
                 nextChoices[0].GiveObject();
+=======
+        if (nextChoice != null)
+        {
+            Debug.Log("add choice");
+            cam.choices.Add(nextChoice);
+            if (nextChoice.solved)
+            {
+                nextChoice.GiveObject();
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
             }
             cam.activeChoice = false;
             cam.MoveNextChoice();
         }
+<<<<<<< HEAD
         if (audioQueue != null)
         {
             if (playAudio && !audioQueue.isPlaying)
@@ -61,5 +77,8 @@ public class AnswerSelected : MonoBehaviour
         {
             spawn.SetActive(true);
         }
+=======
+
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
     }
 }

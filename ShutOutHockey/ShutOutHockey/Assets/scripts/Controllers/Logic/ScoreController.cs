@@ -5,7 +5,11 @@ using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour
 {
+<<<<<<< HEAD
     public int gameLength = 60;
+=======
+    public int gameLength = 120;
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
     public int SV = 0;
     public int SA = 0;
     public int goals = 0;

@@ -36,6 +36,7 @@ public class ChangeCursor : MonoBehaviour {/** Mask for the raycast placement */
 
     public bool activeChoice = false;
 
+<<<<<<< HEAD
     [Header("Intro")]
     public bool playIntro;
     [TextArea(2, 5)]
@@ -52,6 +53,12 @@ public class ChangeCursor : MonoBehaviour {/** Mask for the raycast placement */
         {
             EnableDialog(introMessages, introFace, introName);
         }
+=======
+
+	public void Start () {
+
+		useGUILayout = false;
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
 	}
 
 	public void OnGUI () {
@@ -98,10 +105,41 @@ public class ChangeCursor : MonoBehaviour {/** Mask for the raycast placement */
                 if (text.gameObject.activeSelf)
                 {
                     text.gameObject.SetActive(false);
+<<<<<<< HEAD
                     Map(choiceA, choices[0].choiceA);
                     Map(choiceB, choices[0].choiceB);
                     Map(choiceC, choices[0].choiceC);
                     Map(choiceD, choices[0].choiceD);
+=======
+                    if (!string.IsNullOrEmpty(choices[0].choiceA?.choice))
+                    {
+                        activeChoice = true;
+                        choiceA.GetComponent<Text>().text = choices[0].choiceA?.choice;
+                        choiceA.GetComponent<AnswerSelected>().nextChoice = choices[0].choiceA?.nextOption;
+                        choiceA.SetActive(true);
+                    }
+                    if (!string.IsNullOrEmpty(choices[0].choiceB?.choice))
+                    {
+                        activeChoice = true;
+                        choiceB.GetComponent<Text>().text = choices[0].choiceB?.choice;
+                        choiceB.GetComponent<AnswerSelected>().nextChoice = choices[0].choiceB?.nextOption;
+                        choiceB.SetActive(true);
+                    }
+                    if (!string.IsNullOrEmpty(choices[0].choiceC?.choice))
+                    {
+                        activeChoice = true;
+                        choiceC.GetComponent<Text>().text = choices[0].choiceC?.choice;
+                        choiceC.GetComponent<AnswerSelected>().nextChoice = choices[0].choiceC?.nextOption;
+                        choiceC.SetActive(true);
+                    }
+                    if (!string.IsNullOrEmpty(choices[0].choiceD?.choice))
+                    {
+                        activeChoice = true;
+                        choiceD.GetComponent<Text>().text = choices[0].choiceD?.choice;
+                        choiceD.GetComponent<AnswerSelected>().nextChoice = choices[0].choiceD?.nextOption;
+                        choiceD.SetActive(true);
+                    }
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
                     if (activeChoice)
                     {
                         text.gameObject.SetActive(false);
@@ -119,6 +157,7 @@ public class ChangeCursor : MonoBehaviour {/** Mask for the raycast placement */
             }
         }
     }
+<<<<<<< HEAD
 
     private void Map(GameObject answer, ChoiceNode node)
     {
@@ -133,6 +172,8 @@ public class ChangeCursor : MonoBehaviour {/** Mask for the raycast placement */
             answer.SetActive(true);
         }
     }
+=======
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
     public void MoveNextChoice()
     {
         choiceA.gameObject.SetActive(false);

@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58cd7eb314db6ac4b8f242899154f1bd, type: 3}
   m_Name: PrizeTicket
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   objectImage: {fileID: 21300000, guid: d71d59e98c1b7b24bbb49e3705dc222e, type: 3}
+=======
+  objectImage: {fileID: 21300000, guid: 55d6873a3a149384e8086d716896b587, type: 3}
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
   message: A Prize Ticket.

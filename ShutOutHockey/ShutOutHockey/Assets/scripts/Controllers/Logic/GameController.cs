@@ -1,5 +1,8 @@
 ﻿using GoogleMobileAds.Api;
+<<<<<<< HEAD
 using System.Collections;
+=======
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -22,6 +25,7 @@ public class GameController : MonoBehaviour {
         pause = GameObject.FindGameObjectWithTag("GameController")?.GetComponent<PauseController>();
         UpdateSVPercent();
         //if (Application.platform == RuntimePlatform.Android)
+<<<<<<< HEAD
         Screen.SetResolution(960, 640, true);
         StartCoroutine(LateStart(0.1f));
     }
@@ -29,10 +33,14 @@ public class GameController : MonoBehaviour {
     IEnumerator LateStart(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+=======
+        Screen.SetResolution(960, 640, false);
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
         GameObject myGameObject = GetAdServer();
         if (myGameObject != null)
         {
             bannerWrapper = myGameObject.GetComponent<AdManager>();
+<<<<<<< HEAD
             // Create a temporary reference to the current scene.
             Scene currentScene = SceneManager.GetActiveScene();
 
@@ -53,6 +61,10 @@ public class GameController : MonoBehaviour {
             }
         }
 
+=======
+            bannerWrapper.bannerView?.Hide();
+        }
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
     }
 
     void OnApplicationFocus(bool hasFocus)
@@ -79,6 +91,10 @@ public class GameController : MonoBehaviour {
         {
             GetAdServer();
         }
+<<<<<<< HEAD
+=======
+        bannerWrapper?.bannerView?.Hide();
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
         Time.timeScale = 1;
         scoreController.UpdatePrefs();
         SceneManager.LoadScene("menu");
@@ -90,6 +106,10 @@ public class GameController : MonoBehaviour {
         {
             GetAdServer();
         }
+<<<<<<< HEAD
+=======
+        bannerWrapper?.bannerView?.Hide();
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
         Time.timeScale = 1;
         scoreController.UpdatePrefs();
         SceneManager.LoadScene("gameplay");

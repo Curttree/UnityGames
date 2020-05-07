@@ -36,6 +36,7 @@ TextureImporter:
     21300062: thanks_31
     21300064: thanks_32
     21300066: thanks_33
+<<<<<<< HEAD
     21300068: thanks_34
     21300070: thanks_35
     21300072: thanks_36
@@ -50,6 +51,8 @@ TextureImporter:
     21300090: thanks_45
     21300092: thanks_46
     21300094: thanks_47
+=======
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -430,8 +433,13 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 453
+<<<<<<< HEAD
         width: 50
         height: 89
+=======
+        width: 47
+        height: 86
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -833,6 +841,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
+<<<<<<< HEAD
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1113,13 +1122,19 @@ TextureImporter:
         width: 41
         height: 88
       alignment: 0
+=======
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 0f1241a5d8444684ba69ee7c23312a94
+=======
+      spriteID: 3ad711833d3b1b34cb185f9508b53248
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
       vertices: []
       indices: 
       edges: []

@@ -3,15 +3,19 @@
 public class GoalieController : MonoBehaviour {
     public Animator anim;
     public GameObject demoTargets;
+<<<<<<< HEAD
     public GameObject sprayRight;
     public GameObject sprayLeft;
     public AudioClip[] clips;
     private AudioSource audioSource;
     private bool soundEffectsOn = true;
+=======
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
 
     public void Start()
     {
         anim = GetComponent<Animator>();
+<<<<<<< HEAD
         audioSource = GetComponent<AudioSource>();
         anim.SetBool("Intro", true);
 
@@ -19,12 +23,16 @@ public class GoalieController : MonoBehaviour {
         {
             soundEffectsOn = PlayerPrefs.GetInt("SoundEffects") != 0;
         }
+=======
+        anim.SetBool("Intro", true);
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
     }
     public void Save(int target)
     {
         anim.SetInteger("Target", target);
         switch (target)
         {
+<<<<<<< HEAD
             case 1:
                 Instantiate(sprayRight, new Vector3(2.75f, -2.25f, 0), Quaternion.identity);
                 break;
@@ -52,6 +60,18 @@ public class GoalieController : MonoBehaviour {
         int selection = Random.Range(0, clips.Length);
         audioSource.clip = clips[selection];
         audioSource.Play();
+=======
+            case 3:
+                GetComponent<Rigidbody2D>().MovePosition(new Vector3(1.1f, -1f, 0f));
+                break;
+            case 4:
+                GetComponent<Rigidbody2D>().MovePosition(new Vector3(-1.1f, -1f, 0f));
+                break;
+            default:
+                GetComponent<Rigidbody2D>().MovePosition(new Vector3(0f, -1f, 0f));
+                break;
+        }
+>>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
     }
 
     public void IntroEnded()
