@@ -1,0 +1,135 @@
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class GameplayController : MonoBehaviour
+{
+
+    public static GameplayController instance;
+
+    [SerializeField]
+    private Text scoreText, endScore, bestScore, gameOverText;
+
+    [SerializeField]
+    private Button restartGameButton, instructionsButton;
+
+    [SerializeField]
+    private GameObject pausePanel;
+
+    [SerializeField]
+    private GameObject[] birds;
+
+    [SerializeField]
+    private Sprite[] medals;
+
+    [SerializeField]
+    private Image medalImage;
+
+    private int bronzeScore = 20;
+    private int goldScore = 40;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
+    public void PauseGame()
+    {
+        if (BirdScript.instance != null)
+        {
+            if (BirdScript.instance.isAlive)
+            {
+                pausePanel.SetActive(true);
+                gameOverText.gameObject.SetActive(false);
+                endScore.text = BirdScript.instance.score.ToString();
+                bestScore.text = GameController.instance.GetHighScore().ToString();
+                Time.timeScale = 0f;
+                restartGameButton.onClick.RemoveAllListeners();
+                restartGameButton.onClick.AddListener(() => ResumeGame());
+            }
+        }
+
+    }
+
+    public void GoToMenuButton()
+    {
+        SceneFader.instance.FadeIn("menu");
+    }
+
+    public void ResumeGame()
+    {
+        pausePanel.SetActive(false);
+        Time.timeScale = 1f;
+    }
+    public void RestartGame()
+    {
+        SceneFader.instance.FadeIn(SceneManager.GetActiveScene().name);
+    }
+
+    public void PlayGame()
+    {
+        scoreText.gameObject.SetActive(true);
+        birds[GameController.instance.GetSelectedBird()].SetActive(true);
+        instructionsButton.gameObject.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void SetScore(int score)
+    {
+        scoreText.text = score.ToString();
+    }
+
+    public void PlayerDiedShowScore(int score)
+    {
+        pausePanel.SetActive(true);
+        gameOverText.gameObject.SetActive(true);
+        scoreText.gameObject.SetActive(false);
+
+        endScore.text = score.ToString();
+        if (score > GameController.instance.GetHighScore())
+        {
+            GameController.instance.SetHighScore(score);
+        }
+
+        bestScore.text = GameController.instance.GetHighScore().ToString();
+        AwardMedal(score);
+        UnlockCharacters(score);
+        restartGameButton.onClick.RemoveAllListeners();
+        restartGameButton.onClick.AddListener(() => RestartGame());
+    }
+    
+    private void AwardMedal(int score)
+    {
+        if (score <= bronzeScore)
+        {
+            medalImage.sprite = medals[0];
+        }
+        else if (score > bronzeScore && score < goldScore)
+        {
+            medalImage.sprite = medals[1];
+        }
+        else
+        {
+            medalImage.sprite = medals[2];
+        }
+    }
+
+    private void UnlockCharacters(int score)
+    {
+        
+        //Green Bird
+        if (score > bronzeScore && !GameController.instance.IsGreenBirdUnlocked())
+        {
+            GameController.instance.UnlockGreenBird();
+        }
+        
+        //Red Bird
+        if (score > goldScore && !GameController.instance.IsRedBirdUnlocked())
+        {
+            GameController.instance.UnlockRedBird();
+        }
+    }
+}

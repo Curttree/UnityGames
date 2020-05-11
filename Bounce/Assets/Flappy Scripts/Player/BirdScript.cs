@@ -91,12 +91,14 @@ public class BirdScript : MonoBehaviour
         isAlive = false;
         anim.SetTrigger("isDead");
         audioSource.PlayOneShot(deathClip);
+        GameplayController.instance.PlayerDiedShowScore(score);
     }
 
     private void Score()
     {
         score++;
         audioSource.PlayOneShot(pointClip);
+        GameplayController.instance.SetScore(score);
     }
 
     private void OnCollisionEnter2D(Collision2D target)
