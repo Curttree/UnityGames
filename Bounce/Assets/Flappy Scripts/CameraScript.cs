@@ -3,6 +3,7 @@
 public class CameraScript : MonoBehaviour
 {
     public static float offsetX;
+    public static float offsetY;
 
     // Update is called once per frame
     void Update()
@@ -17,6 +18,7 @@ public class CameraScript : MonoBehaviour
     {
         Vector3 temp = transform.position;
         temp.x = BirdScript.instance.GetPositionX() + offsetX;
+        //temp.y = BirdScript.instance.GetPositionY() + offsetY;
         transform.position = temp;
     }
 }

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class BirdScript : MonoBehaviour
@@ -11,9 +13,15 @@ public class BirdScript : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
-    private float forwardSpeed = 3f;
+    private float forwardSpeed = 3.6f;
 
-    private float bounceSpeed = 4f;
+    private float bounceSpeed = -20f;
+
+    private float maxSpeed = 12f;
+
+    private float maxBounces = 1f;
+
+    private float bounceIncrease = 0.0042f;
 
     public bool isAlive;
 
@@ -29,6 +37,9 @@ public class BirdScript : MonoBehaviour
 
     public int score = 0;
 
+    [SerializeField]
+    private GameObject hitSpark;
+
     private void Awake()
     {
         if (instance == null)
@@ -40,6 +51,7 @@ public class BirdScript : MonoBehaviour
 
         flapButton = GameObject.FindGameObjectWithTag("FlapButton").GetComponent<Button>();
         flapButton.onClick.AddListener(() => Flap());
+        GameplayController.instance.SetBounce(maxBounces);
     }
 
     private void FixedUpdate()
@@ -49,6 +61,18 @@ public class BirdScript : MonoBehaviour
             Vector3 temp = transform.position;
             temp.x += forwardSpeed * Time.deltaTime;
             transform.position = temp;
+            if(myRigidBody.velocity.x<=forwardSpeed * Time.deltaTime)
+            {
+                temp.x = forwardSpeed * Time.deltaTime;
+                temp.y = myRigidBody.velocity.y;
+                myRigidBody.velocity = temp;
+            }
+            if (System.Math.Truncate(maxBounces + bounceIncrease) > System.Math.Truncate(maxBounces))
+            {
+                audioSource.PlayOneShot(pointClip);
+            }
+            maxBounces += bounceIncrease;
+            GameplayController.instance.SetBounce(maxBounces);
 
             if (isFlapping)
             {
@@ -58,16 +82,12 @@ public class BirdScript : MonoBehaviour
                 anim.SetTrigger("isFlapping");
             }
 
-            if(myRigidBody.velocity.y >= 0)
+            if (myRigidBody.velocity.y >= maxSpeed)
             {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
+                myRigidBody.velocity = new Vector2(0, maxSpeed);
             }
-            else
-            {
-                float angle = 0;
-                angle = Mathf.Lerp(0, -90, -myRigidBody.velocity.y / 10);
-                transform.rotation = Quaternion.Euler(0, 0, angle);
-            }
+           
+            transform.Rotate(0, 0, -180 * Time.deltaTime);
         }
     }
 
@@ -78,12 +98,21 @@ public class BirdScript : MonoBehaviour
 
     public void Flap()
     {
-        isFlapping = true;
+        if (maxBounces >= 1f)
+        {
+            maxBounces--;
+            GameplayController.instance.SetBounce(maxBounces);
+            isFlapping = true;
+        }
     }
 
     public float GetPositionX()
     {
         return transform.position.x;
+    }
+    public float GetPositionY()
+    {
+        return transform.position.y;
     }
 
     private void Death()
@@ -91,19 +120,35 @@ public class BirdScript : MonoBehaviour
         isAlive = false;
         anim.SetTrigger("isDead");
         audioSource.PlayOneShot(deathClip);
+        Instantiate(hitSpark, transform.position, Quaternion.identity);
+        Debug.Log("test1");
+        Time.timeScale = 0.25f;
+
+        StartCoroutine(SlowMoDeath());
+    }
+
+    private void ShowScore()
+    {
+        Time.timeScale = 1f;
         GameplayController.instance.PlayerDiedShowScore(score);
+    }
+
+
+    IEnumerator SlowMoDeath()
+    {
+        yield return StartCoroutine(CustomCoroutines.WaitForRealSeconds(2f));
+        ShowScore();
     }
 
     private void Score()
     {
         score++;
-        audioSource.PlayOneShot(pointClip);
         GameplayController.instance.SetScore(score);
     }
 
     private void OnCollisionEnter2D(Collision2D target)
     {
-        if (target.gameObject.tag == "Ground" || target.gameObject.tag == "Pipe")
+        if (target.gameObject.tag == "Pipe")
         {
             if (isAlive)
             {

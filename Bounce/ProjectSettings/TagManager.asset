@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Pipe
   - PipeHolder
+  - Decoration
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Pipe
   - PipeCollector
   - PipeHolder
-  - 
+  - Decoration
   - 
   - 
   - 
@@ -49,11 +50,14 @@ TagManager:
   - name: Background
     uniqueID: 782434491
     locked: 0
+  - name: Pipe
+    uniqueID: 4161027197
+    locked: 0
   - name: Ground
     uniqueID: 3020052875
     locked: 0
-  - name: Pipe
-    uniqueID: 4161027197
+  - name: Decoration
+    uniqueID: 3026250131
     locked: 0
   - name: Bird
     uniqueID: 2936674973

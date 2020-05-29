@@ -8,7 +8,7 @@ public class GameplayController : MonoBehaviour
     public static GameplayController instance;
 
     [SerializeField]
-    private Text scoreText, endScore, bestScore, gameOverText;
+    private Text scoreText, endScore, bestScore, gameOverText, bounceCount;
 
     [SerializeField]
     private Button restartGameButton, instructionsButton;
@@ -72,7 +72,9 @@ public class GameplayController : MonoBehaviour
     public void PlayGame()
     {
         scoreText.gameObject.SetActive(true);
-        birds[GameController.instance.GetSelectedBird()].SetActive(true);
+        bounceCount.gameObject.SetActive(true);
+        var birdNum = GameController.instance.GetSelectedBird();
+        birds[birdNum].SetActive(true);
         instructionsButton.gameObject.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -80,6 +82,11 @@ public class GameplayController : MonoBehaviour
     public void SetScore(int score)
     {
         scoreText.text = score.ToString();
+    }
+
+    public void SetBounce(float bounce)
+    {
+        bounceCount.text = bounce.ToString("n2");
     }
 
     public void PlayerDiedShowScore(int score)
