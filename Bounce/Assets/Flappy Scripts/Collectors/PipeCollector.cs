@@ -53,9 +53,5 @@ public class PipeCollector : MonoBehaviour
         {
             grass.GetComponent<DecorationController>().RandomShow();
         }
-        else
-        {
-            Debug.Log("test");
-        }
     }
 }

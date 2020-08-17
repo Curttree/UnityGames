@@ -5,7 +5,7 @@ using UnityEngine;
 public class DecorationController : MonoBehaviour
 {
 
-    private int showOdds = 4;
+    private int showOdds = 3;
 
     [SerializeField]
     private Sprite[] decorations;

@@ -50,6 +50,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -61,6 +62,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -71,9 +73,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1358292323
-  m_SortingLayer: 4
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: 36168efa5acc16b4c805cab725644bd5, type: 3}
+  m_SortingLayer: 5
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -6134421028427622431, guid: 7b26f633b0972e34e9cc1d307d7ae35c,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -252,9 +255,9 @@ MonoBehaviour:
   anim: {fileID: 3506774765393073521}
   isAlive: 0
   audioSource: {fileID: 3715313017290998112}
-  flapClip: {fileID: 8300000, guid: 90a5d544564ffb44ab8e0cd29652a32d, type: 3}
-  pointClip: {fileID: 8300000, guid: 946b63a160d88904baa094220f366ef0, type: 3}
-  deathClip: {fileID: 8300000, guid: 08674210be2fa9a4d988bffe383b42ca, type: 3}
+  flapClip: {fileID: 8300000, guid: 47c49dd25e550f54a9605c5344d84f01, type: 3}
+  pointClip: {fileID: 8300000, guid: 07ab4816714174542b44ce4be9ba5fe6, type: 3}
+  deathClip: {fileID: 8300000, guid: e5e4b71ebe6cac341a5d0cf8a78bfc3c, type: 3}
   score: 0
   hitSpark: {fileID: 4142776290615996168, guid: 2aeba2d1f0f51b0448849c4bbb967f8f,
     type: 3}

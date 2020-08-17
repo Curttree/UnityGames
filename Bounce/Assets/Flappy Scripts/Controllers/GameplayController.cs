@@ -28,6 +28,8 @@ public class GameplayController : MonoBehaviour
     private int bronzeScore = 20;
     private int goldScore = 40;
 
+    public bool isPaused;
+
     void Awake()
     {
         if (instance == null)
@@ -42,6 +44,7 @@ public class GameplayController : MonoBehaviour
         {
             if (BirdScript.instance.isAlive)
             {
+                isPaused = true;
                 pausePanel.SetActive(true);
                 gameOverText.gameObject.SetActive(false);
                 endScore.text = BirdScript.instance.score.ToString();
@@ -61,6 +64,7 @@ public class GameplayController : MonoBehaviour
 
     public void ResumeGame()
     {
+        isPaused = false;
         pausePanel.SetActive(false);
         Time.timeScale = 1f;
     }

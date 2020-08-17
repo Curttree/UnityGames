@@ -25,7 +25,7 @@ public class BirdScript : MonoBehaviour
 
     public bool isAlive;
 
-    private bool isFlapping;
+    private bool isFlapping, isFalling;
 
     private Button flapButton;
 
@@ -39,6 +39,13 @@ public class BirdScript : MonoBehaviour
 
     [SerializeField]
     private GameObject hitSpark;
+
+    [SerializeField]
+    private GameObject trailObject;
+
+    private float generateTrailDelayDefault = 0.5f;
+    private float generateTrailDelay = 0.05f;
+
 
     private void Awake()
     {
@@ -61,13 +68,13 @@ public class BirdScript : MonoBehaviour
             Vector3 temp = transform.position;
             temp.x += forwardSpeed * Time.deltaTime;
             transform.position = temp;
-            if(myRigidBody.velocity.x<=forwardSpeed * Time.deltaTime)
+            if(myRigidBody.velocity.x != forwardSpeed * Time.deltaTime)
             {
                 temp.x = forwardSpeed * Time.deltaTime;
                 temp.y = myRigidBody.velocity.y;
                 myRigidBody.velocity = temp;
             }
-            if (System.Math.Truncate(maxBounces + bounceIncrease) > System.Math.Truncate(maxBounces))
+            if (Math.Truncate(maxBounces + bounceIncrease) > System.Math.Truncate(maxBounces))
             {
                 audioSource.PlayOneShot(pointClip);
             }
@@ -77,9 +84,15 @@ public class BirdScript : MonoBehaviour
             if (isFlapping)
             {
                 isFlapping = false;
+                isFalling = true;
+                generateTrailDelay = generateTrailDelayDefault;
                 myRigidBody.velocity = new Vector2(0, bounceSpeed);
-                audioSource.PlayOneShot(flapClip);
-                anim.SetTrigger("isFlapping");
+            }
+
+            if (isFalling && isAlive)
+            {
+                Debug.Log($"delay is {generateTrailDelay.ToString()}");
+                GenerateTrail();
             }
 
             if (myRigidBody.velocity.y >= maxSpeed)
@@ -98,7 +111,7 @@ public class BirdScript : MonoBehaviour
 
     public void Flap()
     {
-        if (maxBounces >= 1f)
+        if (!GameplayController.instance.isPaused && maxBounces >= 1f)
         {
             maxBounces--;
             GameplayController.instance.SetBounce(maxBounces);
@@ -121,7 +134,6 @@ public class BirdScript : MonoBehaviour
         anim.SetTrigger("isDead");
         audioSource.PlayOneShot(deathClip);
         Instantiate(hitSpark, transform.position, Quaternion.identity);
-        Debug.Log("test1");
         Time.timeScale = 0.25f;
 
         StartCoroutine(SlowMoDeath());
@@ -155,6 +167,20 @@ public class BirdScript : MonoBehaviour
                 Death();
             }
         }
+        if (target.gameObject.tag == "Ground")
+        {
+            if (isAlive)
+            {
+                if (isFalling)
+                {
+                    audioSource.PlayOneShot(flapClip);
+                    anim.SetTrigger("isBouncing");
+                }
+                else
+                    audioSource.PlayOneShot(flapClip, 0.25f);
+                isFalling = false;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D target)
@@ -163,5 +189,10 @@ public class BirdScript : MonoBehaviour
         {
             Score();
         }
+    }
+
+    private void GenerateTrail()
+    {
+        Instantiate<GameObject>(trailObject,gameObject.transform.position,gameObject.transform.rotation);
     }
 }

@@ -17,13 +17,7 @@ public class MenuController : MonoBehaviour
         birds[GameController.instance.GetSelectedBird()].SetActive(true);
         CheckIfUnlocked();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     public void PlayGame()
     {
         SceneFader.instance.FadeIn("gameplay");
