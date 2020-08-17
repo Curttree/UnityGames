@@ -7,28 +7,28 @@ TextureImporter:
     second: red_idle
   - first:
       213: 300353140021029200
-    second: balls_1
+    second: basket_idle
   - first:
       213: 338592883393811448
-    second: balls_2
+    second: beach_idle
   - first:
       213: -7209212159076336660
     second: red_bounce
   - first:
       213: 2023522969545607760
-    second: balls_4
+    second: basket_bounce
   - first:
       213: -5579777447416819038
-    second: balls_5
+    second: beach_bounce
   - first:
       213: -6885498132332409789
     second: red_trail
   - first:
       213: 8020060226805192610
-    second: balls_7
+    second: basket_trail
   - first:
       213: -3959120327227033700
-    second: balls_8
+    second: beach_trail
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -50,6 +50,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -84,6 +85,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -171,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: balls_1
+      name: basket_idle
       rect:
         serializedVersion: 2
         x: 81
@@ -192,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: balls_2
+      name: beach_idle
       rect:
         serializedVersion: 2
         x: 162
@@ -234,7 +236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: balls_4
+      name: basket_bounce
       rect:
         serializedVersion: 2
         x: 81
@@ -255,7 +257,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: balls_5
+      name: beach_bounce
       rect:
         serializedVersion: 2
         x: 162
@@ -297,7 +299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: balls_7
+      name: basket_trail
       rect:
         serializedVersion: 2
         x: 81
@@ -318,7 +320,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: balls_8
+      name: beach_trail
       rect:
         serializedVersion: 2
         x: 162

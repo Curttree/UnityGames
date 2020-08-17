@@ -91,7 +91,6 @@ public class BirdScript : MonoBehaviour
 
             if (isFalling && isAlive)
             {
-                Debug.Log($"delay is {generateTrailDelay.ToString()}");
                 GenerateTrail();
             }
 

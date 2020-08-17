@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3506774765393073522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.6201696, y: -0.053317297, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -51,6 +51,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -119,7 +120,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.39
 --- !u!50 &3506774765393073526
@@ -260,4 +261,6 @@ MonoBehaviour:
   deathClip: {fileID: 8300000, guid: e5e4b71ebe6cac341a5d0cf8a78bfc3c, type: 3}
   score: 0
   hitSpark: {fileID: 4142776290615996168, guid: 2aeba2d1f0f51b0448849c4bbb967f8f,
+    type: 3}
+  trailObject: {fileID: 6489341358617469281, guid: 2005747ac8d1c24468de21f5896ee25e,
     type: 3}

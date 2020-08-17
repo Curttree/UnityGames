@@ -14,7 +14,7 @@ public class GameplayController : MonoBehaviour
     private Button restartGameButton, instructionsButton;
 
     [SerializeField]
-    private GameObject pausePanel;
+    private GameObject pausePanel,scorePanel,bouncePanel;
 
     [SerializeField]
     private GameObject[] birds;
@@ -75,7 +75,8 @@ public class GameplayController : MonoBehaviour
 
     public void PlayGame()
     {
-        scoreText.gameObject.SetActive(true);
+        scorePanel.gameObject.SetActive(true);
+        bouncePanel.gameObject.SetActive(true);
         bounceCount.gameObject.SetActive(true);
         var birdNum = GameController.instance.GetSelectedBird();
         birds[birdNum].SetActive(true);
@@ -97,7 +98,8 @@ public class GameplayController : MonoBehaviour
     {
         pausePanel.SetActive(true);
         gameOverText.gameObject.SetActive(true);
-        scoreText.gameObject.SetActive(false);
+        scorePanel.gameObject.SetActive(false);
+        bouncePanel.gameObject.SetActive(false);
 
         endScore.text = score.ToString();
         if (score > GameController.instance.GetHighScore())
