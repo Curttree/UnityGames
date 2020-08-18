@@ -33,7 +33,7 @@ public class BirdScript : MonoBehaviour
     private AudioSource audioSource;
 
     [SerializeField]
-    private AudioClip flapClip, pointClip, deathClip;
+    private AudioClip flapClip, pointClip, deathClip, noBounceClip;
 
     public int score = 0;
 
@@ -115,6 +115,10 @@ public class BirdScript : MonoBehaviour
             maxBounces--;
             GameplayController.instance.SetBounce(maxBounces);
             isFlapping = true;
+        }
+        else if (maxBounces < 1f && !audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(noBounceClip);
         }
     }
 

@@ -8,13 +8,13 @@ public class GameplayController : MonoBehaviour
     public static GameplayController instance;
 
     [SerializeField]
-    private Text scoreText, endScore, bestScore, gameOverText, bounceCount;
+    private Text scoreText, endScore, bestScore, bounceCount;
 
     [SerializeField]
     private Button restartGameButton, instructionsButton;
 
     [SerializeField]
-    private GameObject pausePanel,scorePanel,bouncePanel;
+    private GameObject pausePanel,scorePanel,bouncePanel,gameOverPanel,scoreLabel,bounceLabel;
 
     [SerializeField]
     private GameObject[] birds;
@@ -46,7 +46,7 @@ public class GameplayController : MonoBehaviour
             {
                 isPaused = true;
                 pausePanel.SetActive(true);
-                gameOverText.gameObject.SetActive(false);
+                gameOverPanel.SetActive(false);
                 endScore.text = BirdScript.instance.score.ToString();
                 bestScore.text = GameController.instance.GetHighScore().ToString();
                 Time.timeScale = 0f;
@@ -59,7 +59,14 @@ public class GameplayController : MonoBehaviour
 
     public void GoToMenuButton()
     {
-        SceneFader.instance.FadeIn("menu");
+        if (SceneFader.instance == null)
+        {
+            SceneManager.LoadScene("menu");
+        }
+        else
+        {
+            SceneFader.instance.FadeIn("menu");
+        }
     }
 
     public void ResumeGame()
@@ -81,6 +88,8 @@ public class GameplayController : MonoBehaviour
         var birdNum = GameController.instance.GetSelectedBird();
         birds[birdNum].SetActive(true);
         instructionsButton.gameObject.SetActive(false);
+        scoreLabel.gameObject.SetActive(false);
+        bounceLabel.gameObject.SetActive(false);
         Time.timeScale = 1f;
     }
 
@@ -97,7 +106,7 @@ public class GameplayController : MonoBehaviour
     public void PlayerDiedShowScore(int score)
     {
         pausePanel.SetActive(true);
-        gameOverText.gameObject.SetActive(true);
+        gameOverPanel.SetActive(true);
         scorePanel.gameObject.SetActive(false);
         bouncePanel.gameObject.SetActive(false);
 
