@@ -21,7 +21,7 @@ public class BirdScript : MonoBehaviour
 
     private float maxBounces = 1f;
 
-    private float bounceIncrease = 0.0042f;
+    private float bounceIncrease = 0.0039f;
 
     public bool isAlive;
 
@@ -77,7 +77,7 @@ public class BirdScript : MonoBehaviour
                 temp.y = myRigidBody.velocity.y;
                 myRigidBody.velocity = temp;
             }
-            if (Math.Truncate(maxBounces + bounceIncrease) > System.Math.Truncate(maxBounces))
+            if (Math.Truncate(maxBounces + bounceIncrease) > Math.Truncate(maxBounces))
             {
                 PlaySound(pointClip, pointClipPath, 0.5f);
 
