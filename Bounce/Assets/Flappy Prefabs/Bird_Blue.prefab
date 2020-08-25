@@ -256,10 +256,14 @@ MonoBehaviour:
   anim: {fileID: 3506774765393073521}
   isAlive: 0
   audioSource: {fileID: 3715313017290998112}
-  flapClip: {fileID: 8300000, guid: 47c49dd25e550f54a9605c5344d84f01, type: 3}
-  pointClip: {fileID: 8300000, guid: 07ab4816714174542b44ce4be9ba5fe6, type: 3}
+  flapClip: {fileID: 8300000, guid: 6aefba1645ef15e48a777bc81d354176, type: 3}
+  pointClip: {fileID: 8300000, guid: c147964bd10219641a5c8ca3a953d531, type: 3}
   deathClip: {fileID: 8300000, guid: e5e4b71ebe6cac341a5d0cf8a78bfc3c, type: 3}
-  noBounceClip: {fileID: 8300000, guid: cf27f114866fb1f449eebfaf804cfecd, type: 3}
+  noBounceClip: {fileID: 8300000, guid: 286f75c0fc2b8d44ca9cffa0d2d3a355, type: 3}
+  flapClipPath: Effects/ballBounce1.wav
+  pointClipPath: Effects/ding.wav
+  deathClipPath: Effects/lose.wav
+  noBounceClipPath: Effects/denied.wav
   score: 0
   hitSpark: {fileID: 4142776290615996168, guid: 2aeba2d1f0f51b0448849c4bbb967f8f,
     type: 3}

@@ -35,6 +35,9 @@ public class BirdScript : MonoBehaviour
     [SerializeField]
     private AudioClip flapClip, pointClip, deathClip, noBounceClip;
 
+    [SerializeField]
+    private string flapClipPath,pointClipPath,deathClipPath,noBounceClipPath;
+
     public int score = 0;
 
     [SerializeField]
@@ -76,7 +79,8 @@ public class BirdScript : MonoBehaviour
             }
             if (Math.Truncate(maxBounces + bounceIncrease) > System.Math.Truncate(maxBounces))
             {
-                audioSource.PlayOneShot(pointClip);
+                PlaySound(pointClip, pointClipPath, 0.5f);
+
             }
             maxBounces += bounceIncrease;
             GameplayController.instance.SetBounce(maxBounces);
@@ -110,15 +114,15 @@ public class BirdScript : MonoBehaviour
 
     public void Flap()
     {
-        if (!GameplayController.instance.isPaused && maxBounces >= 1f)
+        if (!GameplayController.instance.isPaused && maxBounces >= 1f && isAlive)
         {
             maxBounces--;
             GameplayController.instance.SetBounce(maxBounces);
             isFlapping = true;
         }
-        else if (maxBounces < 1f && !audioSource.isPlaying)
+        else if (maxBounces < 1f && !audioSource.isPlaying && isAlive)
         {
-            audioSource.PlayOneShot(noBounceClip);
+            PlaySound(noBounceClip, noBounceClipPath);
         }
     }
 
@@ -135,7 +139,7 @@ public class BirdScript : MonoBehaviour
     {
         isAlive = false;
         anim.SetTrigger("isDead");
-        audioSource.PlayOneShot(deathClip);
+        PlaySound(deathClip, deathClipPath);
         Instantiate(hitSpark, transform.position, Quaternion.identity);
         Time.timeScale = 0.25f;
 
@@ -176,12 +180,14 @@ public class BirdScript : MonoBehaviour
             {
                 if (isFalling)
                 {
-                    audioSource.PlayOneShot(flapClip);
+                    PlaySound(flapClip, flapClipPath);
                     anim.SetTrigger("isBouncing");
                 }
                 else
-                    audioSource.PlayOneShot(flapClip, 0.25f);
-                isFalling = false;
+                {
+                    PlaySound(flapClip, flapClipPath, 0.25f);
+                }
+                    isFalling = false;
             }
         }
     }
@@ -197,5 +203,19 @@ public class BirdScript : MonoBehaviour
     private void GenerateTrail()
     {
         Instantiate<GameObject>(trailObject,gameObject.transform.position,gameObject.transform.rotation);
+    }
+
+    private void PlaySound(AudioClip clip, string path = null, float volume = 1f)
+    {
+        ////TODO: Come up with cleaner way to split audio.
+        //if (path != null && Application.platform == RuntimePlatform.Android && AudioManager.instance != null)
+        //{
+        //    AudioManager.instance.PlaySound(path, volume);
+        //}
+        //else
+        //{
+            audioSource.PlayOneShot(clip, volume);
+        //}
+
     }
 }
