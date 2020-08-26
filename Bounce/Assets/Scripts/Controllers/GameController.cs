@@ -7,12 +7,25 @@ public class GameController : MonoBehaviour
 
     private const string HIGH_SCORE = "High Score";
 
-    private const string SELECTED_BIRD = "Selected Bird";
+    private const string LIFE_SCORE = "Life Score";
 
-    private const string GREEN_BIRD = "Green Bird";
+    private const string SELECTED_BALL = "Selected Ball";
 
-    private const string RED_BIRD = "Red Bird";
+    private const string SELECTED_BG = "Selected BG";
 
+    #region unlockable balls
+    private const string BASKET_BALL = "Basket Ball";
+
+    private const string BEACH_BALL = "Beach Ball";
+    #endregion unlockable balls
+
+    #region backgrounds
+    private const string BG_NIGHT = "Night Background";
+    #endregion backgrounds
+
+    #region trails
+
+    #endregion trails
 
     private void Awake()
     {
@@ -25,9 +38,12 @@ public class GameController : MonoBehaviour
         if (!PlayerPrefs.HasKey("FirstTime"))
         {
             PlayerPrefs.SetInt(HIGH_SCORE, 0);
-            PlayerPrefs.SetInt(SELECTED_BIRD, 0);
-            PlayerPrefs.SetInt(GREEN_BIRD, 0);
-            PlayerPrefs.SetInt(RED_BIRD, 0);
+            PlayerPrefs.SetInt(LIFE_SCORE, 0);
+            PlayerPrefs.SetInt(SELECTED_BALL, 0);
+            PlayerPrefs.SetInt(SELECTED_BG, 0);
+            PlayerPrefs.SetInt(BASKET_BALL, 0);
+            PlayerPrefs.SetInt(BEACH_BALL, 0);
+            PlayerPrefs.SetInt(BG_NIGHT, 0);
             PlayerPrefs.SetInt("FirstTime", 0);
         }
     }
@@ -42,34 +58,64 @@ public class GameController : MonoBehaviour
         return PlayerPrefs.GetInt(HIGH_SCORE);
     }
 
-    public void SetSelectedBird(int selectedBird)
+    public void SetLifeScore(int score)
     {
-        PlayerPrefs.SetInt(SELECTED_BIRD, selectedBird);
+        PlayerPrefs.SetInt(LIFE_SCORE, score);
     }
 
-    public int GetSelectedBird()
+    public int GetLifeScore()
     {
-        return PlayerPrefs.GetInt(SELECTED_BIRD);
+        return PlayerPrefs.GetInt(LIFE_SCORE);
     }
 
-    public void UnlockGreenBird()
+    public void SetSelectedBall(int selectedBall)
     {
-        PlayerPrefs.SetInt(GREEN_BIRD, 1);
+        PlayerPrefs.SetInt(SELECTED_BALL, selectedBall);
     }
 
-    public bool IsGreenBirdUnlocked()
+    public int GetSelectedBall()
     {
-        return PlayerPrefs.GetInt(GREEN_BIRD) == 1;
+        return PlayerPrefs.GetInt(SELECTED_BALL);
     }
 
-    public void UnlockRedBird()
+    public void UnlockBasketBall()
     {
-        PlayerPrefs.SetInt(RED_BIRD, 1);
+        PlayerPrefs.SetInt(BASKET_BALL, 1);
     }
 
-    public bool IsRedBirdUnlocked()
+    public bool IsBasketBallUnlocked()
     {
-        return PlayerPrefs.GetInt(RED_BIRD) == 1;
+        return PlayerPrefs.GetInt(BASKET_BALL) == 1;
+    }
+
+    public void UnlockBeachBall()
+    {
+        PlayerPrefs.SetInt(BEACH_BALL, 1);
+    }
+
+    public bool IsBeachBallUnlocked()
+    {
+        return PlayerPrefs.GetInt(BEACH_BALL) == 1;
+    }
+
+    public void SetSelectedBG(int selectedBG)
+    {
+        PlayerPrefs.SetInt(SELECTED_BG, selectedBG);
+    }
+
+    public int GetSelectedBG()
+    {
+        return PlayerPrefs.GetInt(SELECTED_BG);
+    }
+
+    public void UnlockNightBG()
+    {
+        PlayerPrefs.SetInt(BG_NIGHT, 1);
+    }
+
+    public bool IsNightBGUnlocked()
+    {
+        return PlayerPrefs.GetInt(BG_NIGHT) == 1;
     }
 
     void MakeSingleton()

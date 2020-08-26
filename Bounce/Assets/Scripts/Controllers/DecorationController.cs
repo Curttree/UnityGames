@@ -35,4 +35,9 @@ public class DecorationController : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = decorations[selection];
         }
     }
+
+    public void UpdateDecorations(Sprite[] newDeco)
+    {
+        decorations = newDeco;
+    }
 }

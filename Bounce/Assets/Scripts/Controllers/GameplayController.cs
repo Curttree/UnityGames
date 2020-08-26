@@ -9,13 +9,13 @@ public class GameplayController : MonoBehaviour
     public static GameplayController instance;
 
     [SerializeField]
-    private Text scoreText, endScore, bestScore, bounceCount;
+    private Text scoreText, endScore, bestScore, bounceCount, lifeScore;
 
     [SerializeField]
     private Button restartGameButton, instructionsButton;
 
     [SerializeField]
-    private GameObject pausePanel,scorePanel,bouncePanel,gameOverPanel,scoreLabel,bounceLabel;
+    private GameObject pausePanel,scorePanel,bouncePanel,gameOverPanel,scoreLabel,bounceLabel,bounceHighlight,bounceRed;
 
     [SerializeField]
     private GameObject[] birds;
@@ -26,11 +26,18 @@ public class GameplayController : MonoBehaviour
     [SerializeField]
     private Image medalImage;
 
-    private int bronzeScore = 20;
-    private int goldScore = 40;
+    private int basketScore = 20;
+    private int beachScore = 40;
+
+    private int nightTotalScore = 100;
 
     public bool isPaused;
 
+    private void Start()
+    {
+        var currentBG = GameController.instance.GetSelectedBG();
+        BackgroundController.instance.SelectBackground(currentBG);
+    }
     void Awake()
     {
         if (instance == null)
@@ -50,6 +57,7 @@ public class GameplayController : MonoBehaviour
                 gameOverPanel.SetActive(false);
                 endScore.text = BallScript.instance.score.ToString();
                 bestScore.text = GameController.instance.GetHighScore().ToString();
+                IncrementLifeScore(BallScript.instance.score);
                 Time.timeScale = 0f;
                 restartGameButton.onClick.RemoveAllListeners();
                 restartGameButton.onClick.AddListener(() => ResumeGame());
@@ -86,7 +94,7 @@ public class GameplayController : MonoBehaviour
         scorePanel.gameObject.SetActive(true);
         bouncePanel.gameObject.SetActive(true);
         bounceCount.gameObject.SetActive(true);
-        var birdNum = GameController.instance.GetSelectedBird();
+        var birdNum = GameController.instance.GetSelectedBall();
         birds[birdNum].SetActive(true);
         instructionsButton.gameObject.SetActive(false);
         scoreLabel.gameObject.SetActive(false);
@@ -99,9 +107,40 @@ public class GameplayController : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
+    private int IncrementLifeScore(int score)
+    {
+        var newLifeScore = score + GameController.instance.GetLifeScore();
+        lifeScore.text = newLifeScore.ToString();
+        return newLifeScore;
+    }
+
     public void SetBounce(float bounce)
     {
         bounceCount.text = bounce.ToString("n2");
+    }
+
+    public void HighlightBounce()
+    {
+        StartCoroutine(FlashHighlight());
+    }
+
+    IEnumerator FlashHighlight()
+    {
+        bounceHighlight.SetActive(true);
+        yield return StartCoroutine(CustomCoroutines.WaitForRealSeconds(.2f));
+        bounceHighlight.SetActive(false);
+    }
+
+    public void NoBounce()
+    {
+        StartCoroutine(FlashRed());
+    }
+
+    IEnumerator FlashRed()
+    {
+        bounceRed.SetActive(true);
+        yield return StartCoroutine(CustomCoroutines.WaitForRealSeconds(.2f));
+        bounceRed.SetActive(false);
     }
 
     public void PlayerDiedShowScore(int score)
@@ -110,49 +149,42 @@ public class GameplayController : MonoBehaviour
         gameOverPanel.SetActive(true);
         scorePanel.gameObject.SetActive(false);
         bouncePanel.gameObject.SetActive(false);
+        var newLifeScore = IncrementLifeScore(score);
+        GameController.instance.SetLifeScore(newLifeScore);
 
         endScore.text = score.ToString();
         if (score > GameController.instance.GetHighScore())
         {
             GameController.instance.SetHighScore(score);
         }
-
         bestScore.text = GameController.instance.GetHighScore().ToString();
-        AwardMedal(score);
         UnlockCharacters(score);
+        UnlockLevels(newLifeScore);
         restartGameButton.onClick.RemoveAllListeners();
         restartGameButton.onClick.AddListener(() => RestartGame());
-    }
-    
-    private void AwardMedal(int score)
-    {
-        if (score <= bronzeScore)
-        {
-            medalImage.sprite = medals[0];
-        }
-        else if (score > bronzeScore && score < goldScore)
-        {
-            medalImage.sprite = medals[1];
-        }
-        else
-        {
-            medalImage.sprite = medals[2];
-        }
     }
 
     private void UnlockCharacters(int score)
     {
-        
-        //Green Bird
-        if (score > bronzeScore && !GameController.instance.IsGreenBirdUnlocked())
+        //Basketball
+        if (score > basketScore && !GameController.instance.IsBasketBallUnlocked())
         {
-            GameController.instance.UnlockGreenBird();
+            GameController.instance.UnlockBasketBall();
         }
         
-        //Red Bird
-        if (score > goldScore && !GameController.instance.IsRedBirdUnlocked())
+        //Beachball
+        if (score > beachScore && !GameController.instance.IsBeachBallUnlocked())
         {
-            GameController.instance.UnlockRedBird();
+            GameController.instance.UnlockBeachBall();
+        }
+    }
+
+    private void UnlockLevels(int lifeScore)
+    {
+        //Night
+        if (lifeScore > nightTotalScore && !GameController.instance.IsNightBGUnlocked())
+        {
+            GameController.instance.UnlockNightBG();
         }
     }
 }

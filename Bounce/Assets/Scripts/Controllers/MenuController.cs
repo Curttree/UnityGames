@@ -9,13 +9,23 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     private GameObject[] birds;
 
-    private bool isGreenBirdUnlocked, isRedBirdUnlocked;
+    private bool isBasketballUnlocked, isBeachballUnlocked;
+
+    private int currentBG;
+
+    [SerializeField]
+    private GameObject changeBall, changeBG;
+
+    private bool anyBallsUnlocked = false, anyBGsUnlocked = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        birds[GameController.instance.GetSelectedBird()].SetActive(true);
+        birds[GameController.instance.GetSelectedBall()].SetActive(true);
+        currentBG = GameController.instance.GetSelectedBG();
+        BackgroundController.instance.SelectBackground(currentBG);
         CheckIfUnlocked();
+        HideButtons();
     }
     
     public void PlayGame()
@@ -25,47 +35,71 @@ public class MenuController : MonoBehaviour
 
     void CheckIfUnlocked()
     {
-        if (GameController.instance.IsGreenBirdUnlocked())
+        if (GameController.instance.IsBasketBallUnlocked())
         {
-            isGreenBirdUnlocked = true;
+            anyBallsUnlocked = true;
+            isBasketballUnlocked = true;
         }
-        if (GameController.instance.IsRedBirdUnlocked())
+        if (GameController.instance.IsBeachBallUnlocked())
         {
-            isRedBirdUnlocked = true;
+            anyBallsUnlocked = true;
+            isBeachballUnlocked = true;
+        }
+        if (GameController.instance.IsNightBGUnlocked())
+        {
+            anyBGsUnlocked = true;
+        }
+    }
+    
+    void HideButtons()
+    {
+        if (!anyBallsUnlocked)
+        {
+            changeBall.SetActive(false);
+        }
+        if (!anyBGsUnlocked)
+        {
+            changeBG.SetActive(false);
         }
     }
 
     public void ChangeBird()
     {
-        if (GameController.instance.GetSelectedBird() == 0)
+        if (GameController.instance.GetSelectedBall() == 0)
         {
-            if (isGreenBirdUnlocked)
+            if (isBasketballUnlocked)
             {
                 birds[0].SetActive(false);
-                GameController.instance.SetSelectedBird(1);
-                birds[GameController.instance.GetSelectedBird()].SetActive(true);
+                GameController.instance.SetSelectedBall(1);
+                birds[GameController.instance.GetSelectedBall()].SetActive(true);
             }
         }
-        else if (GameController.instance.GetSelectedBird() == 1)
+        else if (GameController.instance.GetSelectedBall() == 1)
         {
-            if (isRedBirdUnlocked)
+            if (isBeachballUnlocked)
             {
-                GameController.instance.SetSelectedBird(2);
+                GameController.instance.SetSelectedBall(2);
             }
             else
             {
-                GameController.instance.SetSelectedBird(0);
+                GameController.instance.SetSelectedBall(0);
             }
 
             birds[1].SetActive(false);
-            birds[GameController.instance.GetSelectedBird()].SetActive(true);
+            birds[GameController.instance.GetSelectedBall()].SetActive(true);
         }
-        else if (GameController.instance.GetSelectedBird() == 2)
+        else if (GameController.instance.GetSelectedBall() == 2)
         {
             birds[2].SetActive(false);
-            GameController.instance.SetSelectedBird(0);
-            birds[GameController.instance.GetSelectedBird()].SetActive(true);
+            GameController.instance.SetSelectedBall(0);
+            birds[GameController.instance.GetSelectedBall()].SetActive(true);
 
         }
+    }
+
+    public void ChangeBG()
+    {
+        var newBG = BackgroundController.instance.CycleBG();
+        GameController.instance.SetSelectedBG(newBG);
     }
 }

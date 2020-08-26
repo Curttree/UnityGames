@@ -79,8 +79,8 @@ public class BallScript : MonoBehaviour
             }
             if (Math.Truncate(maxBounces + bounceIncrease) > Math.Truncate(maxBounces))
             {
-                PlaySound(pointClip, pointClipPath, 0.5f);
-
+                PlaySound(pointClip, pointClipPath, 0.25f);
+                GameplayController.instance.HighlightBounce();
             }
             maxBounces += bounceIncrease;
             GameplayController.instance.SetBounce(maxBounces);
@@ -123,6 +123,7 @@ public class BallScript : MonoBehaviour
         else if (maxBounces < 1f && !audioSource.isPlaying && isAlive)
         {
             PlaySound(noBounceClip, noBounceClipPath);
+            GameplayController.instance.NoBounce();
         }
     }
 

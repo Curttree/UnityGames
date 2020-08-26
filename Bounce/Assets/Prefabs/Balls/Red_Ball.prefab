@@ -269,3 +269,5 @@ MonoBehaviour:
     type: 3}
   trailObject: {fileID: 6489341358617469281, guid: 2005747ac8d1c24468de21f5896ee25e,
     type: 3}
+  bounceHighlight: {fileID: 0}
+  bounceRed: {fileID: 0}
