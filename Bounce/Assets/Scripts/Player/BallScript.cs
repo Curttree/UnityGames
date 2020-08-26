@@ -120,7 +120,7 @@ public class BallScript : MonoBehaviour
             GameplayController.instance.SetBounce(maxBounces);
             isFlapping = true;
         }
-        else if (maxBounces < 1f && !audioSource.isPlaying && isAlive)
+        else if (!GameplayController.instance.isPaused && maxBounces < 1f && !audioSource.isPlaying && isAlive)
         {
             PlaySound(noBounceClip, noBounceClipPath);
             GameplayController.instance.NoBounce();

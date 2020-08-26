@@ -2430,8 +2430,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 329154663968592823, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd,
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407289642188414995, guid: c7f9cb46bb0526e4b9f4707c88a69437,
         type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2407289642188414997, guid: c7f9cb46bb0526e4b9f4707c88a69437,
         type: 3}
       propertyPath: m_Name
@@ -2675,8 +2679,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 329154663968592823, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd,
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407289642188414995, guid: c7f9cb46bb0526e4b9f4707c88a69437,
         type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2407289642188414997, guid: c7f9cb46bb0526e4b9f4707c88a69437,
         type: 3}
       propertyPath: m_Name
@@ -2828,7 +2836,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 9454a8b6075ef5847a0ac56c37a8257e, type: 3}
     m_FontSize: 23
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
@@ -5424,8 +5432,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 329154663968592823, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd,
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407289642188414995, guid: c7f9cb46bb0526e4b9f4707c88a69437,
         type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2407289642188414997, guid: c7f9cb46bb0526e4b9f4707c88a69437,
         type: 3}
       propertyPath: m_Name
@@ -6256,8 +6268,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 329154663968592823, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd,
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407289642188414995, guid: c7f9cb46bb0526e4b9f4707c88a69437,
         type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2407289642188414997, guid: c7f9cb46bb0526e4b9f4707c88a69437,
         type: 3}
       propertyPath: m_Name
