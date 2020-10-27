@@ -29,6 +29,21 @@ TextureImporter:
   - first:
       213: -3959120327227033700
     second: beach_trail
+  - first:
+      213: -2598005947579844795
+    second: random
+  - first:
+      213: 9112020770366926958
+    second: soccer_trail
+  - first:
+      213: -8793112832175403279
+    second: soccer_idle
+  - first:
+      213: 4572233767630987598
+    second: random_trail
+  - first:
+      213: 8937125793816700154
+    second: soccer_bounce
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -197,9 +212,9 @@ TextureImporter:
       name: beach_idle
       rect:
         serializedVersion: 2
-        x: 162
+        x: 163
         y: 162
-        width: 81
+        width: 79
         height: 81
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -336,6 +351,111 @@ TextureImporter:
       bones: []
       spriteID: c97ba98e9016e09c0800000000000000
       internalID: -3959120327227033700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: random
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 162
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 547b6220b5702fbd0800000000000000
+      internalID: -2598005947579844795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soccer_trail
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 0
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e60b3b3fc96647e70800000000000000
+      internalID: 9112020770366926958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soccer_idle
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 162
+        width: 82
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fe8140977698f580800000000000000
+      internalID: -8793112832175403279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: random_trail
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 0
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e41e0bd0366d37f30800000000000000
+      internalID: 4572233767630987598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soccer_bounce
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 81
+        width: 82
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af4ec6dfe8c070c70800000000000000
+      internalID: 8937125793816700154
       vertices: []
       indices: 
       edges: []

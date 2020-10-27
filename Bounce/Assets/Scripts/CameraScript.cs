@@ -8,7 +8,7 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (BallScript.instance != null && BallScript.instance.isAlive)
+        if (BallScript.instance != null && BallScript.instance.isAlive && BallScript.instance.gameObject.transform.position.x > 0)
         {
             MoveCamera();
         }

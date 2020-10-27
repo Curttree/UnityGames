@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Backgrounds
+public enum Balls
 {
-    Field,
-    City,
-    Night,
-    Gym,
-    Beach
+    Red,
+    Soccer,
+    Basket,
+    Beach,
+    Tennis
 }

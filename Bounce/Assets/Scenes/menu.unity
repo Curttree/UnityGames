@@ -1410,33 +1410,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1048243389}
   - component: {fileID: 1048243388}
-  - component: {fileID: 1048243387}
   m_Layer: 0
-  m_Name: Bird_Blue_Menu
+  m_Name: MenuBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!95 &1048243387
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1048243386}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7c41e3a01499c0a4595ffaa3c4c54cc1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_IsActive: 1
 --- !u!212 &1048243388
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1477,7 +1457,7 @@ SpriteRenderer:
   m_SortingLayerID: -1358292323
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 300353140021029200, guid: 7b26f633b0972e34e9cc1d307d7ae35c, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1485,7 +1465,7 @@ SpriteRenderer:
   m_Size: {x: 1.03, y: 0.76}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1048243389
@@ -1663,8 +1643,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3881400588873909011}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: ChangeBird
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: ChangeBall
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1731,108 +1711,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &1136187160
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1136187163}
-  - component: {fileID: 1136187162}
-  - component: {fileID: 1136187161}
-  m_Layer: 0
-  m_Name: Bird_Red_Menu
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!95 &1136187161
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136187160}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a4f07110eb7d47a45a22bb4ccd1220e8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!212 &1136187162
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136187160}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1358292323
-  m_SortingLayer: 5
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: 36168efa5acc16b4c805cab725644bd5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.03, y: 0.76}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1136187163
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136187160}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1446665174}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &1189925497
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -2320,8 +2198,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1048243389}
-  - {fileID: 1636679802}
-  - {fileID: 1136187163}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2587,7 +2463,9 @@ GameObject:
   - component: {fileID: 1602670528}
   - component: {fileID: 1602670531}
   - component: {fileID: 1602670530}
+  - component: {fileID: 1602670533}
   - component: {fileID: 1602670529}
+  - component: {fileID: 1602670532}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -2664,110 +2542,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgrounds:
   - {fileID: 1602670530}
+  - {fileID: 1602670533}
   - {fileID: 1602670529}
+  - {fileID: 1602670532}
   currentBG: 0
---- !u!1 &1636679799
-GameObject:
+--- !u!114 &1602670532
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1636679802}
-  - component: {fileID: 1636679801}
-  - component: {fileID: 1636679800}
-  m_Layer: 0
-  m_Name: Bird_Green_Menu
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!95 &1636679800
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636679799}
+  m_GameObject: {fileID: 1602670527}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1002f626c2992fe4392ad540a4b2fee1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!212 &1636679801
-SpriteRenderer:
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b99eecd5f68da742ae85ae1df8743af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bg: {fileID: 4544235448077845365, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
+  ground: {fileID: 0}
+  obstacle: {fileID: 0}
+  decorations: []
+--- !u!114 &1602670533
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636679799}
+  m_GameObject: {fileID: 1602670527}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1358292323
-  m_SortingLayer: 5
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 300353140021029200, guid: 7b26f633b0972e34e9cc1d307d7ae35c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.03, y: 0.76}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1636679802
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636679799}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1446665174}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b99eecd5f68da742ae85ae1df8743af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bg: {fileID: -5222788323760576981, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
+  ground: {fileID: 3545489814029461158, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
+  obstacle: {fileID: 6317242611777244064, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd,
+    type: 3}
+  decorations: []
 --- !u!1 &1737735101
 GameObject:
   m_ObjectHideFlags: 0
@@ -3269,7 +3080,7 @@ PrefabInstance:
     - target: {fileID: 3881400588873909011, guid: be458bbc0c0b3234bb42ea96f4a1178a,
         type: 3}
       propertyPath: birds.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3881400588873909011, guid: be458bbc0c0b3234bb42ea96f4a1178a,
         type: 3}
@@ -3280,12 +3091,12 @@ PrefabInstance:
         type: 3}
       propertyPath: birds.Array.data[1]
       value: 
-      objectReference: {fileID: 1636679799}
+      objectReference: {fileID: 0}
     - target: {fileID: 3881400588873909011, guid: be458bbc0c0b3234bb42ea96f4a1178a,
         type: 3}
       propertyPath: birds.Array.data[2]
       value: 
-      objectReference: {fileID: 1136187160}
+      objectReference: {fileID: 0}
     - target: {fileID: 3881400588873909011, guid: be458bbc0c0b3234bb42ea96f4a1178a,
         type: 3}
       propertyPath: changeBG
@@ -3353,13 +3164,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be458bbc0c0b3234bb42ea96f4a1178a, type: 3}
+--- !u!1 &3823013228718660401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 779946873455318129, guid: be458bbc0c0b3234bb42ea96f4a1178a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3823013228718660400}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3823013228718660402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3823013228718660401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ea358fe4319eb41a659bef10ed1c69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuBall: {fileID: 1048243386}
+  balls:
+  - {fileID: -6134421028427622431, guid: 7b26f633b0972e34e9cc1d307d7ae35c, type: 3}
+  - {fileID: -8793112832175403279, guid: 7b26f633b0972e34e9cc1d307d7ae35c, type: 3}
+  - {fileID: 300353140021029200, guid: 7b26f633b0972e34e9cc1d307d7ae35c, type: 3}
+  - {fileID: 338592883393811448, guid: 7b26f633b0972e34e9cc1d307d7ae35c, type: 3}
+  - {fileID: -2598005947579844795, guid: 7b26f633b0972e34e9cc1d307d7ae35c, type: 3}
+  currentBall: 0
 --- !u!114 &3881400588873909011 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3881400588873909011, guid: be458bbc0c0b3234bb42ea96f4a1178a,
     type: 3}
   m_PrefabInstance: {fileID: 3823013228718660400}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 3823013228718660401}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3eb2e5816fcc284fb0714ee95efc823, type: 3}

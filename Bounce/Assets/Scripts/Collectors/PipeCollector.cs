@@ -22,7 +22,6 @@ public class PipeCollector : MonoBehaviour
             var temp = pipeHolders[x].transform.position;
             temp.y = Random.Range(pipeMin, pipeMax);
             pipeHolders[x].transform.position = temp;
-            resetGrass(pipeHolders[x]);
         }
 
         lastPipesX = pipeHolders.Max(x => x.transform.position.x);

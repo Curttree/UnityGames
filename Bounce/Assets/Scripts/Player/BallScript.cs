@@ -15,17 +15,19 @@ public class BallScript : MonoBehaviour
 
     private float forwardSpeed = 3.6f;
 
+    private float introSpeed = 2.4f;
+
     private float bounceSpeed = -20f;
 
     private float maxSpeed = 12f;
 
-    private float maxBounces = 1f;
+    private float maxBounces = 2f;
 
     private float bounceIncrease = 0.0039f;
 
-    public bool isAlive;
+    public bool isAlive, isIntro;
 
-    private bool isFlapping, isFalling;
+    private bool isFlapping, isFalling, isStopped;
 
     private Button flapButton;
 
@@ -58,6 +60,7 @@ public class BallScript : MonoBehaviour
         }
 
         isAlive = true;
+        isIntro = true;
 
         flapButton = GameObject.FindGameObjectWithTag("FlapButton").GetComponent<Button>();
         flapButton.onClick.AddListener(() => Flap());
@@ -69,21 +72,50 @@ public class BallScript : MonoBehaviour
         if (isAlive)
         {
             Vector3 temp = transform.position;
-            temp.x += forwardSpeed * Time.deltaTime;
-            transform.position = temp;
-            if(myRigidBody.velocity.x != forwardSpeed * Time.deltaTime)
+            if (isIntro)
             {
-                temp.x = forwardSpeed * Time.deltaTime;
-                temp.y = myRigidBody.velocity.y;
-                myRigidBody.velocity = temp;
+                if (transform.position.x <= 0)
+                {
+                    if (transform.position.x >= -1 && transform.position.x <= 0.5 && transform.position.y <= -3.48)
+                    {
+                        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, 0);
+                    }
+                    else
+                    {
+                        temp.x += introSpeed * Time.deltaTime;
+                        transform.position = temp;
+                    }
+                }
+                else if (!isStopped)
+                {
+                    isStopped = true;
+                    if (!GameplayController.instance.InstructionsShowing())
+                    {
+                        GameplayController.instance.ShowInstructions();
+                    }
+                } 
+            }
+            else
+            {
+                temp.x += forwardSpeed * Time.deltaTime;
+                transform.position = temp;
+                if (myRigidBody.velocity.x != forwardSpeed * Time.deltaTime)
+                {
+                    temp.x = forwardSpeed * Time.deltaTime;
+                    temp.y = myRigidBody.velocity.y;
+                    myRigidBody.velocity = temp;
+                }
             }
             if (Math.Truncate(maxBounces + bounceIncrease) > Math.Truncate(maxBounces))
             {
                 PlaySound(pointClip, pointClipPath, 0.25f);
                 GameplayController.instance.HighlightBounce();
             }
-            maxBounces += bounceIncrease;
-            GameplayController.instance.SetBounce(maxBounces);
+            if (!isIntro)
+            {
+                maxBounces += bounceIncrease;
+                GameplayController.instance.SetBounce(maxBounces);
+            }
 
             if (isFlapping)
             {
@@ -93,7 +125,7 @@ public class BallScript : MonoBehaviour
                 myRigidBody.velocity = new Vector2(0, bounceSpeed);
             }
 
-            if (isFalling && isAlive)
+            if (isFalling && isAlive && !isStopped)
             {
                 GenerateTrail();
             }
@@ -102,8 +134,15 @@ public class BallScript : MonoBehaviour
             {
                 myRigidBody.velocity = new Vector2(0, maxSpeed);
             }
-           
-            transform.Rotate(0, 0, -180 * Time.deltaTime);
+
+            if (!isStopped)
+            {
+                transform.Rotate(0, 0, -180 * Time.deltaTime);
+            }
+            else
+            {
+                myRigidBody.velocity = new Vector2(0, 0);
+            }
         }
     }
 
@@ -122,11 +161,25 @@ public class BallScript : MonoBehaviour
         }
         else if (!GameplayController.instance.isPaused && maxBounces < 1f && !audioSource.isPlaying && isAlive)
         {
-            PlaySound(noBounceClip, noBounceClipPath);
+            PlaySound(noBounceClip, noBounceClipPath,0.5f);
             GameplayController.instance.NoBounce();
+        }
+        if (isIntro)
+        {
+            GameplayController.instance.HideLabels();
+            isIntro = false;
+        }
+        if (isStopped)
+        {
+            isStopped = false;
         }
     }
 
+    private IEnumerator GetScreen()
+    {
+        yield return CustomCoroutines.WaitForRealSeconds(0.15f);
+        Time.timeScale = 0f;
+    }
     public float GetPositionX()
     {
         return transform.position.x;
@@ -166,15 +219,8 @@ public class BallScript : MonoBehaviour
         GameplayController.instance.SetScore(score);
     }
 
-    private void OnCollisionEnter2D(Collision2D target)
+    private void OnCollisionExit2D(Collision2D target)
     {
-        if (target.gameObject.tag == "Pipe")
-        {
-            if (isAlive)
-            {
-                Death();
-            }
-        }
         if (target.gameObject.tag == "Ground")
         {
             if (isAlive)
@@ -189,6 +235,16 @@ public class BallScript : MonoBehaviour
                     PlaySound(flapClip, flapClipPath, 0.25f);
                 }
                     isFalling = false;
+            }
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D target)
+    {
+        if (target.gameObject.tag == "Pipe")
+        {
+            if (isAlive)
+            {
+                Death();
             }
         }
     }

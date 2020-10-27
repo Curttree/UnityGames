@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 
 public class BackgroundController : MonoBehaviour
@@ -29,6 +27,10 @@ public class BackgroundController : MonoBehaviour
         if (!GameController.instance.IsNightBGUnlocked())
         {
             backgrounds[(int) Backgrounds.Night] = null;
+        }
+        if (!GameController.instance.IsCityBGUnlocked())
+        {
+            backgrounds[(int)Backgrounds.City] = null;
         }
     }
 
@@ -96,5 +98,15 @@ public class BackgroundController : MonoBehaviour
 
             }
         }
+    }
+
+    public void ExternalChooseBackground(int selectedBG)
+    {
+        if (selectedBG == backgrounds.Length - 1)
+        {
+            var randChoice = Random.Range(0, backgrounds.Length - 1);
+            selectedBG = randChoice;
+        }
+        SelectBackground(selectedBG);
     }
 }

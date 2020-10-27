@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,10 +16,10 @@ public class GameplayController : MonoBehaviour
     private Button restartGameButton, instructionsButton;
 
     [SerializeField]
-    private GameObject pausePanel,scorePanel,bouncePanel,gameOverPanel,scoreLabel,bounceLabel,bounceHighlight,bounceRed;
+    private GameObject pausePanel, scorePanel, bouncePanel, gameOverPanel, scoreLabel, bounceLabel, bounceHighlight, bounceRed;
 
     [SerializeField]
-    private GameObject[] birds;
+    private GameObject[] ballList;
 
     [SerializeField]
     private Sprite[] medals;
@@ -26,17 +27,37 @@ public class GameplayController : MonoBehaviour
     [SerializeField]
     private Image medalImage;
 
+    private int soccerScore = 10;
     private int basketScore = 20;
     private int beachScore = 40;
 
-    private int nightTotalScore = 100;
+    private int cityTotalScore = 100;
+    private int nightTotalScore = 1000;
+
+    private Dictionary<int, Balls> unlockableBalls = new Dictionary<int, Balls>()
+    {   { 10, Balls.Soccer },
+        { 20, Balls.Basket },
+        { 40, Balls.Beach },
+        { 50, Balls.Tennis } };
+
+    private Dictionary<int, Backgrounds> unlockableBGs = new Dictionary<int, Backgrounds>()
+    {   //{250, Backgrounds.Gym},
+        { 500, Backgrounds.City},
+        { 1000, Backgrounds.Night}
+    };
 
     public bool isPaused;
 
     private void Start()
     {
         var currentBG = GameController.instance.GetSelectedBG();
-        BackgroundController.instance.SelectBackground(currentBG);
+        BackgroundController.instance.ExternalChooseBackground(currentBG);
+        scorePanel.gameObject.SetActive(true);
+        bouncePanel.gameObject.SetActive(true);
+        bounceCount.gameObject.SetActive(true);
+        var ballNum = GameController.instance.GetSelectedBall();
+        ActivateSelectedBall(ballNum);
+        Time.timeScale = 1f;
     }
     void Awake()
     {
@@ -89,17 +110,21 @@ public class GameplayController : MonoBehaviour
         SceneFader.instance.FadeIn(SceneManager.GetActiveScene().name);
     }
 
-    public void PlayGame()
+    public void HideLabels()
     {
-        scorePanel.gameObject.SetActive(true);
-        bouncePanel.gameObject.SetActive(true);
-        bounceCount.gameObject.SetActive(true);
-        var birdNum = GameController.instance.GetSelectedBall();
-        birds[birdNum].SetActive(true);
         instructionsButton.gameObject.SetActive(false);
         scoreLabel.gameObject.SetActive(false);
         bounceLabel.gameObject.SetActive(false);
-        Time.timeScale = 1f;
+    }
+
+    public bool InstructionsShowing()
+    {
+        return instructionsButton.gameObject.activeSelf == true;
+    }
+
+    public void ShowInstructions()
+    {
+        instructionsButton.gameObject.SetActive(true);
     }
 
     public void SetScore(int score)
@@ -177,6 +202,12 @@ public class GameplayController : MonoBehaviour
         {
             GameController.instance.UnlockBeachBall();
         }
+
+        //Soccerball
+        if (score > soccerScore && !GameController.instance.IsSoccerBallUnlocked())
+        {
+            GameController.instance.UnlockSoccerBall();
+        }
     }
 
     private void UnlockLevels(int lifeScore)
@@ -185,6 +216,37 @@ public class GameplayController : MonoBehaviour
         if (lifeScore > nightTotalScore && !GameController.instance.IsNightBGUnlocked())
         {
             GameController.instance.UnlockNightBG();
+        }
+        //City
+        if (lifeScore > cityTotalScore && !GameController.instance.IsCityBGUnlocked())
+        {
+            GameController.instance.UnlockCityBG();
+        }
+    }
+
+    private void ActivateSelectedBall(int ballNum)
+    {
+        if (ballNum == ballList.Length)
+        {
+            var randChoice = Random.Range(0, ballList.Length);
+            ballList[randChoice].SetActive(true);
+        }
+        else
+        {
+            ballList[ballNum].SetActive(true);
+        }
+    }
+
+    private void ActivateSelectedBG(int bgNum)
+    {
+        if (bgNum == ballList.Length)
+        {
+            var randChoice = Random.Range(0, ballList.Length);
+            ballList[randChoice].SetActive(true);
+        }
+        else
+        {
+            ballList[bgNum].SetActive(true);
         }
     }
 }

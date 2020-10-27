@@ -17,10 +17,13 @@ public class GameController : MonoBehaviour
     private const string BASKET_BALL = "Basket Ball";
 
     private const string BEACH_BALL = "Beach Ball";
+
+    private const string SOCCER_BALL = "Soccer Ball";
     #endregion unlockable balls
 
     #region backgrounds
     private const string BG_NIGHT = "Night Background";
+    private const string BG_CITY = "City Background";
     #endregion backgrounds
 
     #region trails
@@ -43,7 +46,9 @@ public class GameController : MonoBehaviour
             PlayerPrefs.SetInt(SELECTED_BG, 0);
             PlayerPrefs.SetInt(BASKET_BALL, 0);
             PlayerPrefs.SetInt(BEACH_BALL, 0);
+            PlayerPrefs.SetInt(SOCCER_BALL, 0);
             PlayerPrefs.SetInt(BG_NIGHT, 0);
+            PlayerPrefs.SetInt(BG_CITY, 0);
             PlayerPrefs.SetInt("FirstTime", 0);
         }
     }
@@ -98,6 +103,16 @@ public class GameController : MonoBehaviour
         return PlayerPrefs.GetInt(BEACH_BALL) == 1;
     }
 
+    public void UnlockSoccerBall()
+    {
+        PlayerPrefs.SetInt(SOCCER_BALL, 1);
+    }
+
+    public bool IsSoccerBallUnlocked()
+    {
+        return PlayerPrefs.GetInt(SOCCER_BALL) == 1;
+    }
+
     public void SetSelectedBG(int selectedBG)
     {
         PlayerPrefs.SetInt(SELECTED_BG, selectedBG);
@@ -116,6 +131,16 @@ public class GameController : MonoBehaviour
     public bool IsNightBGUnlocked()
     {
         return PlayerPrefs.GetInt(BG_NIGHT) == 1;
+    }
+
+    public void UnlockCityBG()
+    {
+        PlayerPrefs.SetInt(BG_CITY, 1);
+    }
+
+    public bool IsCityBGUnlocked()
+    {
+        return PlayerPrefs.GetInt(BG_CITY) == 1;
     }
 
     void MakeSingleton()

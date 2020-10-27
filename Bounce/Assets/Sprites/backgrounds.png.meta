@@ -22,7 +22,7 @@ TextureImporter:
     second: 2_o
   - first:
       213: -5222788323760576981
-    second: backgrounds_5
+    second: city_bg
   - first:
       213: 7608924141058073638
     second: 1_0
@@ -49,10 +49,40 @@ TextureImporter:
     second: backgrounds_13
   - first:
       213: 3545489814029461158
-    second: backgrounds_14
+    second: city_ground
   - first:
       213: -5774403200355247461
     second: 2_e2
+  - first:
+      213: 4544235448077845365
+    second: random
+  - first:
+      213: 2583609812203033409
+    second: backgrounds_1
+  - first:
+      213: 6317242611777244064
+    second: city_post
+  - first:
+      213: 5298041047109887091
+    second: backgrounds_17
+  - first:
+      213: 3294826751222790022
+    second: backgrounds_18
+  - first:
+      213: 2033083139344138497
+    second: backgrounds_19
+  - first:
+      213: -1410262182487814649
+    second: backgrounds_20
+  - first:
+      213: 3967444986883694787
+    second: backgrounds_21
+  - first:
+      213: -1633309316856872623
+    second: backgrounds_22
+  - first:
+      213: -1754984788021723910
+    second: backgrounds_23
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -114,64 +144,64 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -200,9 +230,9 @@ TextureImporter:
       name: 1_bg
       rect:
         serializedVersion: 2
-        x: 1
+        x: 3
         y: 386
-        width: 1083
+        width: 1080
         height: 1278
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -221,9 +251,9 @@ TextureImporter:
       name: 2_bg
       rect:
         serializedVersion: 2
-        x: 1202
+        x: 1208
         y: 386
-        width: 1083
+        width: 1080
         height: 1278
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -242,9 +272,9 @@ TextureImporter:
       name: 2_o
       rect:
         serializedVersion: 2
-        x: 2303
+        x: 2306
         y: 113
-        width: 82
+        width: 76
         height: 623
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -263,9 +293,9 @@ TextureImporter:
       name: 1_0
       rect:
         serializedVersion: 2
-        x: 1099
+        x: 1102
         y: 113
-        width: 82
+        width: 76
         height: 623
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -381,6 +411,237 @@ TextureImporter:
       bones: []
       spriteID: b9a52f422e23ddfa0800000000000000
       internalID: -5774403200355247461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: random
+      rect:
+        serializedVersion: 2
+        x: 2413
+        y: 386
+        width: 1080
+        height: 1278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5730b6a401e501f30800000000000000
+      internalID: 4544235448077845365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backgrounds_1
+      rect:
+        serializedVersion: 2
+        x: 3548
+        y: 383
+        width: 1123
+        height: 1279
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14353968f63dad320800000000000000
+      internalID: 2583609812203033409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backgrounds_2
+      rect:
+        serializedVersion: 2
+        x: 4664
+        y: 1300
+        width: 4
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: city_bg
+      rect:
+        serializedVersion: 2
+        x: 4799
+        y: 384
+        width: 1080
+        height: 1278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b266139e0bde487b0800000000000000
+      internalID: -5222788323760576981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backgrounds_9
+      rect:
+        serializedVersion: 2
+        x: 6010
+        y: 383
+        width: 1101
+        height: 1279
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 561abcbd7a63e45e0800000000000000
+      internalID: -1923539896265629339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backgrounds_10
+      rect:
+        serializedVersion: 2
+        x: 3548
+        y: 118
+        width: 1078
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c521e31f81b7420800000000000000
+      internalID: 2628722231908392065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backgrounds_13
+      rect:
+        serializedVersion: 2
+        x: 4649
+        y: 118
+        width: 108
+        height: 619
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ab835ebe32e7d760800000000000000
+      internalID: 7482698065008364456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: city_ground
+      rect:
+        serializedVersion: 2
+        x: 4796
+        y: 117
+        width: 1076
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6edf7733c143130800000000000000
+      internalID: 3545489814029461158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: city_post
+      rect:
+        serializedVersion: 2
+        x: 5896
+        y: 113
+        width: 76
+        height: 623
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ab81fa6faa5ba750800000000000000
+      internalID: 6317242611777244064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backgrounds_17
+      rect:
+        serializedVersion: 2
+        x: 6010
+        y: 118
+        width: 1078
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3746c6a134c668940800000000000000
+      internalID: 5298041047109887091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backgrounds_18
+      rect:
+        serializedVersion: 2
+        x: 7111
+        y: 118
+        width: 79
+        height: 619
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 687b617397399bd20800000000000000
+      internalID: 3294826751222790022
       vertices: []
       indices: 
       edges: []
