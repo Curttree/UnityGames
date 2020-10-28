@@ -2464,6 +2464,7 @@ GameObject:
   - component: {fileID: 1602670531}
   - component: {fileID: 1602670530}
   - component: {fileID: 1602670533}
+  - component: {fileID: 1602670534}
   - component: {fileID: 1602670529}
   - component: {fileID: 1602670532}
   m_Layer: 0
@@ -2543,6 +2544,7 @@ MonoBehaviour:
   backgrounds:
   - {fileID: 1602670530}
   - {fileID: 1602670533}
+  - {fileID: 1602670534}
   - {fileID: 1602670529}
   - {fileID: 1602670532}
   currentBG: 0
@@ -2577,6 +2579,23 @@ MonoBehaviour:
   bg: {fileID: -5222788323760576981, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
   ground: {fileID: 3545489814029461158, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
   obstacle: {fileID: 6317242611777244064, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd,
+    type: 3}
+  decorations: []
+--- !u!114 &1602670534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602670527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b99eecd5f68da742ae85ae1df8743af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bg: {fileID: 2583609812203033409, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
+  ground: {fileID: 2628722231908392065, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
+  obstacle: {fileID: 7482698065008364456, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd,
     type: 3}
   decorations: []
 --- !u!1 &1737735101

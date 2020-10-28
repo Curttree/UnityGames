@@ -32,6 +32,10 @@ public class BackgroundController : MonoBehaviour
         {
             backgrounds[(int)Backgrounds.City] = null;
         }
+        if (!GameController.instance.IsGymBGUnlocked())
+        {
+            backgrounds[(int)Backgrounds.Gym] = null;
+        }
     }
 
     public int CycleBG()

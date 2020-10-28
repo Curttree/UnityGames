@@ -4,10 +4,7 @@ using UnityEngine;
 public class MenuController : MonoBehaviour
 {
     public static MenuController instance;
-
-    [SerializeField]
-    private GameObject[] birds;
-
+    
     private int currentBG, currentBall;
 
     [SerializeField]
@@ -38,7 +35,7 @@ public class MenuController : MonoBehaviour
         {
             anyBallsUnlocked = true;
         }
-        if (GameController.instance.IsNightBGUnlocked() || GameController.instance.IsCityBGUnlocked())
+        if (GameController.instance.IsNightBGUnlocked() || GameController.instance.IsCityBGUnlocked() || GameController.instance.IsGymBGUnlocked())
         {
             anyBGsUnlocked = true;
         }

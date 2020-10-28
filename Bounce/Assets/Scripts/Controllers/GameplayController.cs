@@ -16,7 +16,7 @@ public class GameplayController : MonoBehaviour
     private Button restartGameButton, instructionsButton;
 
     [SerializeField]
-    private GameObject pausePanel, scorePanel, bouncePanel, gameOverPanel, scoreLabel, bounceLabel, bounceHighlight, bounceRed;
+    private GameObject pausePanel, scorePanel, bouncePanel, gameOverPanel, newUnlock, scoreLabel, bounceLabel, bounceHighlight, bounceRed;
 
     [SerializeField]
     private GameObject[] ballList;
@@ -32,6 +32,7 @@ public class GameplayController : MonoBehaviour
     private int beachScore = 40;
 
     private int cityTotalScore = 100;
+    private int gymTotalScore = 250;
     private int nightTotalScore = 1000;
 
     private Dictionary<int, Balls> unlockableBalls = new Dictionary<int, Balls>()
@@ -41,8 +42,9 @@ public class GameplayController : MonoBehaviour
         { 50, Balls.Tennis } };
 
     private Dictionary<int, Backgrounds> unlockableBGs = new Dictionary<int, Backgrounds>()
-    {   //{250, Backgrounds.Gym},
-        { 500, Backgrounds.City},
+    {
+        { 100, Backgrounds.City},
+        { 250, Backgrounds.Gym},
         { 1000, Backgrounds.Night}
     };
 
@@ -183,45 +185,71 @@ public class GameplayController : MonoBehaviour
             GameController.instance.SetHighScore(score);
         }
         bestScore.text = GameController.instance.GetHighScore().ToString();
-        UnlockCharacters(score);
-        UnlockLevels(newLifeScore);
+        var unlockChar = UnlockCharacters(score);
+        var unlockLev = UnlockLevels(newLifeScore);
+
+        if (unlockChar || unlockLev)
+        {
+            newUnlock.SetActive(true);
+        }
+        else
+        {
+            newUnlock.SetActive(false);
+        }
+
         restartGameButton.onClick.RemoveAllListeners();
         restartGameButton.onClick.AddListener(() => RestartGame());
     }
 
-    private void UnlockCharacters(int score)
+    private bool UnlockCharacters(int score)
     {
+        var result = false;
         //Basketball
         if (score > basketScore && !GameController.instance.IsBasketBallUnlocked())
         {
+            result = true;
             GameController.instance.UnlockBasketBall();
         }
         
         //Beachball
         if (score > beachScore && !GameController.instance.IsBeachBallUnlocked())
         {
+            result = true;
             GameController.instance.UnlockBeachBall();
         }
 
         //Soccerball
         if (score > soccerScore && !GameController.instance.IsSoccerBallUnlocked())
         {
+            result = true;
             GameController.instance.UnlockSoccerBall();
         }
+
+        return result;
     }
 
-    private void UnlockLevels(int lifeScore)
+    private bool UnlockLevels(int lifeScore)
     {
-        //Night
-        if (lifeScore > nightTotalScore && !GameController.instance.IsNightBGUnlocked())
-        {
-            GameController.instance.UnlockNightBG();
-        }
+        var result = false;
         //City
         if (lifeScore > cityTotalScore && !GameController.instance.IsCityBGUnlocked())
         {
+            result = true;
             GameController.instance.UnlockCityBG();
         }
+        //Gym
+        if (lifeScore > gymTotalScore && !GameController.instance.IsGymBGUnlocked())
+        {
+            result = true;
+            GameController.instance.UnlockGymBG();
+        }
+        //Night
+        if (lifeScore > nightTotalScore && !GameController.instance.IsNightBGUnlocked())
+        {
+            result = true;
+            GameController.instance.UnlockNightBG();
+        }
+        return result;
     }
 
     private void ActivateSelectedBall(int ballNum)

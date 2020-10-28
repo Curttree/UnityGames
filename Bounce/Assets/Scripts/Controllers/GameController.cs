@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     #region backgrounds
     private const string BG_NIGHT = "Night Background";
     private const string BG_CITY = "City Background";
+    private const string BG_GYM = "Gym Background";
     #endregion backgrounds
 
     #region trails
@@ -49,6 +50,7 @@ public class GameController : MonoBehaviour
             PlayerPrefs.SetInt(SOCCER_BALL, 0);
             PlayerPrefs.SetInt(BG_NIGHT, 0);
             PlayerPrefs.SetInt(BG_CITY, 0);
+            PlayerPrefs.SetInt(BG_GYM, 0);
             PlayerPrefs.SetInt("FirstTime", 0);
         }
     }
@@ -141,6 +143,16 @@ public class GameController : MonoBehaviour
     public bool IsCityBGUnlocked()
     {
         return PlayerPrefs.GetInt(BG_CITY) == 1;
+    }
+
+    public void UnlockGymBG()
+    {
+        PlayerPrefs.SetInt(BG_GYM, 1);
+    }
+
+    public bool IsGymBGUnlocked()
+    {
+        return PlayerPrefs.GetInt(BG_GYM) == 1;
     }
 
     void MakeSingleton()

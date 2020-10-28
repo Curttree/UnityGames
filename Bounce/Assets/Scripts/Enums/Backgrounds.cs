@@ -6,7 +6,7 @@ public enum Backgrounds
 {
     Field,
     City,
-    Night,
     Gym,
+    Night,
     Beach
 }

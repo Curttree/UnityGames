@@ -37,7 +37,7 @@ TextureImporter:
     second: backgrounds_9
   - first:
       213: 2628722231908392065
-    second: backgrounds_10
+    second: gym_ground
   - first:
       213: -7781484064844271871
     second: 1_e2
@@ -46,7 +46,7 @@ TextureImporter:
     second: 2_e1
   - first:
       213: 7482698065008364456
-    second: backgrounds_13
+    second: gym_post
   - first:
       213: 3545489814029461158
     second: city_ground
@@ -58,7 +58,7 @@ TextureImporter:
     second: random
   - first:
       213: 2583609812203033409
-    second: backgrounds_1
+    second: gym_bg
   - first:
       213: 6317242611777244064
     second: city_post
@@ -437,13 +437,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: backgrounds_1
+      name: gym_bg
       rect:
         serializedVersion: 2
-        x: 3548
-        y: 383
-        width: 1123
-        height: 1279
+        x: 3551
+        y: 384
+        width: 1080
+        height: 1278
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -458,32 +458,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: backgrounds_2
-      rect:
-        serializedVersion: 2
-        x: 4664
-        y: 1300
-        width: 4
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 42305410000000000800000000000000
-      internalID: 21300004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: city_bg
       rect:
         serializedVersion: 2
         x: 4799
-        y: 384
+        y: 386
         width: 1080
         height: 1278
       alignment: 0
@@ -521,12 +500,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: backgrounds_10
+      name: gym_ground
       rect:
         serializedVersion: 2
-        x: 3548
-        y: 118
-        width: 1078
+        x: 3549
+        y: 120
+        width: 1076
         height: 239
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -542,13 +521,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: backgrounds_13
+      name: gym_post
       rect:
         serializedVersion: 2
-        x: 4649
-        y: 118
-        width: 108
-        height: 619
+        x: 4650
+        y: 113
+        width: 76
+        height: 623
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -567,7 +546,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4796
-        y: 117
+        y: 119
         width: 1076
         height: 239
       alignment: 0

@@ -4,7 +4,7 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 1070643051737145291
-    second: misc_assets_0
+    second: new_unlock
   - first:
       213: 1282894687024546636
     second: misc_assets_1
@@ -342,6 +342,27 @@ TextureImporter:
       bones: []
       spriteID: 4aad898f0e9abdd10800000000000000
       internalID: 2151500030708079268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_unlock
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 467
+        width: 395
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcf580cde20bbde00800000000000000
+      internalID: 1070643051737145291
       vertices: []
       indices: 
       edges: []
