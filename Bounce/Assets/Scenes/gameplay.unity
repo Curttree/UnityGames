@@ -5610,7 +5610,7 @@ PrefabInstance:
     - target: {fileID: 2629749236298407596, guid: 4d7a0c0df4f5583459461beeffc5931e,
         type: 3}
       propertyPath: flapClipPath
-      value: Effects/bal_basket.wav
+      value: Effects/ball_basket.wav
       objectReference: {fileID: 0}
     - target: {fileID: 3311033087271179184, guid: 4d7a0c0df4f5583459461beeffc5931e,
         type: 3}
@@ -6384,7 +6384,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03436ff010fa004e889d7d61567de65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temp: {fileID: 1705592510}
 --- !u!4 &2126069131
 Transform:
   m_ObjectHideFlags: 0
@@ -6506,7 +6505,7 @@ PrefabInstance:
     - target: {fileID: 7374750908807063784, guid: f30fe92103d8b914eb104b48377bf655,
         type: 3}
       propertyPath: flapClipPath
-      value: Effects/ball_soccer.wav
+      value: Effects/ball_soccer.mp3
       objectReference: {fileID: 0}
     - target: {fileID: 8058620970024953329, guid: f30fe92103d8b914eb104b48377bf655,
         type: 3}
