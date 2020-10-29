@@ -1,58 +1,48 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
+    Dictionary<string, int> fileIDs = new Dictionary<string, int>();
 
-    private int FileID;
-
-    private void Awake()
-    {
-        MakeSingleton();
-    }
-
-    void MakeSingleton()
-    {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-    }
+    private bool androidAudio;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Set up Android Native Audio
-        AndroidNativeAudio.makePool();
+        AndroidNativeAudio.makePool(5);
     }
 
-    public void PlaySound(string filename, float volume = 1f)
+    public void LoadSounds(string flap, string point, string death, string noBounce)
     {
-        //if (FileID > 0)
-        //{
-        //    AndroidNativeAudio.unload(FileID);
-        //}
+        var fileID = AndroidNativeAudio.load(flap);
+        fileIDs.Add(flap, fileID);
 
-        FileID = AndroidNativeAudio.load(filename);
-        int SoundID = AndroidNativeAudio.play(FileID);
-        //if(volume != 1f)
-        //{
-        //    AndroidNativeAudio.setVolume(SoundID, volume);
-        //}
+        var fileID2 = AndroidNativeAudio.load(point);
+        fileIDs.Add(point, fileID2);
 
+        var fileID3 = AndroidNativeAudio.load(death);
+        fileIDs.Add(death, fileID3);
+
+        var fileID4 = AndroidNativeAudio.load(noBounce);
+        fileIDs.Add(noBounce, fileID4);
+    }
+
+    public void PlaySound(string fileName, float volume = 1f)
+    {
+        int SoundID = AndroidNativeAudio.play(fileIDs[fileName]);
+        AndroidNativeAudio.setVolume(SoundID, volume);
     }
 
     void OnApplicationQuit()
     {
-        // Clean up when done
-        AndroidNativeAudio.unload(FileID);
-        AndroidNativeAudio.releasePool();
+        if (androidAudio)
+        {
+            foreach (string x in fileIDs.Keys)
+            {
+                AndroidNativeAudio.unload(fileIDs[x]);
+            }
+            AndroidNativeAudio.releasePool();
+        }
     }
 }

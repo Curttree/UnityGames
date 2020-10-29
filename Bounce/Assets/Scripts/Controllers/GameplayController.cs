@@ -21,12 +21,6 @@ public class GameplayController : MonoBehaviour
     [SerializeField]
     private GameObject[] ballList;
 
-    [SerializeField]
-    private Sprite[] medals;
-
-    [SerializeField]
-    private Image medalImage;
-
     private int soccerScore = 10;
     private int basketScore = 20;
     private int beachScore = 40;

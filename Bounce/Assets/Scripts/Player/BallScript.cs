@@ -40,6 +40,9 @@ public class BallScript : MonoBehaviour
     [SerializeField]
     private string flapClipPath,pointClipPath,deathClipPath,noBounceClipPath;
 
+    [SerializeField]
+    private int flapClipID, pointClipID, deathClipID, noBounceClipID;
+
     public int score = 0;
 
     [SerializeField]
@@ -51,6 +54,9 @@ public class BallScript : MonoBehaviour
     private float generateTrailDelayDefault = 0.5f;
     private float generateTrailDelay = 0.05f;
 
+    private bool androidAudio = false;
+
+    private AudioManager audio;
 
     private void Awake()
     {
@@ -59,12 +65,24 @@ public class BallScript : MonoBehaviour
             instance = this;
         }
 
+
         isAlive = true;
         isIntro = true;
 
         flapButton = GameObject.FindGameObjectWithTag("FlapButton").GetComponent<Button>();
         flapButton.onClick.AddListener(() => Flap());
         GameplayController.instance.SetBounce(maxBounces);
+        audio = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+
+        if (Application.platform == RuntimePlatform.Android && audio != null)
+        {
+            androidAudio = true;
+        }
+    }
+
+    public void Start()
+    {
+        audio.LoadSounds(flapClipPath, pointClipPath, deathClipPath, noBounceClipPath);
     }
 
     private void FixedUpdate()
@@ -262,17 +280,17 @@ public class BallScript : MonoBehaviour
         Instantiate<GameObject>(trailObject,gameObject.transform.position,gameObject.transform.rotation);
     }
 
-    private void PlaySound(AudioClip clip, string path = null, float volume = 1f)
+    private void PlaySound(AudioClip clip, string fileName, float volume = 1f)
     {
         ////TODO: Come up with cleaner way to split audio.
-        //if (path != null && Application.platform == RuntimePlatform.Android && AudioManager.instance != null)
-        //{
-        //    AudioManager.instance.PlaySound(path, volume);
-        //}
-        //else
-        //{
+        if (fileName != null && androidAudio)
+        {
+            audio.PlaySound(fileName, volume);
+        }
+        else
+        {
             audioSource.PlayOneShot(clip, volume);
-        //}
+        }
 
     }
 }

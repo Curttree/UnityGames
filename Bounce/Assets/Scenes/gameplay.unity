@@ -3656,11 +3656,6 @@ MonoBehaviour:
   - {fileID: 5681763592357511417}
   - {fileID: 1892174694}
   - {fileID: 1619097503}
-  medals:
-  - {fileID: 21300040, guid: 36168efa5acc16b4c805cab725644bd5, type: 3}
-  - {fileID: 21300036, guid: 36168efa5acc16b4c805cab725644bd5, type: 3}
-  - {fileID: 21300038, guid: 36168efa5acc16b4c805cab725644bd5, type: 3}
-  medalImage: {fileID: 1583593628}
   isPaused: 0
 --- !u!4 &1124798580
 Transform:
@@ -4790,6 +4785,11 @@ PrefabInstance:
       propertyPath: flapClip
       value: 
       objectReference: {fileID: 8300000, guid: b47cacd23ab80bd44a5fdc2dc9642c5f, type: 3}
+    - target: {fileID: 4835836929084226785, guid: 0bffb2c3ed6db4741ba2f8bfe2e12104,
+        type: 3}
+      propertyPath: flapClipPath
+      value: Effects/ball_beach.wav
+      objectReference: {fileID: 0}
     - target: {fileID: 5373289012313272824, guid: 0bffb2c3ed6db4741ba2f8bfe2e12104,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5607,6 +5607,11 @@ PrefabInstance:
       propertyPath: flapClip
       value: 
       objectReference: {fileID: 8300000, guid: 1b4ac71fc8d480846b0b5d00a2f2b59b, type: 3}
+    - target: {fileID: 2629749236298407596, guid: 4d7a0c0df4f5583459461beeffc5931e,
+        type: 3}
+      propertyPath: flapClipPath
+      value: Effects/bal_basket.wav
+      objectReference: {fileID: 0}
     - target: {fileID: 3311033087271179184, guid: 4d7a0c0df4f5583459461beeffc5931e,
         type: 3}
       propertyPath: m_Name
@@ -6350,6 +6355,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121515941}
   m_CullTransparentMesh: 0
+--- !u!1 &2126069129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2126069131}
+  - component: {fileID: 2126069130}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: AudioManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2126069130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126069129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03436ff010fa004e889d7d61567de65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temp: {fileID: 1705592510}
+--- !u!4 &2126069131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126069129}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2407289642558286558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6454,6 +6503,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6489341358617469281, guid: f023eb605be2033449f2571c1116dcb9,
         type: 3}
+    - target: {fileID: 7374750908807063784, guid: f30fe92103d8b914eb104b48377bf655,
+        type: 3}
+      propertyPath: flapClipPath
+      value: Effects/ball_soccer.wav
+      objectReference: {fileID: 0}
     - target: {fileID: 8058620970024953329, guid: f30fe92103d8b914eb104b48377bf655,
         type: 3}
       propertyPath: m_LocalPosition.x
