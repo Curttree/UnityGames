@@ -29,6 +29,8 @@ public class GameplayController : MonoBehaviour
     private int gymTotalScore = 250;
     private int nightTotalScore = 1000;
 
+    private bool instructionsHidden = false;
+
     private Dictionary<int, Balls> unlockableBalls = new Dictionary<int, Balls>()
     {   { 10, Balls.Soccer },
         { 20, Balls.Basket },
@@ -69,6 +71,11 @@ public class GameplayController : MonoBehaviour
         {
             if (BallScript.instance.isAlive)
             {
+                if (InstructionsShowing())
+                {
+                    instructionsButton.gameObject.SetActive(false);
+                    instructionsHidden = true;
+                }
                 isPaused = true;
                 pausePanel.SetActive(true);
                 gameOverPanel.SetActive(false);
@@ -97,6 +104,11 @@ public class GameplayController : MonoBehaviour
 
     public void ResumeGame()
     {
+        if (instructionsHidden)
+        {
+            instructionsHidden = false;
+            ShowInstructions();
+        }
         isPaused = false;
         pausePanel.SetActive(false);
         Time.timeScale = 1f;
@@ -172,6 +184,7 @@ public class GameplayController : MonoBehaviour
         bouncePanel.gameObject.SetActive(false);
         var newLifeScore = IncrementLifeScore(score);
         GameController.instance.SetLifeScore(newLifeScore);
+        GameController.instance.SetPrevScore(score);
 
         endScore.text = score.ToString();
         if (score > GameController.instance.GetHighScore())
@@ -207,7 +220,7 @@ public class GameplayController : MonoBehaviour
         
         //Beachball
         if (score > beachScore && !GameController.instance.IsBeachBallUnlocked())
-        {
+        { 
             result = true;
             GameController.instance.UnlockBeachBall();
         }

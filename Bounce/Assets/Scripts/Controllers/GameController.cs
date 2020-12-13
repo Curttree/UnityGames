@@ -13,6 +13,10 @@ public class GameController : MonoBehaviour
 
     private const string SELECTED_BG = "Selected BG";
 
+    private const string FIRST = "First Game of Session";
+
+    private const string PREV = "Previous Score";
+
     #region unlockable balls
     private const string BASKET_BALL = "Basket Ball";
 
@@ -153,6 +157,16 @@ public class GameController : MonoBehaviour
     public bool IsGymBGUnlocked()
     {
         return PlayerPrefs.GetInt(BG_GYM) == 1;
+    }
+
+    public void SetPrevScore(int score)
+    {
+        PlayerPrefs.SetInt(PREV, score);
+    }
+
+    public int GetPrevScore()
+    {
+        return PlayerPrefs.GetInt(PREV, 0);
     }
 
     void MakeSingleton()

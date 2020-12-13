@@ -11,6 +11,7 @@ TagManager:
   - PipeHolder
   - Decoration
   - AudioManager
+  - AdManager
   layers:
   - Default
   - TransparentFX

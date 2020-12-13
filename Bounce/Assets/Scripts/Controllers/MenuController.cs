@@ -8,7 +8,7 @@ public class MenuController : MonoBehaviour
     private int currentBG, currentBall;
 
     [SerializeField]
-    private GameObject changeBall, changeBG;
+    private GameObject changeBall, changeBG, adManager;
 
     private bool anyBallsUnlocked = false, anyBGsUnlocked = false;
 
@@ -17,6 +17,7 @@ public class MenuController : MonoBehaviour
     {
         Time.timeScale = 1f;
         currentBG = GameController.instance.GetSelectedBG();
+        adManager = GameObject.FindGameObjectWithTag("AdManager");
         BackgroundController.instance.SelectBackground(currentBG);
         currentBall = GameController.instance.GetSelectedBall();
         BallsController.instance.SelectBall(currentBall);
@@ -26,6 +27,10 @@ public class MenuController : MonoBehaviour
     
     public void PlayGame()
     {
+        //if (adManager)
+        //{
+        //    adManager.GetComponent<InerstitialAdsScript>().ShowInterstitialAd();
+        //}
         SceneFader.instance.FadeIn("gameplay");
     }
 
