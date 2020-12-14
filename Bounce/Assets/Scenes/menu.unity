@@ -2554,6 +2554,8 @@ MonoBehaviour:
   decorations:
   - {fileID: 329154663968592823, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
   - {fileID: -5774403200355247461, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
+  particle: {fileID: 0}
+  bigParticle: {fileID: 0}
 --- !u!114 &1602670530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2573,6 +2575,8 @@ MonoBehaviour:
   decorations:
   - {fileID: 2278953690292216646, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
   - {fileID: -7781484064844271871, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
+  particle: {fileID: 0}
+  bigParticle: {fileID: 0}
 --- !u!114 &1602670531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2608,6 +2612,8 @@ MonoBehaviour:
   ground: {fileID: 0}
   obstacle: {fileID: 0}
   decorations: []
+  particle: {fileID: 0}
+  bigParticle: {fileID: 0}
 --- !u!114 &1602670533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2625,6 +2631,8 @@ MonoBehaviour:
   obstacle: {fileID: 6317242611777244064, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd,
     type: 3}
   decorations: []
+  particle: {fileID: 0}
+  bigParticle: {fileID: 0}
 --- !u!114 &1602670534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2642,6 +2650,8 @@ MonoBehaviour:
   obstacle: {fileID: 7482698065008364456, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd,
     type: 3}
   decorations: []
+  particle: {fileID: 0}
+  bigParticle: {fileID: 0}
 --- !u!1 &1717999573
 GameObject:
   m_ObjectHideFlags: 0
@@ -3366,6 +3376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuBall: {fileID: 1048243386}
+  purchaseButton: {fileID: 1717999573}
   balls:
   - {fileID: -6134421028427622431, guid: 7b26f633b0972e34e9cc1d307d7ae35c, type: 3}
   - {fileID: -8793112832175403279, guid: 7b26f633b0972e34e9cc1d307d7ae35c, type: 3}
