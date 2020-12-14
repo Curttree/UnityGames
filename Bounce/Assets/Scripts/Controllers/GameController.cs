@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour
 
     private const string PREV = "Previous Score";
 
+    private const string PAID = "19a643b3-dc8f-4139-93c3-c0c820e6b721";
+
     #region unlockable balls
     private const string BASKET_BALL = "Basket Ball";
 
@@ -167,6 +169,16 @@ public class GameController : MonoBehaviour
     public int GetPrevScore()
     {
         return PlayerPrefs.GetInt(PREV, 0);
+    }
+
+    public bool IsPaidUser()
+    {
+        return PlayerPrefs.GetInt(PAID) == 1;
+    }
+
+    public void SetPaidUser()
+    {
+        PlayerPrefs.SetInt(PAID,1);
     }
 
     void MakeSingleton()

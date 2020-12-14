@@ -25,6 +25,8 @@ public class BallScript : MonoBehaviour
 
     private float bounceIncrease = 0.0039f;
 
+    private float particleY = -4f;
+
     public bool isAlive, isIntro;
 
     private bool isFlapping, isFalling, isStopped;
@@ -246,13 +248,16 @@ public class BallScript : MonoBehaviour
                 if (isFalling)
                 {
                     PlaySound(flapClip, flapClipPath);
+                    BackgroundController.instance.GenerateParticle(new Vector3(gameObject.transform.position.x, particleY, gameObject.transform.position.z), true);
                     anim.SetTrigger("isBouncing");
                 }
                 else
                 {
                     PlaySound(flapClip, flapClipPath, 0.25f);
+                    BackgroundController.instance.GenerateParticle(new Vector3(gameObject.transform.position.x, particleY, gameObject.transform.position.z));
                 }
-                    isFalling = false;
+
+                isFalling = false;
             }
         }
     }

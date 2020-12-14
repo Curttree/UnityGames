@@ -18,7 +18,7 @@ public class InerstitialAdsScript : MonoBehaviour
     public void ShowInterstitialAd()
     {
         // Check if UnityAds ready before calling Show method:
-        if (Advertisement.IsReady() && GameController.instance.GetPrevScore() > 5 )
+        if (!GameController.instance.IsPaidUser() && Advertisement.IsReady() && GameController.instance.GetPrevScore() > 5)
         {
             Advertisement.Show();
         }

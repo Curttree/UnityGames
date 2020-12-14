@@ -7,7 +7,7 @@ TextureImporter:
     second: new_unlock
   - first:
       213: 1282894687024546636
-    second: misc_assets_1
+    second: coffee
   - first:
       213: 4418354107788194735
     second: misc_assets_2
@@ -363,6 +363,27 @@ TextureImporter:
       bones: []
       spriteID: bcf580cde20bbde00800000000000000
       internalID: 1070643051737145291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coffee
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 186
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c438558bbe1cdc110800000000000000
+      internalID: 1282894687024546636
       vertices: []
       indices: 
       edges: []

@@ -26,7 +26,7 @@ public class BGCollector : MonoBehaviour
             Vector3 temp = target.transform.position;
             float width = ((BoxCollider2D)target).size.x;
 
-            temp.x = lastBGX + width;
+            temp.x = lastBGX + width-0.01f;
 
             target.transform.position = temp;
 

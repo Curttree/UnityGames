@@ -113,4 +113,19 @@ public class BackgroundController : MonoBehaviour
         }
         SelectBackground(selectedBG);
     }
+
+    public void GenerateParticle(Vector3 location, bool big = false)
+    {
+        if (backgrounds[currentBG]?.particle != null)
+        {
+            if (big)
+            {
+                Instantiate(backgrounds[currentBG].bigParticle ?? backgrounds[currentBG].particle, location, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(backgrounds[currentBG].particle, location, Quaternion.identity);
+            }
+        }
+    }
 }

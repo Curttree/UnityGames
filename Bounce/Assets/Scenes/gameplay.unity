@@ -165,6 +165,10 @@ MonoBehaviour:
   decorations:
   - {fileID: 329154663968592823, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
   - {fileID: -5774403200355247461, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
+  particle: {fileID: 3294372464170664958, guid: fce7d264c448aa94084b8bbc77c633c9,
+    type: 3}
+  bigParticle: {fileID: 719661983943786715, guid: 9d7139895c61cd549bfc6113ff44ce4b,
+    type: 3}
 --- !u!4 &50741891
 Transform:
   m_ObjectHideFlags: 0
@@ -211,6 +215,10 @@ MonoBehaviour:
   decorations:
   - {fileID: 2278953690292216646, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
   - {fileID: -7781484064844271871, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
+  particle: {fileID: 4116630815269037794, guid: 425833196483e5541a631cb1107e4f63,
+    type: 3}
+  bigParticle: {fileID: 5268270281694784266, guid: 15a297bc72c530048a044d949b836edc,
+    type: 3}
 --- !u!114 &50741893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +254,8 @@ MonoBehaviour:
   ground: {fileID: 0}
   obstacle: {fileID: 0}
   decorations: []
+  particle: {fileID: 0}
+  bigParticle: {fileID: 0}
 --- !u!114 &50741895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +272,14 @@ MonoBehaviour:
   ground: {fileID: 3545489814029461158, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
   obstacle: {fileID: 6317242611777244064, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd,
     type: 3}
-  decorations: []
+  decorations:
+  - {fileID: 3799258599860882221, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
+  - {fileID: -740348951505284722, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
+  - {fileID: 3211510847517912812, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
+  particle: {fileID: 1697803578252057292, guid: b92b3ce340cb27e4f9cf9efa469f8d97,
+    type: 3}
+  bigParticle: {fileID: 4357895127336177782, guid: 418a407b80d861e42bba569a607c84c6,
+    type: 3}
 --- !u!114 &50741896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,7 +296,13 @@ MonoBehaviour:
   ground: {fileID: 2628722231908392065, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
   obstacle: {fileID: 7482698065008364456, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd,
     type: 3}
-  decorations: []
+  decorations:
+  - {fileID: 2493862127598731812, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
+  - {fileID: -4558124379186625126, guid: b1f4c7eb2d353dd4e8f9c65b1065c9dd, type: 3}
+  particle: {fileID: 6671064550219569228, guid: c8c7700fa2fdf9546978df1b1b4206e5,
+    type: 3}
+  bigParticle: {fileID: 8406893759475851427, guid: e566cba9eb01c7b48857f56e1214b179,
+    type: 3}
 --- !u!1 &52601268
 GameObject:
   m_ObjectHideFlags: 0
