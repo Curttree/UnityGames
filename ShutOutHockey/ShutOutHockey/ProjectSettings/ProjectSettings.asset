@@ -13,11 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Berryshark
-<<<<<<< HEAD
   productName: Shutout Hockey
-=======
-  productName: ShutOut Hockey
->>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
@@ -117,11 +113,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-<<<<<<< HEAD
   bundleVersion: 1.1
-=======
-  bundleVersion: 0.8
->>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -158,13 +150,8 @@ PlayerSettings:
   applicationIdentifier:
     Android: berryshark.shutouthockey
   buildNumber: {}
-<<<<<<< HEAD
   AndroidBundleVersionCode: 3
   AndroidMinSdkVersion: 24
-=======
-  AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 16
->>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -248,7 +235,6 @@ PlayerSettings:
   clonedFromGUID: 00000000000000000000000000000000
   templatePackageId: 
   templateDefaultScene: 
-<<<<<<< HEAD
   AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
@@ -256,15 +242,6 @@ PlayerSettings:
   AndroidKeyaliasName: shutouthockey
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
-=======
-  AndroidTargetArchitectures: 5
-  AndroidSplashScreenScale: 0
-  androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
-  AndroidBuildApkPerCpuArchitecture: 0
-  AndroidTVCompatibility: 1
->>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
   AndroidIsGame: 1
   AndroidEnableTango: 0
   androidEnableBanner: 0
@@ -660,12 +637,8 @@ PlayerSettings:
   webGLThreadsSupport: 0
   scriptingDefineSymbols: {}
   platformArchitecture: {}
-<<<<<<< HEAD
   scriptingBackend:
     Android: 1
-=======
-  scriptingBackend: {}
->>>>>>> f1cf2f85df54b696c8f046b3bee6d6fcb970156b
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
