@@ -8,7 +8,7 @@ public class MenuController : MonoBehaviour
     private int currentBG, currentBall;
 
     [SerializeField]
-    private GameObject changeBall, changeBG, adManager;
+    private GameObject changeBall, changeBG, payButton, messagePanel;
 
     private bool anyBallsUnlocked = false, anyBGsUnlocked = false;
 
@@ -17,20 +17,16 @@ public class MenuController : MonoBehaviour
     {
         Time.timeScale = 1f;
         currentBG = GameController.instance.GetSelectedBG();
-        adManager = GameObject.FindGameObjectWithTag("AdManager");
         BackgroundController.instance.SelectBackground(currentBG);
         currentBall = GameController.instance.GetSelectedBall();
         BallsController.instance.SelectBall(currentBall);
         CheckIfUnlocked();
         HideButtons();
+
     }
     
     public void PlayGame()
     {
-        //if (adManager)
-        //{
-        //    adManager.GetComponent<InerstitialAdsScript>().ShowInterstitialAd();
-        //}
         SceneFader.instance.FadeIn("gameplay");
     }
 
@@ -43,6 +39,14 @@ public class MenuController : MonoBehaviour
         if (GameController.instance.IsNightBGUnlocked() || GameController.instance.IsCityBGUnlocked() || GameController.instance.IsGymBGUnlocked())
         {
             anyBGsUnlocked = true;
+        }
+    }
+
+    void CheckIfPaid()
+    {
+        if (GameController.instance.IsPaidUser())
+        {
+            payButton.SetActive(false);
         }
     }
     
@@ -68,5 +72,15 @@ public class MenuController : MonoBehaviour
     {
         var newBG = BackgroundController.instance.CycleBG();
         GameController.instance.SetSelectedBG(newBG);
+    }
+
+    public void ShowPanel()
+    {
+        messagePanel.SetActive(true);
+    }
+
+    public void HidePanel()
+    {
+        messagePanel.SetActive(false);
     }
 }

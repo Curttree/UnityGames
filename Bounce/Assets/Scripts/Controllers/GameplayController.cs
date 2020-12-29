@@ -149,7 +149,7 @@ public class GameplayController : MonoBehaviour
 
     public void SetBounce(float bounce)
     {
-        bounceCount.text = bounce.ToString("n2");
+        bounceCount.text = bounce.ToString("n1");
     }
 
     public void HighlightBounce()

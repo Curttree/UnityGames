@@ -10,7 +10,7 @@ TextureImporter:
     second: coffee
   - first:
       213: 4418354107788194735
-    second: misc_assets_2
+    second: ui_sprite_custom
   - first:
       213: 6535064064993831255
     second: misc_assets_3
@@ -376,7 +376,7 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -384,6 +384,27 @@ TextureImporter:
       bones: []
       spriteID: c438558bbe1cdc110800000000000000
       internalID: 1282894687024546636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_sprite_custom
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 868
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa37a9ec6a5215d30800000000000000
+      internalID: 4418354107788194735
       vertices: []
       indices: 
       edges: []

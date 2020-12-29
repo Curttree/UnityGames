@@ -12,7 +12,7 @@ namespace Assets.Scripts.Controllers
         public static BallsController instance;
 
         [SerializeField]
-        private GameObject menuBall, purchaseButton;
+        private GameObject menuBall;
 
         [SerializeField]
         private Sprite[] balls;
@@ -30,9 +30,6 @@ namespace Assets.Scripts.Controllers
         private void Start()
         {
             PrepareBackgrounds();
-            if (GameController.instance.IsPaidUser()) {
-                purchaseButton.SetActive(false);
-            }
         }
         private void PrepareBackgrounds()
         {
