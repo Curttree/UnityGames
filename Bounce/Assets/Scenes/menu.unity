@@ -1722,7 +1722,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1099010237}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1528761329}
+        m_TargetAssemblyTypeName: Purchaser, Assembly-CSharp
+        m_MethodName: BecomePaidUser
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1099010237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2760,6 +2772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a7a4d9737c14744ae36b10825a10a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 9194815616162144981}
 --- !u!4 &1528761330
 Transform:
   m_ObjectHideFlags: 0
@@ -4058,3 +4071,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 889053f499fca8740b5bc5ecdf5c3a34, type: 3}
+--- !u!114 &9194815616162144981 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2040512622785623242, guid: 889053f499fca8740b5bc5ecdf5c3a34,
+    type: 3}
+  m_PrefabInstance: {fileID: 9194815616162144980}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5591729eac64d441b758c5ea0bf057a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

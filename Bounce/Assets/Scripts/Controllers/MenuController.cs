@@ -21,6 +21,7 @@ public class MenuController : MonoBehaviour
         currentBall = GameController.instance.GetSelectedBall();
         BallsController.instance.SelectBall(currentBall);
         CheckIfUnlocked();
+        CheckIfPaid();
         HideButtons();
 
     }

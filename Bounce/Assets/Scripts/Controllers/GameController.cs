@@ -13,8 +13,6 @@ public class GameController : MonoBehaviour
 
     private const string SELECTED_BG = "Selected BG";
 
-    private const string FIRST = "First Game of Session";
-
     private const string PREV = "Previous Score";
 
     private const string PAID = "19a643b3-dc8f-4139-93c3-c0c820e6b721";
@@ -39,26 +37,18 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        //PlayerPrefs.SetInt(PAID, 0);
+        //PlayerPrefs.SetInt(HIGH_SCORE, 0);
+        //PlayerPrefs.SetInt(LIFE_SCORE, 0);
+        //PlayerPrefs.SetInt(SELECTED_BALL, 0);
+        //PlayerPrefs.SetInt(SELECTED_BG, 0);
+        //PlayerPrefs.SetInt(BASKET_BALL, 0);
+        //PlayerPrefs.SetInt(BEACH_BALL, 0);
+        //PlayerPrefs.SetInt(SOCCER_BALL, 0);
+        //PlayerPrefs.SetInt(BG_NIGHT, 0);
+        //PlayerPrefs.SetInt(BG_CITY, 0);
+        //PlayerPrefs.SetInt(BG_GYM, 0);
         MakeSingleton();
-        IsTheGameStartedForTheFirstTime();
-    }
-    // Start is called before the first frame update
-    void IsTheGameStartedForTheFirstTime()
-    {
-        if (!PlayerPrefs.HasKey("FirstTime"))
-        {
-            PlayerPrefs.SetInt(HIGH_SCORE, 0);
-            PlayerPrefs.SetInt(LIFE_SCORE, 0);
-            PlayerPrefs.SetInt(SELECTED_BALL, 0);
-            PlayerPrefs.SetInt(SELECTED_BG, 0);
-            PlayerPrefs.SetInt(BASKET_BALL, 0);
-            PlayerPrefs.SetInt(BEACH_BALL, 0);
-            PlayerPrefs.SetInt(SOCCER_BALL, 0);
-            PlayerPrefs.SetInt(BG_NIGHT, 0);
-            PlayerPrefs.SetInt(BG_CITY, 0);
-            PlayerPrefs.SetInt(BG_GYM, 0);
-            PlayerPrefs.SetInt("FirstTime", 0);
-        }
     }
 
     public void SetHighScore(int score)
@@ -98,7 +88,7 @@ public class GameController : MonoBehaviour
 
     public bool IsBasketBallUnlocked()
     {
-        return PlayerPrefs.GetInt(BASKET_BALL) == 1;
+        return PlayerPrefs.GetInt(BASKET_BALL) == 1 || IsPaidUser();
     }
 
     public void UnlockBeachBall()
@@ -108,7 +98,7 @@ public class GameController : MonoBehaviour
 
     public bool IsBeachBallUnlocked()
     {
-        return PlayerPrefs.GetInt(BEACH_BALL) == 1;
+        return PlayerPrefs.GetInt(BEACH_BALL) == 1 || IsPaidUser();
     }
 
     public void UnlockSoccerBall()
@@ -118,7 +108,7 @@ public class GameController : MonoBehaviour
 
     public bool IsSoccerBallUnlocked()
     {
-        return PlayerPrefs.GetInt(SOCCER_BALL) == 1;
+        return PlayerPrefs.GetInt(SOCCER_BALL) == 1 || IsPaidUser();
     }
 
     public void SetSelectedBG(int selectedBG)
@@ -138,7 +128,7 @@ public class GameController : MonoBehaviour
 
     public bool IsNightBGUnlocked()
     {
-        return PlayerPrefs.GetInt(BG_NIGHT) == 1;
+        return PlayerPrefs.GetInt(BG_NIGHT) == 1 || IsPaidUser();
     }
 
     public void UnlockCityBG()
@@ -148,7 +138,7 @@ public class GameController : MonoBehaviour
 
     public bool IsCityBGUnlocked()
     {
-        return PlayerPrefs.GetInt(BG_CITY) == 1;
+        return PlayerPrefs.GetInt(BG_CITY) == 1 || IsPaidUser();
     }
 
     public void UnlockGymBG()
@@ -158,7 +148,7 @@ public class GameController : MonoBehaviour
 
     public bool IsGymBGUnlocked()
     {
-        return PlayerPrefs.GetInt(BG_GYM) == 1;
+        return PlayerPrefs.GetInt(BG_GYM) == 1 || IsPaidUser();
     }
 
     public void SetPrevScore(int score)
