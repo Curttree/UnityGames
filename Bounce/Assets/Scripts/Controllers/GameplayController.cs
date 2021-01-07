@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -33,9 +34,8 @@ public class GameplayController : MonoBehaviour
 
     private Dictionary<int, Balls> unlockableBalls = new Dictionary<int, Balls>()
     {   { 10, Balls.Soccer },
-        { 20, Balls.Basket },
-        { 40, Balls.Beach },
-        { 50, Balls.Tennis } };
+        { 50, Balls.Basket },
+        { 100, Balls.Beach } };
 
     private Dictionary<int, Backgrounds> unlockableBGs = new Dictionary<int, Backgrounds>()
     {
@@ -263,13 +263,36 @@ public class GameplayController : MonoBehaviour
     {
         if (ballNum == ballList.Length)
         {
-            var randChoice = Random.Range(0, ballList.Length);
-            ballList[randChoice].SetActive(true);
+
+            var availableBalls = PrepareBallList();
+            Debug.Log($"Count is {availableBalls.Count()}");
+            var randChoice = Random.Range(0, availableBalls.Count());
+            Debug.Log($"Choice is {randChoice}");
+            var selectedBall = availableBalls.ElementAt(randChoice);
+            ballList[selectedBall].SetActive(true);
         }
         else
         {
             ballList[ballNum].SetActive(true);
         }
+    }
+    private IEnumerable<int> PrepareBallList()
+    {
+        List<int> ballList = new List<int>();
+        ballList.Add((int)Balls.Red);
+        if (GameController.instance.IsSoccerBallUnlocked())
+        {
+            ballList.Add((int)Balls.Soccer);
+        }
+        if (GameController.instance.IsBasketBallUnlocked())
+        {
+            ballList.Add((int)Balls.Basket);
+        }
+        if (GameController.instance.IsBeachBallUnlocked())
+        {
+            ballList.Add((int)Balls.Beach);
+        }
+        return ballList;
     }
 
     private void ActivateSelectedBG(int bgNum)

@@ -33,7 +33,7 @@ public class MenuController : MonoBehaviour
 
     void CheckIfUnlocked()
     {
-        if (GameController.instance.IsBasketBallUnlocked() || GameController.instance.IsBeachBallUnlocked())
+        if (GameController.instance.IsBasketBallUnlocked() || GameController.instance.IsBeachBallUnlocked() || GameController.instance.IsSoccerBallUnlocked())
         {
             anyBallsUnlocked = true;
         }

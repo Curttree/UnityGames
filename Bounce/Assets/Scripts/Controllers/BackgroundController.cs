@@ -108,8 +108,10 @@ public class BackgroundController : MonoBehaviour
     {
         if (selectedBG == backgrounds.Length - 1)
         {
-            var randChoice = Random.Range(0, backgrounds.Length - 1);
-            selectedBG = randChoice;
+            PrepareBackgrounds();
+            var availableBackgrounds = backgrounds.Where(bg => bg != null).Select((bg,index)=> index);
+            var randChoice = Random.Range(0, availableBackgrounds.Count() - 1);
+            selectedBG = availableBackgrounds.ElementAt(randChoice);
         }
         SelectBackground(selectedBG);
     }
