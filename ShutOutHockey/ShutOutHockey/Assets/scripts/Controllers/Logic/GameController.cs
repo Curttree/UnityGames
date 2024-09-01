@@ -1,5 +1,4 @@
-﻿using GoogleMobileAds.Api;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,9 +10,6 @@ public class GameController : MonoBehaviour {
     public OffenceController offenceController;
     public ScoreController scoreController;
 
-    private AdManager bannerWrapper;
-
-    private BannerView bannerView;
     // Use this for initialization
     void Start () {
         Time.timeScale = 1f;
@@ -23,36 +19,6 @@ public class GameController : MonoBehaviour {
         UpdateSVPercent();
         //if (Application.platform == RuntimePlatform.Android)
         Screen.SetResolution(960, 640, true);
-        StartCoroutine(LateStart(0.1f));
-    }
-
-    IEnumerator LateStart(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-        GameObject myGameObject = GetAdServer();
-        if (myGameObject != null)
-        {
-            bannerWrapper = myGameObject.GetComponent<AdManager>();
-            // Create a temporary reference to the current scene.
-            Scene currentScene = SceneManager.GetActiveScene();
-
-            // Retrieve the name of this scene.
-            string sceneName = currentScene.name;
-
-            if (sceneName == "gameplay")
-            {
-                bannerWrapper.bannerView?.Hide();
-            }
-            else
-            {
-                if (bannerWrapper == null)
-                {
-                    GetAdServer();
-                }
-                bannerWrapper.bannerView?.Show();
-            }
-        }
-
     }
 
     void OnApplicationFocus(bool hasFocus)
@@ -75,10 +41,6 @@ public class GameController : MonoBehaviour {
 
     public void ExitToMenu()
     {
-        if (bannerWrapper == null)
-        {
-            GetAdServer();
-        }
         Time.timeScale = 1;
         scoreController.UpdatePrefs();
         SceneManager.LoadScene("menu");
@@ -86,10 +48,6 @@ public class GameController : MonoBehaviour {
 
     public void Restart()
     {
-        if (bannerWrapper == null)
-        {
-            GetAdServer();
-        }
         Time.timeScale = 1;
         scoreController.UpdatePrefs();
         SceneManager.LoadScene("gameplay");
@@ -103,26 +61,5 @@ public class GameController : MonoBehaviour {
             float percent = (float)PlayerPrefs.GetInt("SV") / (PlayerPrefs.GetInt("SA") > 0 ? PlayerPrefs.GetInt("SA") : 1);
             svpercent.GetComponent<Text>().text = $"SV%|{percent.ToString("0.000")}"; 
         }
-    }
-
-    private GameObject GetAdServer()
-    {
-        GameObject myGameObject = GameObject.Find("AdManager");
-        if (myGameObject == null)
-        {
-            myGameObject = CreateAdServer();
-        }
-        bannerWrapper = myGameObject.GetComponent<AdManager>();
-        return myGameObject;
-    }
-
-    private GameObject CreateAdServer()
-    {
-        // Create a wrapper GameObject to hold the banner.
-        GameObject myGameObject = new GameObject("AdManager");
-        myGameObject.AddComponent<AdManager>();
-        // Mark the GameObject not to be destroyed when new scenes load.
-        DontDestroyOnLoad(myGameObject);
-        return myGameObject;
     }
 }
