@@ -19,7 +19,7 @@ public class TouchController : MonoBehaviour {
         if (Input.touchCount > 0)
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint((Input.GetTouch(0).position)), Vector2.zero);
-            if (hit.collider.CompareTag("Target") && !offenceController.gameStart)
+            if (hit && hit.collider.CompareTag("Target") && !offenceController.gameStart)
             {
                 TargetTouch targetTouch = hit.collider.gameObject.GetComponent<TargetTouch>();
                 targetTouch.OnMouseDown();

@@ -23,7 +23,7 @@ public class TextScroll : MonoBehaviour {
             {
                 svPercent.transform.position = new Vector3(startPos, svPercent.transform.position.y);
             }
-            svPercent.transform.Translate(new Vector3(-speed, 0, 0));
+            svPercent.transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
         }
     }
 }

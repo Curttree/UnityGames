@@ -2,7 +2,7 @@
 
 public class Strobe : MonoBehaviour {
     public float maxStrobe = 0.2f;
-    public float speed = 0.005f;
+    public float speed = 1f;
     private float currentStrobe = 0.0f;
     public Transform logo;
     private float startScaleLogo;
@@ -18,7 +18,7 @@ public class Strobe : MonoBehaviour {
         if (logo.localScale.x <= startScaleLogo + maxStrobe && increase)
         {
             //grow
-            currentStrobe += speed;
+            currentStrobe += speed * Time.deltaTime;
             logo.localScale = new Vector3(currentStrobe + startScaleLogo, currentStrobe + startScaleLogo, 1);
          }
         else if (logo.localScale.x >= startScaleLogo + maxStrobe && increase)
@@ -29,7 +29,7 @@ public class Strobe : MonoBehaviour {
         else if (logo.localScale.x >= startScaleLogo - maxStrobe && !increase)
         {
             //shrink
-            currentStrobe -= speed;
+            currentStrobe -= speed * Time.deltaTime;
             logo.localScale = new Vector3(startScaleLogo + currentStrobe, startScaleLogo + currentStrobe, 1);
        }
         else if (logo.localScale.x <= startScaleLogo - maxStrobe && !increase)

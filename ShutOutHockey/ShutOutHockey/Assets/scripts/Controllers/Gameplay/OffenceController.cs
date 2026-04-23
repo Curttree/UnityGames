@@ -97,10 +97,9 @@ public class OffenceController : MonoBehaviour {
     {
         float dynamicBonus = Mathf.Log((saveStreak > 0 ? saveStreak:1f),100f) / 5f ;
         timeToNet = (shotFrequency / gameDifficulty) - dynamicBonus;
-        timeToNet *= Time.deltaTime * 100f;
         float calcSpeed = Vector3.Distance(puck.position, target.position) / timeToNet;
-        float retVal = calcSpeed * gameDifficulty;
-        //print($"STREAK: {saveStreak} SPEED: {retVal.ToString()}");
+        float retVal = calcSpeed;
+        //print($"Dynamic Bonus: {dynamicBonus.ToString()} Time To Net: {timeToNet.ToString()} Difficulty: {gameDifficulty.ToString()}");
         return retVal;
     }
 
