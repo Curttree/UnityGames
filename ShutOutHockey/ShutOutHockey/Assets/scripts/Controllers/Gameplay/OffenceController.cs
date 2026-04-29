@@ -76,7 +76,7 @@ public class OffenceController : MonoBehaviour {
         crowd.GetComponent<CrowdController>().scale = crowd.GetComponent<CrowdController>().GetExcitement();
 
         GameObject puckClone = Instantiate(puck, shotStart.position,shotStart.rotation);
-        puckClone.GetComponent<PuckController>().Shot(shotStart,target.transform,1f/(timeToNet*1.5f));
+        puckClone.GetComponent<PuckController>().Shot(shotStart,target.transform,timeToNet);
     }
 
     int SelectTarget(GameObject[] possibleTargets)
@@ -97,10 +97,8 @@ public class OffenceController : MonoBehaviour {
     {
         float dynamicBonus = Mathf.Log((saveStreak > 0 ? saveStreak:1f),100f) / 5f ;
         timeToNet = (shotFrequency / gameDifficulty) - dynamicBonus;
-        float calcSpeed = Vector3.Distance(puck.position, target.position) / timeToNet;
-        float retVal = calcSpeed;
-        //print($"Dynamic Bonus: {dynamicBonus.ToString()} Time To Net: {timeToNet.ToString()} Difficulty: {gameDifficulty.ToString()}");
-        return retVal;
+        float calcSpeed = (Vector3.Distance(puck.position, target.position) / timeToNet) * 1.5f;
+        return calcSpeed;
     }
 
     public void AcceleratePuck(GameObject target, float acceleration)
@@ -109,7 +107,6 @@ public class OffenceController : MonoBehaviour {
         {
             if (puck.GetComponent<PuckController>().target = target.transform)
             {
-                //print($"accelerating puck heading towards {target.GetComponent<TargetController>().targetNumber.ToString()}");
                 puck.GetComponent<PuckController>().acceleration = acceleration;
             }
         }
@@ -127,7 +124,10 @@ public class OffenceController : MonoBehaviour {
             {
                 target.GetComponent<TargetController>().InactivateTarget();
                 target.GetComponent<TargetTouch>().state = TargetState.Inactive;
-                target.GetComponent<Renderer>().enabled = false;
+                if (!target.GetComponent<TargetController>().scoredOn)
+                {
+                    target.GetComponent<Renderer>().enabled = false;
+                }
             }
         }
     }

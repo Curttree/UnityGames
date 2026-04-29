@@ -16,7 +16,7 @@ public class PuckController : MonoBehaviour {
     
     public void Shot(Transform startTransform,Transform targetTransform,float speed)
     {
-        puckSpeed = speed;
+        puckSpeed = speed * 3f;
         target = targetTransform;
         start = startTransform;
     }
@@ -25,11 +25,12 @@ public class PuckController : MonoBehaviour {
         puckSpeed = newSpeed;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Vector2.Distance(transform.position, target.position) >= 0.01f && activePuck)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, (puckSpeed + acceleration));
+            float speed = (puckSpeed + acceleration);
+            transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
         }
         else
         {

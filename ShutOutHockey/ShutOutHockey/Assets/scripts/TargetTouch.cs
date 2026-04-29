@@ -3,7 +3,7 @@ using static TargetStates;
 
 public class TargetTouch : MonoBehaviour {
     private Renderer rend;
-    public TargetState state=TargetState.Inactive;
+    public TargetState state = TargetState.Inactive;
     public GameObject effect;
     private TargetController targetController;
     private GoalieController goalie;
@@ -31,7 +31,9 @@ public class TargetTouch : MonoBehaviour {
     private void OnMouseEnter()
     {
         if (Input.GetMouseButton(0))
+        {
             OnMouseDown();
+        }
     }
     public void OnMouseExit()
     {
@@ -41,8 +43,8 @@ public class TargetTouch : MonoBehaviour {
             state = TargetState.Inactive;
         }
         if (state == TargetState.Inactive)
-            {
-                rend.enabled = false;
-            }
+        {
+            rend.enabled = false;
+        }
     }
 }

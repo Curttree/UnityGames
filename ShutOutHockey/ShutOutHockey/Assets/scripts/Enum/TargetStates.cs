@@ -7,7 +7,8 @@ public class TargetStates : MonoBehaviour
     {
         Active,
         Inactive,
-        Held
+        Held,
+        ScoredOn
     };
 }
 

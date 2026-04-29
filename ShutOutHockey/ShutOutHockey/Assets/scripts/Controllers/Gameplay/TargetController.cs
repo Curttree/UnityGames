@@ -20,6 +20,7 @@ public class TargetController : MonoBehaviour
     private Animator targetAnimation;
 
     public int targetNumber;
+    public bool scoredOn;
 
     // Use this for initialization
     void Start()
@@ -56,7 +57,6 @@ public class TargetController : MonoBehaviour
 
     public void PrepShot()
     {
-        rend.material.color = activeColor;
         this.GetComponent<TargetTouch>().state = TargetState.Active;
         StartCoroutine(Activate(activeColor));
         rend.enabled = true;
@@ -67,15 +67,13 @@ public class TargetController : MonoBehaviour
         offenceController.saveStreak = 0;
         gameController.GetComponent<ScoreController>().SA++;
         gameController.GetComponent<ScoreController>().goals++;
-        
         crowd.GetComponent<CrowdController>().scale = crowd.GetComponent<CrowdController>().GetExcitement();
         musicController.PlaySource(goalHorn.GetComponent<AudioSource>(),AudioCategory.SoundEffect);
-        rend.material.color = Color.red;
-        rend.enabled = false;
         offenceController.gameStart = true;
+        scoredOn = true;
         this.StartCoroutine(GoalLight());
         offenceController.InactivateAllTargets();
-        this.GetComponent<TargetTouch>().state = TargetState.Inactive;
+        this.GetComponent<TargetTouch>().state = TargetState.ScoredOn;
     }
 
     public void Save()
@@ -90,14 +88,14 @@ public class TargetController : MonoBehaviour
 
     public void InactivateTarget()
     {
-        StartCoroutine(Inactivate(activeColor));
+        StartCoroutine(Inactivate(scoredOn ? Color.darkRed : activeColor));
         this.GetComponent<TargetTouch>().state = TargetState.Held;
     }
 
     IEnumerator Activate(Color targetColor)
     {
         targetAnimation.Play("Target");
-        for (float f = 0f; f <= 1; f += 0.035f)
+        for (float f = 0f; f <= 1; f += Time.deltaTime * 5f)
         {
             Color c = targetColor;
             c.a = f;
@@ -108,14 +106,16 @@ public class TargetController : MonoBehaviour
 
     IEnumerator Inactivate(Color targetColor)
     {
-        for (float f = 1f; f > 0; f -= 0.1f)
+        float factor = scoredOn ? 0.75f : 5f;
+        for (float f = 1f; f > 0; f -= factor * Time.deltaTime)
         {
             Color c = targetColor;
             c.a = f;
             rend.material.color = c;
             yield return null;
         }
-
+        scoredOn = false;
+        this.GetComponent<TargetTouch>().state = TargetState.Inactive;
     }
 
     IEnumerator GoalLight()

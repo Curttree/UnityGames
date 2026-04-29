@@ -11,7 +11,7 @@ public class Flash : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        c.a = c.a - 0.01f;
+        c.a = c.a - 0.5f * Time.deltaTime;
         foreach (Transform child in transform)
         {
             child.gameObject.GetComponent<SpriteRenderer>().material.color=c;
