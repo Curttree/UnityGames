@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 9605417ab32230d43af74f5887409d73
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7797162826091207747
+    second: berryshark_logo_0
+  - first:
+      213: -9049611802817362688
+    second: berryshark_logo_1
+  - first:
+      213: 2058251072800077040
+    second: berryshark_logo_2
+  - first:
+      213: -2403010226721238442
+    second: berryshark_logo_3
+  - first:
+      213: 5955714257395171780
+    second: berryshark_logo_4
+  - first:
+      213: -6976659034307055706
+    second: berryshark_logo_5
+  - first:
+      213: -1123524702147075922
+    second: berryshark_logo_6
+  - first:
+      213: -6027652437583979472
+    second: berryshark_logo_7
+  - first:
+      213: 863978587023600300
+    second: berryshark_logo_8
+  - first:
+      213: -6507787653941843013
+    second: berryshark_logo_9
+  - first:
+      213: -2988333758063954216
+    second: berryshark_logo_10
+  - first:
+      213: 9019496169837903655
+    second: berryshark_logo_11
+  - first:
+      213: -1792284912565165025
+    second: berryshark_logo_12
+  - first:
+      213: 8190873703523535784
+    second: berryshark_logo_13
+  - first:
+      213: 5162852676568260318
+    second: berryshark_logo_14
+  - first:
+      213: 1745543847288263323
+    second: berryshark_logo_15
+  - first:
+      213: 6305696784608012072
+    second: berryshark_logo_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: berryshark_logo_0
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 51
+        width: 738
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db3e3f688b9eac390800000000000000
+      internalID: -7797162826091207747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berryshark_logo_1
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 379
+        width: 92
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00583e12302596280800000000000000
+      internalID: -9049611802817362688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berryshark_logo_2
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 385
+        width: 60
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f4b0d41270609c10800000000000000
+      internalID: 2058251072800077040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berryshark_logo_3
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 382
+        width: 91
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65256a43eeac6aed0800000000000000
+      internalID: -2403010226721238442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berryshark_logo_4
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 382
+        width: 91
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c1c4c7ff82f6a250800000000000000
+      internalID: 5955714257395171780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berryshark_logo_5
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 386
+        width: 88
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6afab1d729ded2f90800000000000000
+      internalID: -6976659034307055706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berryshark_logo_6
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 387
+        width: 72
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea0a5207c307860f0800000000000000
+      internalID: -1123524702147075922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berryshark_logo_7
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 381
+        width: 89
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03c1a4c3b0a795ca0800000000000000
+      internalID: -6027652437583979472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berryshark_logo_8
+      rect:
+        serializedVersion: 2
+        x: 1445
+        y: 382
+        width: 89
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caae51582f77dfb00800000000000000
+      internalID: 863978587023600300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berryshark_logo_9
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 382
+        width: 91
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbbaf15cb91bfa5a0800000000000000
+      internalID: -6507787653941843013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berryshark_logo_10
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 384
+        width: 95
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d63a48a74e4786d0800000000000000
+      internalID: -2988333758063954216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berryshark_logo_11
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 314
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72f3f28aaffab2d70800000000000000
+      internalID: 9019496169837903655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berryshark_logo_12
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 294
+        width: 45
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f14e2423e568027e0800000000000000
+      internalID: -1792284912565165025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berryshark_logo_13
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 291
+        width: 107
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8abcb9a7c34dba170800000000000000
+      internalID: 8190873703523535784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berryshark_logo_14
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 293
+        width: 32
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ede9686c72326a740800000000000000
+      internalID: 5162852676568260318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berryshark_logo_15
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 293
+        width: 37
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b925c7d71ea693810800000000000000
+      internalID: 1745543847288263323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berryshark_logo_16
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 314
+        width: 36
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82722eb01d5528750800000000000000
+      internalID: 6305696784608012072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      berryshark_logo_0: -7797162826091207747
+      berryshark_logo_1: -9049611802817362688
+      berryshark_logo_10: -2988333758063954216
+      berryshark_logo_11: 9019496169837903655
+      berryshark_logo_12: -1792284912565165025
+      berryshark_logo_13: 8190873703523535784
+      berryshark_logo_14: 5162852676568260318
+      berryshark_logo_15: 1745543847288263323
+      berryshark_logo_16: 6305696784608012072
+      berryshark_logo_2: 2058251072800077040
+      berryshark_logo_3: -2403010226721238442
+      berryshark_logo_4: 5955714257395171780
+      berryshark_logo_5: -6976659034307055706
+      berryshark_logo_6: -1123524702147075922
+      berryshark_logo_7: -6027652437583979472
+      berryshark_logo_8: 863978587023600300
+      berryshark_logo_9: -6507787653941843013
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

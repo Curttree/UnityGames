@@ -603,8 +603,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1758.6481, y: 12}
-  m_SizeDelta: {x: 1600, y: 44.5}
+  m_AnchoredPosition: {x: 1400, y: 15}
+  m_SizeDelta: {x: 0, y: 39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &104297294
 MonoBehaviour:
@@ -630,14 +630,14 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: f179741ad8c71754d93e026e91c74a4b, type: 3}
     m_FontSize: 26
     m_FontStyle: 1
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 26
+    m_MaxSize: 32
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: ...Touch the logo to start.......Tap targets to stop incoming pucks.......Try
     to stop them all...
@@ -661,7 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
+  m_HorizontalFit: 2
   m_VerticalFit: 0
 --- !u!224 &127274704
 RectTransform:
@@ -1429,8 +1429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1593a25d5c6956489b70441132b72e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutoff: -600
-  padding: 500
+  cutoff: -340
+  startPos: 1500
   speed: 100
 --- !u!114 &411014770
 MonoBehaviour:
@@ -3931,8 +3931,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 3441.6, y: 12}
-  m_SizeDelta: {x: 1600, y: 39}
+  m_AnchoredPosition: {x: 1400, y: 14.999996}
+  m_SizeDelta: {x: 0, y: 39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1597064216
 MonoBehaviour:
@@ -3946,7 +3946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
+  m_HorizontalFit: 2
   m_VerticalFit: 0
 --- !u!114 &1597064217
 MonoBehaviour:
@@ -3972,14 +3972,14 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: f179741ad8c71754d93e026e91c74a4b, type: 3}
     m_FontSize: 26
     m_FontStyle: 1
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 26
+    m_MaxSize: 32
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: ...Touch the logo to start.......Tap targets to stop incoming pucks.......Try
     to stop them all...
