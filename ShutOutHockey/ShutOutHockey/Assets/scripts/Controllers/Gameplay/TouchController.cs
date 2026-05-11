@@ -44,7 +44,10 @@ public class TouchController : MonoBehaviour {
         }
         if (Input.touchCount <= 0 && !Input.GetMouseButton(0))
         {
-            goalie.GetComponent<GoalieController>().Save(0);
+            if (!goalie.GetComponent<GoalieController>().delayedSave)
+            {
+                goalie.GetComponent<GoalieController>().Save(0);
+            }
         }
     }
 

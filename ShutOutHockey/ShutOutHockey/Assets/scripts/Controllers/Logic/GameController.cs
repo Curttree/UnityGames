@@ -18,7 +18,12 @@ public class GameController : MonoBehaviour {
         pause = GameObject.FindGameObjectWithTag("GameController")?.GetComponent<PauseController>();
         UpdateSVPercent();
         //if (Application.platform == RuntimePlatform.Android)
-        Screen.SetResolution(960, 640, true);
+        //TODO: Test this resolution..
+        int height = 810;
+        int width = 1440;
+        float currentRatio = (float)Screen.currentResolution.width / (float)Screen.currentResolution.height;
+        width = Mathf.Clamp((int)(height * currentRatio), 1200, 1440);
+        Screen.SetResolution(width, height, true);
     }
 
     void OnApplicationFocus(bool hasFocus)

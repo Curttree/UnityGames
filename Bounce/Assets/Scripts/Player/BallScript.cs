@@ -98,7 +98,7 @@ public class BallScript : MonoBehaviour
                 {
                     if (transform.position.x >= -1 && transform.position.x <= 0.5 && transform.position.y <= -3.48)
                     {
-                        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, 0);
+                        myRigidBody.linearVelocity = new Vector2(myRigidBody.linearVelocity.x, 0);
                     }
                     else
                     {
@@ -119,11 +119,11 @@ public class BallScript : MonoBehaviour
             {
                 temp.x += forwardSpeed * Time.deltaTime;
                 transform.position = temp;
-                if (myRigidBody.velocity.x != forwardSpeed * Time.deltaTime)
+                if (myRigidBody.linearVelocity.x != forwardSpeed * Time.deltaTime)
                 {
                     temp.x = forwardSpeed * Time.deltaTime;
-                    temp.y = myRigidBody.velocity.y;
-                    myRigidBody.velocity = temp;
+                    temp.y = myRigidBody.linearVelocity.y;
+                    myRigidBody.linearVelocity = temp;
                 }
             }
             if (Math.Truncate(maxBounces + bounceIncrease) > Math.Truncate(maxBounces))
@@ -142,17 +142,18 @@ public class BallScript : MonoBehaviour
                 isFlapping = false;
                 isFalling = true;
                 generateTrailDelay = generateTrailDelayDefault;
-                myRigidBody.velocity = new Vector2(0, bounceSpeed);
+                myRigidBody.linearVelocity = new Vector2(0, bounceSpeed);
             }
 
             if (isFalling && isAlive && !isStopped)
             {
+                //TODO: Add a delay for the trail so it doesn't spawn excessive particles.
                 GenerateTrail();
             }
 
-            if (myRigidBody.velocity.y >= maxSpeed)
+            if (myRigidBody.linearVelocity.y >= maxSpeed)
             {
-                myRigidBody.velocity = new Vector2(0, maxSpeed);
+                myRigidBody.linearVelocity = new Vector2(0, maxSpeed);
             }
 
             if (!isStopped)
@@ -161,7 +162,7 @@ public class BallScript : MonoBehaviour
             }
             else
             {
-                myRigidBody.velocity = new Vector2(0, 0);
+                myRigidBody.linearVelocity = new Vector2(0, 0);
             }
         }
     }
@@ -282,6 +283,7 @@ public class BallScript : MonoBehaviour
 
     private void GenerateTrail()
     {
+        print("Oh no");
         Instantiate<GameObject>(trailObject,gameObject.transform.position,gameObject.transform.rotation);
     }
 

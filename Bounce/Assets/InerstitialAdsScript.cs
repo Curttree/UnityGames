@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Advertisements;
-using UnityEngine.Monetization;
 
 public class InerstitialAdsScript : MonoBehaviour
 {
@@ -18,27 +17,27 @@ public class InerstitialAdsScript : MonoBehaviour
     public void ShowInterstitialAd()
     {
         // Check if UnityAds ready before calling Show method:
-        if (!GameController.instance.IsPaidUser() && Advertisement.IsReady() && GameController.instance.GetPrevScore() > 5)
-        {
-            Advertisement.Show();
-        }
-        else
-        {
-            Debug.Log("Interstitial ad not ready at the moment! Please try again later!");
-        }
+        //if (!GameController.instance.IsPaidUser() && Advertisement.IsReady() && GameController.instance.GetPrevScore() > 5)
+        //{
+        //    Advertisement.Show();
+        //}
+        //else
+        //{
+        //    Debug.Log("Interstitial ad not ready at the moment! Please try again later!");
+        //}
     }
 
     public void ShowAd()
     {
-        StartCoroutine(ShowAdWhenReady());
+        //StartCoroutine(ShowAdWhenReady());
     }
 
-    private IEnumerator ShowAdWhenReady()
-    {
-        while (!Advertisement.IsReady())
-        {
-            yield return new WaitForSeconds(0.25f);
-        }
-        Advertisement.Show();
-    }
+    //private IEnumerator ShowAdWhenReady()
+    //{
+    //    while (!Advertisement.IsReady())
+    //    {
+    //        yield return new WaitForSeconds(0.25f);
+    //    }
+    //    Advertisement.Show();
+    //}
 }

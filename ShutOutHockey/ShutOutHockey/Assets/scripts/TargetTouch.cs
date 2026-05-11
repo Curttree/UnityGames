@@ -1,4 +1,5 @@
-﻿ using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using static TargetStates;
 
 public class TargetTouch : MonoBehaviour {
@@ -7,9 +8,11 @@ public class TargetTouch : MonoBehaviour {
     public GameObject effect;
     private TargetController targetController;
     private GoalieController goalie;
+    private float saveStartTime;
+    private float minSaveTime = 0.25f;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         state = TargetState.Inactive;
         rend = GetComponent<Renderer>();
         targetController = GetComponent<TargetController>();
@@ -24,6 +27,7 @@ public class TargetTouch : MonoBehaviour {
             {
                 Instantiate(effect, gameObject.transform);
             }
+            saveStartTime = Time.time;
             targetController.Save();
         }
     }
@@ -39,12 +43,38 @@ public class TargetTouch : MonoBehaviour {
     {
         if (state == TargetState.Held)
         {
-            goalie.Save(0);
+            float saveDuration = Time.time - saveStartTime;
+            if (saveDuration < minSaveTime)
+            {
+                goalie.GetComponent<GoalieController>().delayedSave = true;
+                StartCoroutine(DelayedSave());
+            }
+            else
+            {
+                goalie.Save(0);
+            }
             state = TargetState.Inactive;
         }
         if (state == TargetState.Inactive)
         {
             rend.enabled = false;
         }
+    }
+
+    IEnumerator DelayedSave()
+    {
+        for (float f = 0; f < 1; f++)
+        {
+            yield return new WaitForSeconds(minSaveTime);
+        }
+        if (goalie.GetComponent<GoalieController>().delayedSave)
+        {
+            goalie.Save(0);
+        }
+    }
+
+    public bool IsHeld()
+    {
+        return goalie.GetComponent<GoalieController>().delayedSave;
     }
 }

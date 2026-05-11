@@ -6,7 +6,7 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     QuickInstaller_com.unity.purchasing_installRecorded:
-      value: 37434103
+      value: 2550581500
       flags: 0
     QuickInstaller_com.unity.services.levelplay_installRecorded:
       value: 2550581500
@@ -15,10 +15,16 @@ EditorUserSettings:
       value: 5a04055050530b0d5b0f097648200b4444164f7f787c743178781c6be6b4606d
       flags: 0
     RecentlyUsedSceneGuid-1:
-      value: 5107505057005b585b570a2740205b444f4f1e2e7a2927617e791b31b0b0323e
+      value: 0652035400060c595b5f5b704426594413164d7e2e7827352c7c4937e1b46d6b
       flags: 0
     RecentlyUsedSceneGuid-2:
+      value: 0153035604545b0a545a55211371064410154e2f7d2c2462757d1b64b4b2663e
+      flags: 0
+    RecentlyUsedSceneGuid-3:
       value: 540700025307085e0c5b0a7111205c44464f492e7c2e20662e7f1e62e1b26c6b
+      flags: 0
+    RecentlyUsedSceneGuid-4:
+      value: 5107505057005b585b570a2740205b444f4f1e2e7a2927617e791b31b0b0323e
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650

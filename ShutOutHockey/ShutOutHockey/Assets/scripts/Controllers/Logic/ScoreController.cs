@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,7 @@ public class ScoreController : MonoBehaviour
     private GameObject scoreUI;
     private GameObject timeUI;
     private GameObject streakUI;
+    private GameObject crowd;
     private TimeSpan gameStart;
     private PauseController pauseController;
     private OffenceController offenceController;
@@ -26,6 +28,7 @@ public class ScoreController : MonoBehaviour
     {
         scoreUI = GameObject.FindGameObjectWithTag("Score");
         timeUI = GameObject.FindGameObjectWithTag("Timer");
+        crowd = GameObject.FindGameObjectWithTag("Crowd");
         streakUI = GameObject.Find("Streak");
         pauseController = GetComponent<PauseController>();
         offenceController= GetComponent<OffenceController>();
@@ -42,6 +45,7 @@ public class ScoreController : MonoBehaviour
             {
                 pauseController.timeOver.GetComponent<Text>().text = "SHUT OUT";
             }
+            crowd.GetComponent<CrowdController>().PlayCrowdAudio(goals);
             pauseController.LockGame();
         }
     }

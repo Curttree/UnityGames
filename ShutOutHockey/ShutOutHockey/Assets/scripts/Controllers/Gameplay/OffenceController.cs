@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using static TargetStates;
+using static UnityEngine.GraphicsBuffer;
 
 public class OffenceController : MonoBehaviour {
     private float startDelay = 2.5f;
@@ -12,6 +13,7 @@ public class OffenceController : MonoBehaviour {
     public GameObject whistle;
     public GameObject puck;
     private GameObject crowd;
+    private GameObject goalie;
     public Transform shotStart;
     public ScoreController scoreController;
     private MusicController musicController;
@@ -32,6 +34,7 @@ public class OffenceController : MonoBehaviour {
         whistle = GameObject.FindGameObjectWithTag("Whistle");
         targets = GameObject.FindGameObjectsWithTag("Target");
         crowd = GameObject.FindGameObjectWithTag("Crowd");
+        goalie = GameObject.FindGameObjectWithTag("Player");
         shotStart = GameObject.FindGameObjectWithTag("ShotStart").transform;
         scoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
         musicController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MusicController>();
@@ -71,19 +74,21 @@ public class OffenceController : MonoBehaviour {
         int shotLocation = SelectTarget(targets); 
         GameObject target = targets[shotLocation];
         PlaySlapShotSound(target.GetComponent<TargetController>().targetNumber);
-        CalculateShotSpeed(target.transform, shotStart.transform);
+        float speed = CalculateShotSpeed(target.transform, shotStart.transform);
         target.GetComponent<TargetController>().PrepShot();
         crowd.GetComponent<CrowdController>().scale = crowd.GetComponent<CrowdController>().GetExcitement();
 
         GameObject puckClone = Instantiate(puck, shotStart.position,shotStart.rotation);
-        puckClone.GetComponent<PuckController>().Shot(shotStart,target.transform,timeToNet);
+        puckClone.GetComponent<PuckController>().Shot(shotStart,target.transform, speed);
     }
 
     int SelectTarget(GameObject[] possibleTargets)
     {
         int shotLocation = Random.Range(0, targets.Length);
+        int coveredTarget = goalie.GetComponent<GoalieController>().GetCoveredTarget();
+        int targetNumber = targets[shotLocation].GetComponent<TargetController>().targetNumber;
         TargetState targetState = targets[shotLocation].GetComponent<TargetTouch>().state;
-        if (targetState == TargetState.Held || targetState == TargetState.Active)
+        if (targetState == TargetState.Held || targetState == TargetState.Active || coveredTarget == targetNumber)
         {
             List<GameObject> list = new List<GameObject>(possibleTargets);
             list.Remove(targets[shotLocation]);
@@ -97,8 +102,9 @@ public class OffenceController : MonoBehaviour {
     {
         float dynamicBonus = Mathf.Log((saveStreak > 0 ? saveStreak:1f),100f) / 5f ;
         timeToNet = (shotFrequency / gameDifficulty) - dynamicBonus;
-        float calcSpeed = (Vector3.Distance(puck.position, target.position) / timeToNet) * 1.5f;
-        return calcSpeed;
+        //TODO: calcSpeed not used. Use this properly.
+        //float calcSpeed = (Vector3.Distance(puck.position, target.position) / timeToNet);
+        return (shotFrequency * gameDifficulty) + dynamicBonus;
     }
 
     public void AcceleratePuck(GameObject target, float acceleration)
