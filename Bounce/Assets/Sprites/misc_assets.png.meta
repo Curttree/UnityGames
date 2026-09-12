@@ -428,7 +428,7 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -437,6 +437,28 @@ TextureImporter:
       bones: []
       spriteID: fa37a9ec6a5215d30800000000000000
       internalID: 4418354107788194735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speed_particle
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 540
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fb8753923cf9ab43949357341a1863f
+      internalID: -1098222844
       vertices: []
       indices: 
       edges: []
@@ -461,6 +483,7 @@ TextureImporter:
       pause: -2477289036865185910
       play_overlay: 2151500030708079268
       score_label: -3529190862975615652
+      speed_particle: -1098222844
       tap: 8726090024388309153
       ui_sprite_custom: 4418354107788194735
   mipmapLimitGroupName: 

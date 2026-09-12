@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - FlapButton
   - Background
@@ -64,6 +64,12 @@ TagManager:
   - name: Bird
     uniqueID: 2936674973
     locked: 0
+  - name: SpeedLines
+    uniqueID: 1419676537
+    locked: 0
   - name: Canvas
     uniqueID: 1291694953
     locked: 0
+  m_RenderingLayers:
+  - Default
+  m_MigratedRenderPipelines: []

@@ -1,43 +1,66 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class InerstitialAdsScript : MonoBehaviour
+public class InerstitialAdsScript : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
 {
-    string gameId = "3914607";
-    bool testMode = true;
+    private string gameId = "3914607"; 
+    [SerializeField] 
+    private string interstitialAdUnitId = "video";
+    private bool testMode = false;
 
-    void Start()
+    void Awake()
     {
         // Initialize the Ads service:
-        Advertisement.Initialize(gameId, testMode);
-        ShowInterstitialAd();
+        Advertisement.Initialize(gameId, testMode, this);
     }
 
     public void ShowInterstitialAd()
     {
-        // Check if UnityAds ready before calling Show method:
-        //if (!GameController.instance.IsPaidUser() && Advertisement.IsReady() && GameController.instance.GetPrevScore() > 5)
-        //{
-        //    Advertisement.Show();
-        //}
-        //else
-        //{
-        //    Debug.Log("Interstitial ad not ready at the moment! Please try again later!");
-        //}
+        if (!GameController.instance.IsPaidUser() && GameController.instance.GetPrevScore() > 25)
+        {
+            Advertisement.Show(interstitialAdUnitId, this);
+        }
     }
-
-    public void ShowAd()
+    public void OnInitializationComplete()
     {
-        //StartCoroutine(ShowAdWhenReady());
+        // Preload the first ad as soon as initialization succeeds
+        LoadInterstitialAd();
+    }
+    public void OnInitializationFailed(UnityAdsInitializationError error, string message)
+    {
+        Debug.LogError($"Unity Ads Initialization Failed: {error.ToString()} - {message}");
     }
 
-    //private IEnumerator ShowAdWhenReady()
-    //{
-    //    while (!Advertisement.IsReady())
-    //    {
-    //        yield return new WaitForSeconds(0.25f);
-    //    }
-    //    Advertisement.Show();
-    //}
+    public void LoadInterstitialAd()
+    {
+        Advertisement.Load(interstitialAdUnitId, this);
+    }
+    public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
+    {
+        Debug.LogError($"Error showing Ad Unit {placementId}: {error.ToString()} - {message}");
+    }
+
+    public void OnUnityAdsShowStart(string placementId)
+    {
+        // Pause game logic and audio here
+        Time.timeScale = 0f;
+    }
+    public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)
+    {
+        Debug.LogError($"Error loading Ad Unit {placementId}: {error.ToString()} - {message}");
+    }
+
+    public void OnUnityAdsShowClick(string placementId) { }
+
+    public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
+    {
+        Debug.Log("Ad closed. Resuming game.");
+        // Resume game logic and audio here
+        Time.timeScale = 1f;
+    }
+    public void OnUnityAdsAdLoaded(string placementId)
+    {
+        Debug.Log("Ad Loaded Successfully: " + placementId);
+        ShowInterstitialAd();
+    }
 }

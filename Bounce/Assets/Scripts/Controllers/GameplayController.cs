@@ -17,7 +17,7 @@ public class GameplayController : MonoBehaviour
     private Button restartGameButton, instructionsButton;
 
     [SerializeField]
-    private GameObject pausePanel, scorePanel, bouncePanel, gameOverPanel, newUnlock, scoreLabel, bounceLabel, bounceHighlight, bounceRed;
+    private GameObject pausePanel, scorePanel, bouncePanel, gameOverPanel, newUnlock, scoreLabel, bounceLabel, bounceHighlight, bounceRed, speedLines;
 
     [SerializeField]
     private GameObject[] ballList;
@@ -127,7 +127,7 @@ public class GameplayController : MonoBehaviour
 
     public bool InstructionsShowing()
     {
-        return instructionsButton.gameObject.activeSelf == true;
+        return instructionsButton.gameObject.activeSelf;
     }
 
     public void ShowInstructions()
@@ -305,6 +305,19 @@ public class GameplayController : MonoBehaviour
         else
         {
             ballList[bgNum].SetActive(true);
+        }
+    }
+
+    public void ToggleSpeedLines()
+    {
+        if (speedLines.GetComponent<ParticleSystem>().isPlaying)
+        {
+            speedLines.GetComponent<ParticleSystem>().Clear();
+            speedLines.GetComponent<ParticleSystem>().Stop();
+        }
+        else
+        {
+            speedLines.GetComponent<ParticleSystem>().Play();
         }
     }
 }

@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class BGCollector : MonoBehaviour
 {
-
+    //Temp Fields. Used to quickly clean up background, to be updated later.
+    [SerializeField]
+    private bool ignoreBG, ignoreGround;
     private GameObject[] backgrounds;
     private GameObject[] grounds;
 
@@ -16,15 +18,15 @@ public class BGCollector : MonoBehaviour
         grounds = GameObject.FindGameObjectsWithTag("Ground");
         
         lastBGX = backgrounds.Max(x => x.transform.position.x);
-        lastGroundX = backgrounds.Max(x => x.transform.position.x);
+        lastGroundX = grounds.Max(x => x.transform.position.x);
     }
     
     void OnTriggerEnter2D(Collider2D target)
     {
-        if (target.tag == "Background")
+        if (!ignoreBG && target.tag == "Background")
         {
             Vector3 temp = target.transform.position;
-            float width = ((BoxCollider2D)target).size.x;
+            float width = 32.4f;//((BoxCollider2D)target).size.x;
 
             temp.x = lastBGX + width-0.01f;
 
@@ -32,7 +34,7 @@ public class BGCollector : MonoBehaviour
 
             lastBGX = temp.x;
         }
-        else if (target.tag == "Ground")
+        else if (!ignoreGround && target.tag == "Ground")
         {
             Vector3 temp = target.transform.position;
             float width = ((BoxCollider2D)target).size.x;

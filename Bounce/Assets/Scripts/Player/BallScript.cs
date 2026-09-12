@@ -13,7 +13,7 @@ public class BallScript : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
-    private float forwardSpeed = 3.6f;
+    private float forwardSpeed = 6.6f;
 
     private float introSpeed = 2.4f;
 
@@ -21,9 +21,9 @@ public class BallScript : MonoBehaviour
 
     private float maxSpeed = 12f;
 
-    private float maxBounces = 2f;
+    private float maxBounces = 5f;
 
-    private float bounceIncrease = 0.0039f;
+    private float bounceIncrease = 0.0036f;
 
     private float particleY = -4f;
 
@@ -188,6 +188,7 @@ public class BallScript : MonoBehaviour
         if (isIntro)
         {
             GameplayController.instance.HideLabels();
+            GameplayController.instance.ToggleSpeedLines();
             isIntro = false;
         }
         if (isStopped)
@@ -215,6 +216,7 @@ public class BallScript : MonoBehaviour
         isAlive = false;
         anim.SetTrigger("isDead");
         PlaySound(deathClip, deathClipPath);
+        GameplayController.instance.ToggleSpeedLines();
         Instantiate(hitSpark, transform.position, Quaternion.identity);
         Time.timeScale = 0.25f;
 
@@ -283,7 +285,6 @@ public class BallScript : MonoBehaviour
 
     private void GenerateTrail()
     {
-        print("Oh no");
         Instantiate<GameObject>(trailObject,gameObject.transform.position,gameObject.transform.rotation);
     }
 

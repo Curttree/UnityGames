@@ -7,4 +7,5 @@ public class BackgroundHolder : MonoBehaviour
     public Sprite bg, ground,obstacle;
     public Sprite[] decorations;
     public GameObject particle,bigParticle;
+    public Color colorGrading = Color.white;
 }

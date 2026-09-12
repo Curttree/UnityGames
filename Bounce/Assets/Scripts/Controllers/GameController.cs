@@ -163,6 +163,10 @@ public class GameController : MonoBehaviour
 
     public bool IsPaidUser()
     {
+        if (Application.isEditor)
+        {
+            return true;
+        }
         return PlayerPrefs.GetInt(PAID) == 1;
     }
 

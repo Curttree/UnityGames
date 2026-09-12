@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class BackgroundController : MonoBehaviour
 {
@@ -11,6 +13,10 @@ public class BackgroundController : MonoBehaviour
     [SerializeField]
     private int currentBG;
 
+    [SerializeField]
+    private Volume volume;
+    private ColorAdjustments colorAdjustments;
+
     void Awake()
     {
         if (instance == null)
@@ -21,6 +27,11 @@ public class BackgroundController : MonoBehaviour
     private void Start()
     {
         PrepareBackgrounds();
+        if (volume.profile.TryGet(out colorAdjustments))
+        {
+            // Set the initial state of the filter
+            colorAdjustments.colorFilter.value = Color.white;
+        }
     }
     private void PrepareBackgrounds()
     {
@@ -99,7 +110,11 @@ public class BackgroundController : MonoBehaviour
                 {
                     deco.UpdateDecorations(backgrounds[selectedBG].decorations);
                 }
+            }
 
+            if (colorAdjustments != null)
+            {
+                colorAdjustments.colorFilter.value = backgrounds[selectedBG].colorGrading;
             }
         }
     }
